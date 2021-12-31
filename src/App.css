@@ -3,13 +3,15 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height:20vmin;
   pointer-events: none;
+  stroke-width: 6px;
+  stroke: rgb(239, 110, 4);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 4s cubic-bezier(.96,1.94,0,-1.59);
   }
 }
 
@@ -30,9 +32,10 @@
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
+
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg)scale(4);
   }
 }
