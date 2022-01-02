@@ -1,9 +1,10 @@
 import React from 'react';
+import style from "./Nawigation.module.css"
 
 
 const Navigation = ()=>{
     return (
-       <nav className={"navigation"}>
+       <nav className={style.navigation}>
            <div>
                <a href={"*"}>Profie</a>
            </div>

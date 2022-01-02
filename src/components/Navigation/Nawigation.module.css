@@ -1,0 +1,16 @@
+.navigation{
+    background-image:linear-gradient(270deg, rgba(239, 0, 66, 0.63), rgba(233, 197, 20, 0.65));
+    margin-right: 30px;
+    border-radius: 15px;
+    font-size: 35px;
+
+}
+.navigation>div>a{
+    line-height: 40px;
+    text-decoration: none;
+    color: #095a57;
+    margin-left: 5px;
+}
+.navigation div:last-child{
+    margin-top: 40px;
+}
