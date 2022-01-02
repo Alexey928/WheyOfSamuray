@@ -16,9 +16,9 @@ body{
     grid-template-rows: 60px 1fr;
 }
 .header{
+    grid-column: 1/12;
     margin-bottom: 4px;
     font-size: 25px;
-    grid-column: 1/12;
     background-image:linear-gradient(90deg, gray,yellow);
     border-radius: 8px;
 }
@@ -29,23 +29,42 @@ header img{
     margin-left: 20px;
 }
 .content{
-    background-image:linear-gradient(#ef0042,#e9c514);
-    opacity: 50%;
+    background-image:linear-gradient(rgba(239, 0, 66, 0.65), rgba(233, 197, 20, 0.54));
+    border-radius: 25px;
+
 }
-.content img{
-    height: 250px;
-    width: 100%;
+.content .content-heder {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    font-style: italic;
+    font-weight: bold;
+    min-height: 100px;
+    background-image:linear-gradient(270deg, rgba(239, 0, 66, 0.63), rgba(233, 197, 20, 0.65));
+    text-align: center;
+    color: #020ff8;
+    font-size: 50px;
+}
+.content .avatar{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin: 0 50px 0 50px;
+
+}
+.profil-discription{
+    display: flex;
 }
 .navigation{
-    background-color: crimson;
-    margin-right: 10px;
+    background-image:linear-gradient(270deg, rgba(239, 0, 66, 0.63), rgba(233, 197, 20, 0.65));
+    margin-right: 30px;
     border-radius: 15px;
+    font-size: 35px;
 
 }
 .navigation>div>a{
-    line-height: 25px;
+    line-height: 40px;
     text-decoration: none;
-    color: lime;
+    color: #095a57;
     margin-left: 5px;
 }
 .navigation div:last-child{
