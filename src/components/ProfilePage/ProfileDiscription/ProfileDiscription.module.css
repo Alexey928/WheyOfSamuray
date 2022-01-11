@@ -1,0 +1,14 @@
+.profilDiscription{
+    display: flex;
+}
+.description{
+    font-size: 25px;
+    color: aqua;
+}
+.avatar{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin: 0 50px 0 50px;
+
+}
