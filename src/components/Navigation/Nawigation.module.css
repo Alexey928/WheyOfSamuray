@@ -5,7 +5,7 @@
     font-size: 35px;
 
 }
-.navigation>div>a{
+.navigation a{
     line-height: 40px;
     text-decoration: none;
     color: #095a57;
@@ -13,4 +13,13 @@
 }
 .navigation div:last-child{
     margin-top: 40px;
+}
+.navigation .active {
+    transition: 0.5s all ;
+    /*color: rgba(71, 250, 23, 0.89);*/
+    text-decoration: underline;
+    font-size: 40px;
+}
+.navigation .act {
+    color: red
 }
