@@ -11,13 +11,11 @@ function App() {
     return (
         <Router>
             <div className={"app-wraper"}>
-
                 <Header logo={"https://w7.pngwing.com/pngs/705/877/png-transparent-house-painter-and-decorator-building-home-highways-poster-banner-background-building-text-logo.png"}/>
                 <Navigation/>
                 <Routes>
-                    <Route path={"/ProfilePage"} element={<ProfilePage/>}/>
-                    <Route path={"/DialogesPage"} element={<DialogsPage/>}/>
-
+                    <Route  path = {"/profile"} element={<ProfilePage/>}/>
+                    <Route path = {"/DialogesPage/*"} element={<DialogsPage/>}/>
                 </Routes>
 
             </div>
