@@ -4,9 +4,9 @@ type MesegePropsType = {
 }
 const Mesege:React.FC<MesegePropsType> = ({mesege}) => {
     return (
-        <div>
+        <label>
             {mesege}
-        </div>
+        </label>
     );
 };
 
