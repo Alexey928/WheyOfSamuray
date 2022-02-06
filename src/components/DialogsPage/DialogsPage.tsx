@@ -13,7 +13,7 @@ const DialogsPage = (props:DialogsPagePropstype) => {
             <div>
                 {props.dialogItems.map((elem,i)=><DialigsItem
                   key={i}
-                  mesege = {elem.mesege}
+                  mesege = {elem.message}
                   user={elem.user}
                   target={elem.target}/>)}
             </div>

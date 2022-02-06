@@ -13,7 +13,7 @@
     align-self: flex-end;
     border: 2px solid rgba(0, 51, 255, 0.79);
 }
- .MesegeContentWraper {
+ .MasegeContentWrapper {
     font-size: 15px;
     color: rgba(1, 63, 1, 0.95);
     font-style: italic;
@@ -35,14 +35,14 @@
     text-decoration: underline;
     font-size: 20px;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 15px;
     color: #e500db;
 }
-.MesegeContentWraper:before{
+.MasegeContentWrapper:before{
     content: "";
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     left: -15px;
     width: 0;
     height: 0;
@@ -50,3 +50,49 @@
     border-width: 0 0 15px 15px;
     border-color: transparent transparent rgba(26, 236, 211, 0.73) transparent;
 }
+.deleteWrapper{
+    position: absolute;
+    top: -7px;
+    right: 10px;
+
+}
+
+.deleteItem{
+    position: relative;
+    border: 1px solid #7cf508;
+    background-color: #ead80d;
+    padding: 5px;
+    border-radius: 50%;
+    color: #fc2f70;
+
+}
+.deleteItem:hover{
+    color: lavender;
+    cursor: pointer;
+    box-shadow: 6px 0 6px 1px rgb(96 32 84 / 78%);
+    transition:all 0.5s ease-in-out;
+
+}
+.deleteItem::before, .deleteItem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #fc2f70;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+.deleteItem::before {
+    top: 0;
+    transform-origin: center right;
+}
+.deleteItem::after {
+    bottom: 0;
+    transform-origin: center left;
+}
+.deleteItem:hover::after {
+    transform-origin: center right;
+    transform: scaleX(1);
+}
+

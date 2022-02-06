@@ -6,6 +6,7 @@ import {PostsItem} from "../../State/Store";
 
 type ProfilePostType = {
     posts:Array<PostsItem>
+    addPosts:(post:string)=>void
 }
 
 function ProfilePage(props:ProfilePostType){
@@ -14,7 +15,7 @@ function ProfilePage(props:ProfilePostType){
         <div className={style.content}>
             <div className={style.contentHeder}><span>Profile page</span></div>
             <PofileDiscription/>
-            <MyPpsts posts = {props.posts}/>
+            <MyPpsts addPosts={props.addPosts} posts = {props.posts}/>
         </div>
 
     )

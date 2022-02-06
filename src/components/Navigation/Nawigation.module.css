@@ -23,3 +23,11 @@
 .navigation .act {
     color: #7cf508
 }
+.frendsCotayner{
+    background-color: rgba(248, 96, 242, 0.85);
+    border-radius:15px;
+    margin-right:30px;
+    font-size:30px;
+    display: flex;
+    flex-direction: column;
+}

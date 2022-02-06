@@ -3,13 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {store} from "./State/Store"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+const RenderTree  = ()=>{
+    ReactDOM.render(
+        <React.StrictMode>
+            <App
+                data = {store.State}
+                addPost = {store.addPosts.bind(store)}
+            />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
+store.subscribe(RenderTree); // привязали как подпищик на изменение стейта))
+
+RenderTree();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

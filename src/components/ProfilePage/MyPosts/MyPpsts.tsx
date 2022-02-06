@@ -4,16 +4,16 @@ import AddPost from "./AddPsost/AddPost";
 import {PostsItem} from "../../../State/Store";
 type MyposPropsType = {
     posts:Array<PostsItem>
+    addPosts:(post:string)=>void
 }
 
 const MyPpsts = (props: MyposPropsType) => {
     console.log(props)
     return (
         <div>
-            <AddPost/>
+            <AddPost addPosts = {props.addPosts}/>
             <div>
-                {props.posts.map((el)=><Post key={el.id} post={el}/>)}
-
+                {props.posts.map((el)=><Post key={el.id} post={el} />)}
             </div>
         </div>
     );
