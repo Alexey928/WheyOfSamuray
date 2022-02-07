@@ -12,9 +12,7 @@ import {StateType} from "./State/Store";
 type AppPropsType  = {
     data:StateType
     addPost:(post:string)=>void
-
-
-
+    changePost:(instantaneousValue:string)=>void
 }
 
 function App(props:AppPropsType) {

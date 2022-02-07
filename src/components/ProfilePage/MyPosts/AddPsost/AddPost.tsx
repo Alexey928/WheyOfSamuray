@@ -5,10 +5,10 @@ type AddPostPropsType  = {
 
  const AddPost = (props:AddPostPropsType) => {
 
-     const textereaNode  = React.createRef<HTMLTextAreaElement>();
+     const textareaNode  = React.createRef<HTMLTextAreaElement>();
 
 
-     //const addTas =  props.addPosts.bind()
+     //const addTas =  props.addPosts
      //   const text = textereaNode.current?.value;//
      //    console.log(text);
      //    props.addPosts(text?text:"!!!")
@@ -16,9 +16,9 @@ type AddPostPropsType  = {
 
       return (
         <>
-            <textarea ref={textereaNode} />
+            <textarea ref={textareaNode} />
             <button onClick={()=>{
-                const text = textereaNode.current?.value;
+                const text = textareaNode.current?.value;
                 props.addPosts(text?text:"!!!")
             } }>Add</button>
         </>

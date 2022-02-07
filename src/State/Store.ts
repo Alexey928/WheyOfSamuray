@@ -1,11 +1,17 @@
 import {v1} from "uuid";
 
 // Typing for basic  Data__________________
+//-------< low level
 export type DialogsItem = {
     user:string
     target:string
     message:string
 };
+export type friendsType = {
+    level:number
+    urlImage:string
+
+}
 
 export type PostsItem  = {
     id:string
@@ -13,23 +19,30 @@ export type PostsItem  = {
     time:string
     post:string
 };
-
+//------> High level
 export type StoreType ={
-   State: StateType
-   addPosts:(post:string)=>void
-   subscribe:(subscriber:()=>void)=>void
-    _callSubscriber:()=>void
+    State: StateType
+    addPosts:(post:string)=>void
+    subscribe:(subscriber:(store:StoreType)=>void)=>void
+    _callSubscriber:(store:StoreType)=>void
+    changePost:(instantaneousValue:string)=>void
 };
 
 export type StateType  = {
+    PostValue:string
     dialogs:Array<DialogsItem>
     posts:Array<PostsItem>
+    friends:Array<friendsType>
 
 };
 //____________________________________________>
 
 export const store:StoreType = {
+
+
     State:{
+        PostValue:"",
+
         dialogs:[
             {user:"вася",target:"1",message:"lkaklsma;m;ma"},
             {user:"Aася",target:"2",message:"kzzzzma;lkaklsma;m;ma"},
@@ -64,33 +77,48 @@ export const store:StoreType = {
                 post:"Hi may name Alexey"
             },
         ],
+        friends:[
+            {
+                level:3,
+                urlImage:"https://www.meme-arsenal.com/memes/9bb114f1b7db21ba4c66d77ab08f6cf1.jpg"
+            },
+            {
+                level:7,
+                urlImage:"https://zoomwiki.ru/wp-content/uploads/2020/12/avatarki-dlya-zuma.jpg"
+            },
+            {
+                level:8,
+                urlImage:"https://www.meme-arsenal.com/memes/9bb114f1b7db21ba4c66d77ab08f6cf1.jpg"
+            },
+            {
+                level:3,
+                urlImage:"https://www.meme-arsenal.com/memes/9bb114f1b7db21ba4c66d77ab08f6cf1.jpg"
+            },
+        ],
     },
-    _callSubscriber(){
 
-    },
-
+    _callSubscriber(store:StoreType){
+        },
     subscribe(subscriber){
-        this._callSubscriber = subscriber;
+       this._callSubscriber =subscriber;
     },
 
     addPosts:function(post){
-        console.log(this);
-        this.State.posts  = [ {
+        this.State.posts  = [
+        {
             id:v1(),
             avatarURL:urlRandomiser(this.State.posts),
             time:"16:20",
             post:post
-        },...this.State.posts
-        ];
-        this._callSubscriber();
+        },...this.State.posts];
+
+        this._callSubscriber(store);
     },
-
-
+    changePost(instantaneousValue:string){
+     this.State.PostValue = instantaneousValue
+    }
 
 }
-
-
-
 // To broaden your horizons  --- [для  разширения кругозора]<-- Перевод ______________
 
 export const urlRandomiser = (urls:Array<PostsItem>):string=>{

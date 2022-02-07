@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {store} from "./State/Store"
+import {StoreType} from "./State/Store"
 
-
-const RenderTree  = ()=>{
+const RenderTree  = (store:StoreType):void=>{
     ReactDOM.render(
         <React.StrictMode>
             <App
                 data = {store.State}
                 addPost = {store.addPosts.bind(store)}
+                changePost = {store.changePost}
             />
         </React.StrictMode>,
         document.getElementById('root')
@@ -19,7 +20,7 @@ const RenderTree  = ()=>{
 }
 store.subscribe(RenderTree); // привязали как подпищик на изменение стейта))
 
-RenderTree();
+RenderTree(store);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
