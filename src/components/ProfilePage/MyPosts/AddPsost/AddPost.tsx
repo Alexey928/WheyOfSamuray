@@ -1,9 +1,13 @@
 import React from 'react';
+import {addPostActionCreator, updateNewPostActionCreator} from '../../../../State/Store'
+
+
 type AddPostPropsType  = {
     addPosts:(post:string)=>void
 }
 
  const AddPost = (props:AddPostPropsType) => {
+
 
      const textareaNode  = React.createRef<HTMLTextAreaElement>();
 

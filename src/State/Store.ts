@@ -1,6 +1,6 @@
 import {v1} from "uuid";
 
-// Typing for basic  Data__________________
+// Typing for basic  Data__________________>
 //-------< low level
 export type DialogsItem = {
     user:string
@@ -19,6 +19,18 @@ export type PostsItem  = {
     time:string
     post:string
 };
+//____________________<
+//ActionCreator  returnable Types ______________<
+export type UpdatePostCreatorType = {
+    type:"UPDATE_NEW_POST_TEXT"
+    newText:string
+}
+export type AddPostActionType = {
+    type:"ADD_POST"
+}
+
+//____________________________>
+
 //------> High level
 export type StoreType ={
     State: StateType
@@ -26,6 +38,7 @@ export type StoreType ={
     subscribe:(subscriber:(store:StoreType)=>void)=>void
     _callSubscriber:(store:StoreType)=>void
     changePost:(instantaneousValue:string)=>void
+    dispatch:(action:UpdatePostCreatorType | AddPostActionType)=>void
 };
 
 export type StateType  = {
@@ -35,7 +48,7 @@ export type StateType  = {
     friends:Array<friendsType>
 
 };
-//____________________________________________>
+//____________________________________________>>
 
 export const store:StoreType = {
 
@@ -102,7 +115,6 @@ export const store:StoreType = {
     subscribe(subscriber){
        this._callSubscriber =subscriber;
     },
-
     addPosts:function(post){
         this.State.posts  = [
         {
@@ -116,9 +128,15 @@ export const store:StoreType = {
     },
     changePost(instantaneousValue:string){
      this.State.PostValue = instantaneousValue
-    }
-
+    },
+    dispatch(action){}
 }
+
+export const addPostActionCreator = ():AddPostActionType=>({type:"ADD_POST"})
+export const updateNewPostActionCreator  = (instantaneousValue:string):UpdatePostCreatorType=>(
+    {type:"UPDATE_NEW_POST_TEXT",
+    newText:instantaneousValue})
+
 // To broaden your horizons  --- [для  разширения кругозора]<-- Перевод ______________
 
 export const urlRandomiser = (urls:Array<PostsItem>):string=>{
