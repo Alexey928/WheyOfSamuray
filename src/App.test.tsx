@@ -5,7 +5,13 @@ import {store} from "./State/Store";
 
 
 test('renders learn react link', () => {
-  render(<App data ={store.State} addPost = {store.addPosts} changePost = {store.changePost}/>);
+
+  render(<App data ={store.State} addPost = {store.addPosts}
+              changePost = {store.changePost}
+              dispatch = {store.dispatch.bind(store)
+
+              }/>);
+
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });

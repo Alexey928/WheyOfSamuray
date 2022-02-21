@@ -1,14 +1,18 @@
 import React from 'react';
 import style from "./Post.module.css"
-import {PostsItem} from "../../../../State/Store";
+import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../../../State/Store";
 type PostPropsType = {
     post:PostsItem
+    dispatch:(action:UpdatePostCreatorType|AddPostActionType)=>void
 }
 
 const Post = (props:PostPropsType) => {
+
+
+
     return (
         <div className={style.message}>
-            <img src={props.post.avatarURL}/>
+            <img alt={"avatar"} src={props.post.avatarURL}/>
             <div className={style.MasegeContentWrapper}>
                 {props.post.post}
                 <div className={style.time}>{props.post.time}</div>

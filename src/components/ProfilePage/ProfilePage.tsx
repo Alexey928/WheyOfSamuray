@@ -2,11 +2,12 @@ import React from 'react';
 import style from "./ProfilePage.module.css"
 import PofileDiscription from "./ProfileDiscription/PofileDiscription";
 import MyPpsts from "./MyPosts/MyPpsts";
-import {PostsItem} from "../../State/Store";
+import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../State/Store";
 
 type ProfilePostType = {
     posts:Array<PostsItem>
     addPosts:(post:string)=>void
+    dispatch:(action:UpdatePostCreatorType | AddPostActionType)=>void
 }
 
 function ProfilePage(props:ProfilePostType){
@@ -15,7 +16,7 @@ function ProfilePage(props:ProfilePostType){
         <div className={style.content}>
             <div className={style.contentHeder}><span>Profile page</span></div>
             <PofileDiscription/>
-            <MyPpsts addPosts={props.addPosts} posts = {props.posts}/>
+            <MyPpsts dispatch = {props.dispatch} addPosts={props.addPosts} posts = {props.posts}/>
         </div>
 
     )

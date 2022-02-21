@@ -1,30 +1,30 @@
 import React from 'react';
-import {addPostActionCreator, updateNewPostActionCreator} from '../../../../State/Store'
+import {
+
+    AddPostActionType,
+    updateNewPostActionCreator,
+    UpdatePostCreatorType
+} from '../../../../State/Store'
 
 
 type AddPostPropsType  = {
     addPosts:(post:string)=>void
+    dispatch:(action:UpdatePostCreatorType | AddPostActionType)=>void
 }
 
  const AddPost = (props:AddPostPropsType) => {
 
+    const textareaNode  = React.createRef<HTMLTextAreaElement>();
 
-     const textareaNode  = React.createRef<HTMLTextAreaElement>();
+     const onClickCoolBack  = ()=>{
+         const text = textareaNode.current?.value;
+        props.dispatch( updateNewPostActionCreator(text?text:"Ref is Shit!"))
+    }
 
-
-     //const addTas =  props.addPosts
-     //   const text = textereaNode.current?.value;//
-     //    console.log(text);
-     //    props.addPosts(text?text:"!!!")
-
-
-      return (
+    return (
         <>
-            <textarea ref={textareaNode} />
-            <button onClick={()=>{
-                const text = textareaNode.current?.value;
-                props.addPosts(text?text:"!!!")
-            } }>Add</button>
+            <textarea  ref={textareaNode} />
+            <button onClick={onClickCoolBack}>Add</button>
         </>
     );
 };

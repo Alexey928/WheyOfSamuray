@@ -13,6 +13,7 @@ const RenderTree  = (store:StoreType):void=>{
                 data = {store.State}
                 addPost = {store.addPosts.bind(store)}
                 changePost = {store.changePost}
+                dispatch = {store.dispatch.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
@@ -21,6 +22,7 @@ const RenderTree  = (store:StoreType):void=>{
 store.subscribe(RenderTree); // привязали как подпищик на изменение стейта))
 
 RenderTree(store);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

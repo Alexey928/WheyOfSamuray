@@ -30,6 +30,8 @@ export type AddPostActionType = {
 }
 
 //____________________________>
+export type DispatchACtype = UpdatePostCreatorType |
+                                AddPostActionType
 
 //------> High level
 export type StoreType ={
@@ -38,7 +40,7 @@ export type StoreType ={
     subscribe:(subscriber:(store:StoreType)=>void)=>void
     _callSubscriber:(store:StoreType)=>void
     changePost:(instantaneousValue:string)=>void
-    dispatch:(action:UpdatePostCreatorType | AddPostActionType)=>void
+    dispatch:(action:DispatchACtype)=>void
 };
 
 export type StateType  = {
@@ -46,12 +48,10 @@ export type StateType  = {
     dialogs:Array<DialogsItem>
     posts:Array<PostsItem>
     friends:Array<friendsType>
-
 };
 //____________________________________________>>
 
 export const store:StoreType = {
-
 
     State:{
         PostValue:"",
@@ -129,7 +129,20 @@ export const store:StoreType = {
     changePost(instantaneousValue:string){
      this.State.PostValue = instantaneousValue
     },
-    dispatch(action){}
+    dispatch(action){//еще не дотнул )) !!!!!!!!!
+        switch (action.type){
+            case "ADD_POST":
+                this.addPosts("dddd");
+                break;
+            case "UPDATE_NEW_POST_TEXT":
+                console.log("ddd")
+                debugger
+                this.addPosts(action.newText);
+                this._callSubscriber(store);
+                break
+
+        }
+    }
 }
 
 export const addPostActionCreator = ():AddPostActionType=>({type:"ADD_POST"})
@@ -143,6 +156,7 @@ export const urlRandomiser = (urls:Array<PostsItem>):string=>{
      const random:number = Math.round((urls.length-1)*Math.random())
      return urls[random].avatarURL
 };
+
 
 
 
