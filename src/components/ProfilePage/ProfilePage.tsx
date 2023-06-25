@@ -2,12 +2,12 @@ import React from 'react';
 import style from "./ProfilePage.module.css"
 import PofileDiscription from "./ProfileDiscription/PofileDiscription";
 import MyPpsts from "./MyPosts/MyPpsts";
-import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../State/Store";
+import { DispatchACtype, PostsItem,} from "../../State/Store";
 
 type ProfilePostType = {
     posts:Array<PostsItem>
     addPosts:(post:string)=>void
-    dispatch:(action:UpdatePostCreatorType | AddPostActionType)=>void
+    dispatch:(action:DispatchACtype)=>void
 }
 
 function ProfilePage(props:ProfilePostType){
