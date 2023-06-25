@@ -6,16 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import {store} from "./State/Store"
 import {StoreType} from "./State/Store"
 
+
+
 const RenderTree  = (store:StoreType):void=>{
     ReactDOM.render(
-        <React.StrictMode>
+
             <App
                 data = {store.State}
                 addPost = {store.addPosts.bind(store)}
                 changePost = {store.changePost}
                 dispatch = {store.dispatch.bind(store)}
-            />
-        </React.StrictMode>,
+            />,
         document.getElementById('root')
     );
 }
