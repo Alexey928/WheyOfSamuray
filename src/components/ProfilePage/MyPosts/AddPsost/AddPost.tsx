@@ -18,7 +18,7 @@ type AddPostPropsType  = {
 
      const onClickCoolBack  = ()=>{
          const text = textareaNode.current?.value;
-        props.dispatch( updateNewPostActionCreator(text?text:"Ref is Shit!"))
+        props.dispatch( updateNewPostActionCreator(text?text:"Ref is Shit!!!!!"))
     }
 
     return (

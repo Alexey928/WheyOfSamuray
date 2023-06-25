@@ -113,7 +113,7 @@ export const store:StoreType = {
     _callSubscriber(store:StoreType){
         },
     subscribe(subscriber){
-       this._callSubscriber =subscriber;
+       this._callSubscriber = subscriber;
     },
     addPosts:function(post){
         this.State.posts  = [
@@ -129,6 +129,7 @@ export const store:StoreType = {
     changePost(instantaneousValue:string){
      this.State.PostValue = instantaneousValue
     },
+
     dispatch(action){//еще не дотнул )) !!!!!!!!!
         switch (action.type){
             case "ADD_POST":
