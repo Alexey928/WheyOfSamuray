@@ -7,9 +7,9 @@ export  type removeDialog = {
     dialogID:string
 }
 
-export type updateEnteredDialogValue = {
-    type:"UDATE_ENTERRED_DIALOG"
-    curentValue:string
+export type updateEnteredDialogValueActionType = {
+    type:"UPDATE_ENTERED_DIALOG"
+    currentValue:string
 }
 
 export const addDialogAC = (newPost:string):addDialogActionType=>{
@@ -18,6 +18,7 @@ export const addDialogAC = (newPost:string):addDialogActionType=>{
 export const remuveDialog = (dialogID:string):removeDialog=>{
     return {type:"REMOVE_DIALOG",dialogID}
 }
-export const updateEnteredDialogValue = (curentValue:string)=>{
+export const updateEnteredDialogValue = (currentValue:string):updateEnteredDialogValueActionType=>{
+    return{type:"UPDATE_ENTERED_DIALOG",currentValue}
 
 }

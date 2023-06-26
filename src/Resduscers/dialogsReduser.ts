@@ -1,4 +1,4 @@
-import {addDialogActionType,removeDialog,updateEnteredDialogValue} from "../ActionCreators/dialogsPageAC"
+import {addDialogActionType,removeDialog,updateEnteredDialogValueActionType} from "../ActionCreators/dialogsPageAC"
 import {v1} from "uuid";
 
 export type DialogsItem = {
@@ -15,17 +15,17 @@ export type dialogsStateType = {
 }
 export type ActionType = addDialogActionType |
                   removeDialog |
-                  updateEnteredDialogValue
+                  updateEnteredDialogValueActionType;
 
-const initialDialogState:dialogsStateType  ={enteredDialogValue:"",dialogs:[]} ;
+const initialDialogState:dialogsStateType  ={enteredDialogValue:"",dialogs:[]};
 
 
 export const dialogsReduser  = (state:dialogsStateType = initialDialogState, action:ActionType):dialogsStateType=>{
     switch (action.type) {
         case "REMOVE_DIALOG":
             return {...state,dialogs:state.dialogs.filter((d)=>d.id!==action.dialogID)};
-        case "UDATE_ENTERRED_DIALOG":
-            return {...state,enteredDialogValue:action.curentValue}
+        case "UPDATE_ENTERED_DIALOG":
+            return {...state,enteredDialogValue:action.currentValue}
         case "ADD_DIALOG":
             return {...state,dialogs:
                     [...state.dialogs,{id:v1(),userFirstName:"DIM",userLastName:"Dimith",message:action.newDialog}]}
