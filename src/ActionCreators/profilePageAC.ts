@@ -8,7 +8,11 @@ export type removePostActionType = {
     postID:string
 }
 
+
+
 export type updateEnteredPostValue = {
+    type:"UPDATE_ENTERED_POST"
+    currentValue:string
 
 }
 
@@ -18,4 +22,8 @@ export const addPostAC = (newPost:string):addNewPostActionType=>{
 export const remuveNewPost = (postID:string):removePostActionType=>{
     return {type:"REMOVE_POST",postID}
 }
+export const updateEnteredPostsValue = (currentValue:string):updateEnteredPostValue=>{
+    return {type:"UPDATE_ENTERED_POST",currentValue}
+}
+
 

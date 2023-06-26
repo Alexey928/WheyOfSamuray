@@ -1,4 +1,5 @@
+import {combineReducers, createStore} from "redux";
 
-export const s = ()=>{
-
+export const rootReducer = ()=>{
+    
 }
