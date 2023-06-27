@@ -1,6 +1,7 @@
 import {addNewPostActionType,removePostActionType} from "../ActionCreators/profilePageAC"
 import {v1} from "uuid";
 import {urlRandomiser} from "../AuxiliaryLogic/tempImgUrlGenerator";
+import {dialogsStateType} from "./dialogsReduser";
 
 
 export type PostsItem  = {
@@ -17,8 +18,10 @@ export type ProfilePageStateType = {
 
 export  type ActionType  = addNewPostActionType | removePostActionType;
 
+const initialProfileState:ProfilePageStateType  ={enteredPostValue:"",postItems:[]};
 
-export const profileReducer = (state:ProfilePageStateType,action:ActionType):ProfilePageStateType=>{
+
+export const profileReducer = (state:ProfilePageStateType = initialProfileState,action:ActionType):ProfilePageStateType=>{
     switch (action.type) {
         case "ADD_NEW_POST":
             return {...state,postItems:

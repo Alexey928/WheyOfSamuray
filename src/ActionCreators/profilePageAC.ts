@@ -1,5 +1,5 @@
 
- export  type addNewPostActionType = {
+export  type addNewPostActionType = {
     type:"ADD_NEW_POST"
     newPost:string
 };
@@ -19,10 +19,10 @@ export type updateEnteredPostValue = {
 export const addPostAC = (newPost:string):addNewPostActionType=>{
   return   {type:"ADD_NEW_POST",newPost};
 }
-export const remuveNewPost = (postID:string):removePostActionType=>{
+export const remuveNewPostAC = (postID:string):removePostActionType=>{
     return {type:"REMOVE_POST",postID}
 }
-export const updateEnteredPostsValue = (currentValue:string):updateEnteredPostValue=>{
+export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValue=>{
     return {type:"UPDATE_ENTERED_POST",currentValue}
 }
 

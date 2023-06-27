@@ -3,11 +3,10 @@ import style from "./Post.module.css"
 import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../../../State/Store";
 type PostPropsType = {
     post:PostsItem
-    dispatch:(action:UpdatePostCreatorType|AddPostActionType)=>void
+
 }
 
 const Post = (props:PostPropsType) => {
-
 
 
     return (
