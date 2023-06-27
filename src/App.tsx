@@ -18,8 +18,6 @@ type AppPropsType  = {
 
 function App(props:AppPropsType) {
 
-
-
     return (
         <Router>
             <div className={"app-wraper"}>
