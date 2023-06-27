@@ -7,6 +7,7 @@ import {PostsItem} from "../../Resduscers/ProfileReducer";
 type ProfilePostType = {
     posts:Array<PostsItem>
     addPost:(newPost:string)=>void
+    removePost:(postID:string)=>void
 }
 
 function ProfilePage(props:ProfilePostType){
@@ -14,7 +15,7 @@ function ProfilePage(props:ProfilePostType){
         <div className={style.content}>
             <div className={style.contentHeder}><span>Profile page</span></div>
             <PofileDiscription/>
-            <MyPpsts  addPost={props.addPost} posts = {props.posts}/>
+            <MyPpsts removePost={props.removePost} addPost={props.addPost} posts = {props.posts}/>
         </div>
 
     )

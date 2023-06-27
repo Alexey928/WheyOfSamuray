@@ -5,6 +5,7 @@ import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../../Stat
 type MyposPropsType = {
     posts:Array<PostsItem>
     addPost:(newPost:string)=>void
+    removePost:(postID:string)=>void
 }
 
 const MyPpsts = (props: MyposPropsType) => {

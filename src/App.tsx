@@ -57,7 +57,12 @@ const App = ()=>{
                 <Header logo={"https://w7.pngwing.com/pngs/705/877/png-transparent-house-painter-and-decorator-building-home-highways-poster-banner-background-building-text-logo.png"}/>
                 <Navigation/>
                 <Routes>
-                    <Route  path = {""} element={<ProfilePage addPost={addPost}  posts = {profilePage.postItems}/>  }/>
+                    <Route  path = {""} element={<ProfilePage addPost={addPost}
+                                                              posts = {profilePage.postItems}
+                                                              removePost={remuvePost}
+
+                        />
+                    }/>
 
                 </Routes>
             </div>
