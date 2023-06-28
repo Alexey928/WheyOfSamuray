@@ -11,29 +11,6 @@ import {addPostAC, remuveNewPostAC, updateEnteredPostsValueAC} from "./ActionCre
 import {addDialogAC, remuveDialogAC, updateEnteredDialogValueAC} from "./ActionCreators/dialogsPageAC"
 
 
-// import {store} from "./State/Store"
-// type AppPropsType  = {
-//     data:StateType
-//     addPost:(post:string)=>void
-//     changePost:(instantaneousValue:string)=>void
-//     dispatch:(action:UpdatePostCreatorType | AddPostActionType)=>void
-// }
-//
-// function App(props:AppPropsType) {
-//
-//     return (
-//         <Router>
-//             <div className={"app-wraper"}>
-//                 <Header logo={"https://w7.pngwing.com/pngs/705/877/png-transparent-house-painter-and-decorator-building-home-highways-poster-banner-background-building-text-logo.png"}/>
-//                 <Navigation/>
-//                 <Routes>
-//                     <Route  path = {""} element={<ProfilePage dispatch = {props.dispatch}  addPosts = {props.addPost} posts = {props.data.posts}/>  }/>
-//                     <Route path = {"/DialogesPage/*"} element={<DialogsPage dialogItems = {props.data.dialogs} />}/>
-//                 </Routes>
-//             </div>
-//         </Router>
-//     );
-// }
 const App = ()=>{
     const { profilePage,dialogsPage} = useSelector<AppRootStateType ,AppRootStateType>(state => state)
     const dispatch = useDispatch();

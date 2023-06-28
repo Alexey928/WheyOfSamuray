@@ -15,7 +15,7 @@ const DialogsPage = (props:DialogsPagePropstype) => {
     return (
         <div className={style.dialogsContent}>
             <AddItemForm addItem={props.addDialog}/>
-            <div>
+            <div style={{height:"90vh",overflow:"scroll"}}>
                 {props.dialogItems.map((elem,i)=><DialigsItem
                       removeDialog={()=>props.removeDialog(elem.id)}
                       target={elem.target}

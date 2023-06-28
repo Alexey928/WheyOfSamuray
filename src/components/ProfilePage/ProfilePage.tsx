@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from "./ProfilePage.module.css"
 import PofileDiscription from "./ProfileDiscription/PofileDiscription";
 import MyPpsts from "./MyPosts/MyPpsts";
@@ -11,6 +11,14 @@ type ProfilePostType = {
 }
 
 function ProfilePage(props:ProfilePostType){
+
+    // useEffect(()=>{
+    //     let count = 0
+    //     const intrvall = setInterval(()=>{
+    //         console.log("interval",count);count++},1000);
+    //     return ()=>clearInterval(intrvall)
+    // },[])
+
     return(
         <div className={style.content}>
             <div className={style.contentHeder}><span>Profile page</span></div>
