@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from "./Posts/Post";
 import AddItemForm from "../../AddItemForm/AddItemForm";
-import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../../State/Store";
+import {PostsItem} from "../../../State/Store";
 type MyposPropsType = {
     posts:Array<PostsItem>
     addPost:(newPost:string)=>void
@@ -14,7 +14,7 @@ const MyPpsts = (props: MyposPropsType) => {
         <div>
             <AddItemForm addItem={props.addPost}/>
             <div>
-                {props.posts.map((el)=><Post  key={el.id} post={el} />)}
+                {props.posts.map((el)=><Post removePost={()=>props.removePost(el.id)} key={el.id} post={el}/>)}
             </div>
         </div>
     );

@@ -1,15 +1,16 @@
 import {addDialogActionType,removeDialog,updateEnteredDialogValueActionType} from "../ActionCreators/dialogsPageAC"
 import {v1} from "uuid";
 
-export type DialogsItem = {
+export type DialogsItemType = {
     id:string
+    target:string
     userFirstName:string
     userLastName:string
     message:string
 };
 export type dialogsStateType = {
     enteredDialogValue:string,
-    dialogs:Array<DialogsItem>
+    dialogs:Array<DialogsItemType>
 
 
 }
@@ -28,8 +29,9 @@ export const dialogsReduser  = (state:dialogsStateType = initialDialogState, act
             return {...state,enteredDialogValue:action.currentValue}
         case "ADD_DIALOG":
             return {...state,dialogs:
-                    [...state.dialogs,{id:v1(),userFirstName:"DIM",userLastName:"Dimith",message:action.newDialog}]}
+                    [...state.dialogs,{id:v1(),userFirstName:"DIM",userLastName:"Dimith",message:action.newDialog,target:`${state.dialogs.length+1}`}]}
         default:
             return state
     }
 }
+

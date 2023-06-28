@@ -12,13 +12,13 @@ export type updateEnteredDialogValueActionType = {
     currentValue:string
 }
 
-export const addDialogAC = (newPost:string):addDialogActionType=>{
-    return   {type:"ADD_DIALOG",newDialog: newPost};
+export const addDialogAC = (newDialog:string):addDialogActionType=>{
+    return   {type:"ADD_DIALOG",newDialog: newDialog};
 }
-export const remuveDialog = (dialogID:string):removeDialog=>{
+export const remuveDialogAC = (dialogID:string):removeDialog=>{
     return {type:"REMOVE_DIALOG",dialogID}
 }
-export const updateEnteredDialogValue = (currentValue:string):updateEnteredDialogValueActionType=>{
+export const updateEnteredDialogValueAC = (currentValue:string):updateEnteredDialogValueActionType=>{
     return{type:"UPDATE_ENTERED_DIALOG",currentValue}
 
 }

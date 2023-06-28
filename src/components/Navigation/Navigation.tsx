@@ -16,13 +16,13 @@ const Navigation = ()=>{
                    <NavLink to={"/DialogesPage"}  className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Messages</NavLink>
                </div>
                <div>
-                   <a href={"*"}>News</a>
+                   <a href={"/News"}>News</a>
                </div>
                <div>
-                   <a href={"*"}>Music</a>
+                   <a href={"/Music"}>Music</a>
                </div>
                <div>
-                   <a href={"*"}>Setings</a>
+                   <a href={"/Setings"}>Setings</a>
                </div>
            </nav>
            <div className={style.frendsCotayner}>Friends</div>

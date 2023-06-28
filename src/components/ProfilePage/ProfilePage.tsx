@@ -17,7 +17,6 @@ function ProfilePage(props:ProfilePostType){
             <PofileDiscription/>
             <MyPpsts removePost={props.removePost} addPost={props.addPost} posts = {props.posts}/>
         </div>
-
     )
 }
 

@@ -3,6 +3,7 @@ import style from "./Post.module.css"
 import {AddPostActionType, PostsItem, UpdatePostCreatorType} from "../../../../State/Store";
 type PostPropsType = {
     post:PostsItem
+    removePost:()=>void
 
 }
 
@@ -16,7 +17,7 @@ const Post = (props:PostPropsType) => {
                 {props.post.post}
                 <div className={style.time}>{props.post.time}</div>
                 <div className={style.userName}>MtheFacer</div>
-                <span className={style.deleteWrapper}>
+                <span onClick={()=>props.removePost()} className={style.deleteWrapper}>
                     <span className={style.deleteItem}>
                         X
                     </span>
