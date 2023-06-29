@@ -10,7 +10,6 @@ import {AppRootStateType} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, updateEnteredPostsValueAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC, updateEnteredDialogValueAC} from "./ActionCreators/dialogsPageAC"
 
-
 const App = ()=>{
     const { profilePage,dialogsPage} = useSelector<AppRootStateType ,AppRootStateType>(state => state)
     const dispatch = useDispatch();
