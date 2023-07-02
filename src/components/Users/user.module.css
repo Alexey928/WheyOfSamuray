@@ -1,0 +1,36 @@
+.userContayner {
+    display: flex;
+
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: burlywood;
+    width: 40vw;
+
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #02fac1;
+}
+.name {
+    color: gainsboro;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.userContent{
+    color: bisque;
+    border-radius: 10px;
+    padding-top: 50px;
+    background-color: cadetblue;
+    position: relative;
+    width: 40vw;
+}
+.location{
+    color: grey;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

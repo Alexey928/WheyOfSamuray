@@ -16,7 +16,7 @@ const Navigation = ()=>{
                    <NavLink to={"/DialogesPage"}  className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Messages</NavLink>
                </div>
                <div>
-                   <a href={"/News"}>News</a>
+                   <NavLink to={"/Users"}  className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Users</NavLink>
                </div>
                <div>
                    <a href={"/Music"}>Music</a>

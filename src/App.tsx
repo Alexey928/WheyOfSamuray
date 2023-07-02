@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, updateEnteredPostsValueAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC, updateEnteredDialogValueAC} from "./ActionCreators/dialogsPageAC"
+import Users from "./components/Users/Users";
 
 const App = ()=>{
     const { profilePage,dialogsPage} = useSelector<AppRootStateType ,AppRootStateType>(state => state)
@@ -48,6 +49,13 @@ const App = ()=>{
                                                                             removeDialog={removeDialog}
                     />
                     }/>
+                    <Route path = {"/DialogesPage/*"} element={<DialogsPage addDialog={addDialog}
+                                                                            dialogItems = {dialogsPage.dialogs}
+                                                                            removeDialog={removeDialog}
+                    />
+                    }/>
+                    <Route path = {"/Users/*"} element={<Users/>}/>
+
 
                 </Routes>
             </div>
