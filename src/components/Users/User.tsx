@@ -4,16 +4,20 @@ import style from "./user.module.css"
 const User = () => {
     return (
         <div className={style.userContayner}>
-            <img className={style.avatar} src={"https://w7.pngwing.com/pngs/1024/983/png-transparent-albert-einstein-thumbnail.png"}/>
-            <div className={style.userContent}>
-                <div className={style.name}>Alex</div>
-                <div className={style.location}>
-                    <div>Ukrain</div>
-                    <div>Harkiv</div>
-                </div>
-                helo i am heare ) kjbdwkjsb kjsdbcksjbdck kjsdbckjsd cksjdbcsudbxc ksjdbclsd cksduclsdbxc
-            </div>
-        </div>
+               <div>
+                   <img alt={"img"} className={style.avatar} src={"https://static6.tgstat.ru/channels/_0/25/25824776e87d56e44c2030701da30596.jpg"}/>
+                   <button>follow</button>
+               </div>
+
+               <div className={style.userContent}>
+                   <div className={style.name}>Alex</div>
+                   <div className={style.location}>
+                       <div>Ukraine</div>
+                       <div>Harkiv</div>
+                   </div>
+                   helo i am heare
+               </div>
+           </div>
     );
 };
 

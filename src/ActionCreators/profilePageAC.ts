@@ -7,9 +7,6 @@ export type removePostActionType = {
     type:"REMOVE_POST"
     postID:string
 }
-
-
-
 export type updateEnteredPostValue = {
     type:"UPDATE_ENTERED_POST"
     currentValue:string
