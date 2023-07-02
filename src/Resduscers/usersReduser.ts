@@ -32,10 +32,11 @@ const initialState:usersStateType = {users:[
 
 
 
-export const profileReducer = (state=initialState, action:followUnfollowActionType):usersStateType=>{
+export const userReducer = (state=initialState, action:followUnfollowActionType):usersStateType=>{
     switch (action.type) {
         case "FOLLOW_UNFOLLOW":
-            return {users:state.users.map((user)=>action.Userid===user.id?{...user,isFollow:!user.isFollow}:user)}
+            return {users:state.users.map((user)=>action.Userid===user.id?
+                    {...user,isFollow:!user.isFollow}:user)}
         default:
             return state
     }

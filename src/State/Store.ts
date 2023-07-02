@@ -151,7 +151,6 @@ export const updateNewPostActionCreator  = (instantaneousValue:string):UpdatePos
     {type:"UPDATE_NEW_POST_TEXT",
     newText:instantaneousValue})
 
-// To broaden your horizons  --- [для  разширения кругозора]<-- Перевод ______________
 
 export const urlRandomiser = (urls:Array<PostsItem>):string=>{
      const random:number = Math.round((urls.length-1)*Math.random())
