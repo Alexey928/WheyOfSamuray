@@ -1,15 +1,16 @@
 import React from 'react';
 import User from "./User";
+import {userType} from "../../ActionCreators/usersAC";
 
-const Users = () => {
+export type UsersPropsType = {
+    users:Array<userType>
+}
+const Users = (props:UsersPropsType) => {
 
 
     return (
         <div>
-            <User/>
-            <User/>
-            <User/>
-            <User/>
+            {props.users.map((user)=><User key={user.id} user={user}/>)}
         </div>
     );
 };

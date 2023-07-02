@@ -1,21 +1,25 @@
 import React from 'react';
 import style from "./user.module.css"
+import {userType} from "../../ActionCreators/usersAC";
+export type userPropsType = {
+    user:userType
+}
 
-const User = () => {
+const User = (props:userPropsType) => {
     return (
         <div className={style.userContayner}>
                <div>
-                   <img alt={"img"} className={style.avatar} src={"https://static6.tgstat.ru/channels/_0/25/25824776e87d56e44c2030701da30596.jpg"}/>
-                   <button>follow</button>
+                   <img alt={"img"} className={style.avatar} src={props.user.avatar}/>
+                   <button>{props.user.isFollow?"Unfollow":"Follow"}</button>
                </div>
 
                <div className={style.userContent}>
-                   <div className={style.name}>Alex</div>
+                   <div className={style.name}>{props.user.fullName}</div>
                    <div className={style.location}>
-                       <div>Ukraine</div>
-                       <div>Harkiv</div>
+                       <div>{props.user.location.country}</div>
+                       <div>{props.user.location.city}</div>
                    </div>
-                   helo i am heare
+                   {props.user.status}
                </div>
            </div>
     );

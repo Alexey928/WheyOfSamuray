@@ -10,9 +10,10 @@ import {AppRootStateType} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, updateEnteredPostsValueAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC, updateEnteredDialogValueAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
+import {followUnfollowAC} from "./ActionCreators/usersAC";
 
 const App = ()=>{
-    const { profilePage,dialogsPage} = useSelector<AppRootStateType ,AppRootStateType>(state => state)
+    const { profilePage,dialogsPage,usersPage} = useSelector<AppRootStateType ,AppRootStateType>(state => state)
     const dispatch = useDispatch();
 
     const addPost = (newPost:string)=>{
@@ -29,6 +30,9 @@ const App = ()=>{
     }
    const removeDialog = (dialogID:string)=>{
         dispatch(remuveDialogAC(dialogID))
+   }
+   const followUnfolowUser = (usreID:string)=>{
+        dispatch(followUnfollowAC(usreID))
    }
 
     return(
@@ -54,7 +58,10 @@ const App = ()=>{
                                                                             removeDialog={removeDialog}
                     />
                     }/>
-                    <Route path = {"/Users/*"} element={<Users/>}/>
+                    <Route path = {"/Users/*"} element={<Users users={usersPage.users}
+
+
+                    />}/>
 
 
                 </Routes>
