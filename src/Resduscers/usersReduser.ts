@@ -28,8 +28,9 @@ const initialState:usersStateType = {users:[
             location:{city:"Kharkiv",country:"Ukraine"}
         },
     ]}
-type actionType = followUnfollowActionType | setUsersActionType
 
+
+type actionType = followUnfollowActionType | setUsersActionType
 
 
 export const userReducer = (state=initialState, action:actionType):usersStateType=>{

@@ -1,16 +1,21 @@
 import React from 'react';
 import User from "./User";
-import {userType} from "../../ActionCreators/usersAC";
+import {usersStateType} from "../../ActionCreators/usersAC";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../State/reduxStore";
+
 
 export type UsersPropsType = {
-    users:Array<userType>
+    followUnfolowUser:(userID:string)=>void
 }
-const Users = (props:UsersPropsType) => {
 
+const Users = (pros:UsersPropsType) => {
+    const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
+    
 
     return (
         <div>
-            {props.users.map((user)=><User key={user.id} user={user}/>)}
+            {usersPage.users.map((user)=><User followUnfolowUser={pros.followUnfolowUser} key={user.id} user={user}/>)}
         </div>
     );
 };
