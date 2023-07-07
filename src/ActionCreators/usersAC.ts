@@ -1,10 +1,11 @@
 
 export type userType = {
     id:string
-    isFollow:boolean
-    fullName:string
-    status:string
-    avatar:string
+    followed:boolean
+    name:string
+    status:string|null
+    photos?:string
+    uniqueUrlName?:string|null
     location:{
         city:string
         country:string
@@ -22,8 +23,6 @@ export type setUsersActionType = {
     type:"SET_USERS"
     users:Array<userType>
 }
-
-
 
 export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
     return {type:"FOLLOW_UNFOLLOW",Userid}
