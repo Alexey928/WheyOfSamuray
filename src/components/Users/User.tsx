@@ -6,8 +6,6 @@ export type userPropsType = {
     followUnfolowUser:(userID:string)=> void
 }
 
-
-
 const User = React.memo((props:userPropsType) => {//
     console.log("user is coled");
     return (

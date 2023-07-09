@@ -16,6 +16,8 @@ import {ProfilePageStateType} from "./Resduscers/ProfileReducer";
 
 const App = ()=>{
 
+
+
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
     const dispatch = useDispatch();

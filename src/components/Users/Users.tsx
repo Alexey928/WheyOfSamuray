@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import User from "./User";
+import style from "./users.module.css"
 import {usersStateType, userType} from "../../ActionCreators/usersAC";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../State/reduxStore";
@@ -14,7 +15,6 @@ export type UsersPropsType = {
 const Users = (props:UsersPropsType) => {
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
     console.log("users")
-    alert("ddddd")
 
     useEffect(  ()=>{
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(
@@ -29,11 +29,12 @@ const Users = (props:UsersPropsType) => {
            console.log("finely = > for some case ;)");
         })
         console.log("preloader")
+
         return ()=>props.setUsers([])
     },[]);
 
     return (
-        <div>
+        <div className={style.usersContayner}>
             {/*{usersPage.users.map((user)=><User*/}
             {/*    followUnfolowUser={props.followUnfolowUser}*/}
             {/*    key={user.id}*/}

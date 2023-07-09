@@ -13,6 +13,10 @@ export type userType = {
 }
 export type usersStateType = {
     users:Array<userType>
+    pageSize:number
+    totalUsersCount:number
+    curentPage:number
+    isLoading:boolean
 }
 
 export type followUnfollowActionType = {
@@ -30,3 +34,4 @@ export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
 export const setUsersAC = (users:Array<userType>):setUsersActionType=>{
     return {type:"SET_USERS",users}
 }
+
