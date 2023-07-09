@@ -41,7 +41,7 @@ const App = ()=>{
    const setUsers = (users:Array<userType>)=>{
         dispatch(setUsersAC(users))
    }
-
+    console.log("app is coled")
     return(
         <Router>
             <div className={"app-wraper"}>

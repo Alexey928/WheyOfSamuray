@@ -1,0 +1,32 @@
+.loadContainer div {
+    border-radius: 5px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    animation: load 2s linear infinite;
+}
+.loadWrapper {
+
+    width: 224px;
+    height: 224px;
+    overflow: hidden;
+    background-color: #73e3e3;
+}
+.loadContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+}
+
+
+.loadContainer div { box-sizing: content-box; }
+
+@keyframes load {
+    0% { background: #eeff00}
+    30%{ background: #f3fc00}
+    40%{background: #0023f8}
+    100% { background: #3a46f6}
+}

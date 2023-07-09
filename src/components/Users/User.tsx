@@ -8,12 +8,11 @@ export type userPropsType = {
 
 
 
-const User = (props:userPropsType) => {
-
+const User = React.memo((props:userPropsType) => {//
+    console.log("user is coled");
     return (
         <div className={style.userContayner}>
                <div>
-                   {console.log(props.user.photos)}
                    <img alt={"img"} className={style.avatar} src={props.user.photos}/>
                    <button onClick={()=>props.followUnfolowUser(props.user.id)}>{props.user.followed?"Unfollow":"Follow"}</button>
                </div>
@@ -28,6 +27,6 @@ const User = (props:userPropsType) => {
                </div>
            </div>
     );
-};
+});
 
 export default User;
