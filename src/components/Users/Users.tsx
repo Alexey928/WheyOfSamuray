@@ -23,7 +23,7 @@ const Users = (props:UsersPropsType) => {
                 props.setUsers(response.data.items)
             }
            ).catch((e:Error)=>{
-               window.alert(e)
+               window.alert(e.message)
            }
            ).finally(()=>{
            console.log("finely = > for some case ;)");
@@ -35,10 +35,10 @@ const Users = (props:UsersPropsType) => {
 
     return (
         <div className={style.usersContayner}>
-            {/*{usersPage.users.map((user)=><User*/}
-            {/*    followUnfolowUser={props.followUnfolowUser}*/}
-            {/*    key={user.id}*/}
-            {/*    user={user}/>)}*/}
+            {usersPage.users.map((user)=><User
+                followUnfolowUser={props.followUnfolowUser}
+                key={user.id}
+                user={user}/>)}
             <Preloader/>
         </div>
     );

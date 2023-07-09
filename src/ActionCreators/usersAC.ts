@@ -4,7 +4,11 @@ export type userType = {
     followed:boolean
     name:string
     status:string|null
-    photos?:string
+    photos:
+    {
+        large:string|null
+        small:string|null
+    }
     uniqueUrlName?:string|null
     location:{
         city:string
@@ -27,11 +31,18 @@ export type setUsersActionType = {
     type:"SET_USERS"
     users:Array<userType>
 }
+export type setIsLoadActionType = {
+
+}
 
 export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
     return {type:"FOLLOW_UNFOLLOW",Userid}
 }
 export const setUsersAC = (users:Array<userType>):setUsersActionType=>{
     return {type:"SET_USERS",users}
+}
+
+export const setIsLoad = (flag:boolean)=>{
+    return{type:"SET_IS_LOAD",flag}
 }
 
