@@ -46,7 +46,7 @@ const App = ()=>{
     console.log("app is coled")
     return(
         <Router>
-            <div className={"app-wraper"}>
+            <div className={"app-wraper"} style={{backgroundColor:"red"}}>
                 <Header logo={"https://w7.pngwing.com/pngs/705/877/png-transparent-house-painter-and-decorator-building-home-highways-poster-banner-background-building-text-logo.png"}/>
                 <Navigation/>
                 <Routes>
