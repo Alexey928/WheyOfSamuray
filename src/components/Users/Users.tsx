@@ -30,16 +30,18 @@ const Users = (props:UsersPropsType) => {
         })
         console.log("preloader")
 
+
         return ()=>props.setUsers([])
     },[]);
 
     return (
         <div className={style.usersContayner}>
-            {usersPage.users.map((user)=><User
+            {usersPage.isLoading?<Preloader/>:usersPage.users.map((user)=><User
                 followUnfolowUser={props.followUnfolowUser}
                 key={user.id}
                 user={user}/>)}
-            <Preloader/>
+
+
         </div>
     );
 };

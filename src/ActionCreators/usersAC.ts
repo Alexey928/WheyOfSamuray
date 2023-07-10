@@ -32,7 +32,7 @@ export type setUsersActionType = {
     users:Array<userType>
 }
 export type setIsLoadActionType = {
-
+    
 }
 
 export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
@@ -42,7 +42,7 @@ export const setUsersAC = (users:Array<userType>):setUsersActionType=>{
     return {type:"SET_USERS",users}
 }
 
-export const setIsLoad = (flag:boolean)=>{
+export const setIsLoadAC = (flag:boolean)=>{
     return{type:"SET_IS_LOAD",flag}
 }
 

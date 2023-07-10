@@ -3,19 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
-html{
-    position: relative;
 
-}
-body{
-    position:absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-   background-image: url("https://photar.ru/wp-content/uploads/2018/12/Image01_19_12_2018.jpg");
+body {
+    background-image:url("./asets/bacground2.png");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .app-wraper{
     max-width: 1400px;
@@ -24,3 +16,4 @@ body{
     grid-template-columns: 2fr 9fr;
     grid-template-rows: 60px 1fr;
 }
+
