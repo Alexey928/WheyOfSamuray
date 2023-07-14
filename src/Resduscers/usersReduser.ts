@@ -8,7 +8,7 @@ import {
 
 const initialState:usersStateType = {
     users:[],
-    pageSize:9,
+    pageSize:10,
     totalUsersCount:0,
     curentPage:1,
     isLoading:false,
@@ -30,6 +30,7 @@ export const userReducer = (state=initialState, action:actionType):usersStateTyp
         case "SET_IS_LOAD":
             return {...state,isLoading:action.flag}
         case "SET_TOTAL_USER_COUNT":
+            console.log(action.count)
             return {...state,totalUsersCount:action.count}
         case "SET_CURENT_PAGE":
             return {...state,curentPage:action.pageNumber}

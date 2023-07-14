@@ -10,7 +10,7 @@ const Navigation = ()=>{
        <div>
            <nav className={style.navigation}>
                <div>
-                   <NavLink to={""} className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Profile</NavLink>
+                   <NavLink to={"/Profile"} className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Profile</NavLink>
                </div>
                <div>
                    <NavLink to={"/DialogesPage"}  className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Messages</NavLink>

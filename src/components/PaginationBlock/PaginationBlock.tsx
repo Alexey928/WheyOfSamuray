@@ -21,9 +21,6 @@ const PaginationBlock = (props:paginationPropsType) => {
     }
 }
 
-
-
-
 return (
         <div>
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{"<<"}</span>

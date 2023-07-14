@@ -25,21 +25,23 @@ const App = ()=>{
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
     const dispatch = useDispatch();
-    //profilePage calbaks
+    //_______________________________profilePage calbaks______________________
     const addPost = (newPost:string)=>{
         dispatch(addPostAC(newPost));
     }
     const remuvePost =(postID:string)=>{
         dispatch(remuveNewPostAC(postID))
     }
-    //dialogPage colbacks
+
+    //_______________________________dialogPage colbacks_______________________
     const addDialog = (newDialog:string)=>{
         dispatch(addDialogAC(newDialog))
     }
    const removeDialog = (dialogID:string)=>{
         dispatch(remuveDialogAC(dialogID))
    }
-   //userPage colbacks
+
+   //___________________________________userPage colbacks________________________
    const followUnfolowUser = (usreID:string)=>{
         dispatch(followUnfollowAC(usreID))
    }
@@ -66,7 +68,7 @@ const App = ()=>{
                 <Header logo={"https://w7.pngwing.com/pngs/705/877/png-transparent-house-painter-and-decorator-building-home-highways-poster-banner-background-building-text-logo.png"}/>
                 <Navigation/>
                 <Routes>
-                    <Route  path = {""} element={<ProfilePage
+                    <Route  path = {"/Profile/*"} element={<ProfilePage
                                                               addPost={addPost}
                                                               posts = {profilePage.postItems}
                                                               removePost={remuvePost}

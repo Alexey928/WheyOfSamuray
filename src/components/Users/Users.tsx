@@ -18,14 +18,15 @@ export type UsersPropsType = {
 }
 const Users = (props:UsersPropsType) => {
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
-    console.log("users")
+    console.log("users");
     useEffect(  ()=>{
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=8&page=${usersPage.curentPage}`).then(
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${usersPage.pageSize}&page=${usersPage.curentPage}`).then(
             (response:AxiosResponse) => {
                 console.log(response)
                 props.setUsers(response.data.items)
                 props.setUsersIsload(false);
                 props.setUserTotalCount(response.data.totalCount)
+                console.log(response.data.totalCount)
             }
            ).catch((e:Error)=>{
                 props.setUsersIsload(false);
