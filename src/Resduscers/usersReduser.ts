@@ -1,15 +1,22 @@
-import {followUnfollowActionType, setUsersActionType, usersStateType} from "../ActionCreators/usersAC";
+import {
+    followUnfollowActionType,
+    setIsLoadActionType,
+    setTotalUserCountType,
+    setUsersActionType,
+    usersStateType
+} from "../ActionCreators/usersAC";
 
 const initialState:usersStateType = {
     users:[],
-    pageSize:5,
+    pageSize:6,
     totalUsersCount:0,
     curentPage:1,
-    isLoading:false
-
+    isLoading:false,
 }
 
-type actionType = followUnfollowActionType | setUsersActionType
+type actionType = followUnfollowActionType |
+                 setUsersActionType|
+                 setIsLoadActionType|setTotalUserCountType;
 
 export const userReducer = (state=initialState, action:actionType):usersStateType=>{
     switch (action.type) {
@@ -18,6 +25,8 @@ export const userReducer = (state=initialState, action:actionType):usersStateTyp
                     {...user,followed:!user.followed}:user)}
         case "SET_USERS":
             return {...state, users:[...action.users]}
+        case "SET_IS_LOAD":
+            return {...state,isLoading:action.flag}
         default:
             return state
     }

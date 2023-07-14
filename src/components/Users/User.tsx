@@ -8,6 +8,8 @@ export type userPropsType = {
 }
 
 const User = React.memo((props:userPropsType) => {//
+
+    console.log("us")
     return (
         <div className={style.userContayner}>
                <div>

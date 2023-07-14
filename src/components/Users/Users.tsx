@@ -11,26 +11,28 @@ import Preloader from "../Preloader/Preloader";
 export type UsersPropsType = {
     followUnfolowUser:(userID:string)=>void
     setUsers:(users:Array<userType>)=>void
+    setUsersIsload:(flag:boolean)=>void
 }
 const Users = (props:UsersPropsType) => {
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
     console.log("users")
 
     useEffect(  ()=>{
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?count=10&page=4").then(
             (response:AxiosResponse) => {
                 console.log(response)
                 props.setUsers(response.data.items)
+                props.setUsersIsload(false);
             }
            ).catch((e:Error)=>{
-               window.alert(e.message)
+                props.setUsersIsload(false);
+                window.alert(e)
            }
            ).finally(()=>{
            console.log("finely = > for some case ;)");
         })
-        console.log("preloader")
-
-
+        console.log("preloader");
+        props.setUsersIsload(true);
         return ()=>props.setUsers([])
     },[]);
 
@@ -40,8 +42,6 @@ const Users = (props:UsersPropsType) => {
                 followUnfolowUser={props.followUnfolowUser}
                 key={user.id}
                 user={user}/>)}
-
-
         </div>
     );
 };

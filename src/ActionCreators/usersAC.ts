@@ -32,7 +32,12 @@ export type setUsersActionType = {
     users:Array<userType>
 }
 export type setIsLoadActionType = {
-    
+    type:"SET_IS_LOAD"
+    flag:boolean
+}
+export type setTotalUserCountType = {
+    type:"SET_TOTAL_USER_COUNT"
+    count:number
 }
 
 export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
@@ -41,8 +46,10 @@ export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
 export const setUsersAC = (users:Array<userType>):setUsersActionType=>{
     return {type:"SET_USERS",users}
 }
-
-export const setIsLoadAC = (flag:boolean)=>{
+export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
     return{type:"SET_IS_LOAD",flag}
+}
+export const setTotalUserCountAC = (count:number):setTotalUserCountType=>{
+    return{type:"SET_TOTAL_USER_COUNT", count}
 }
 

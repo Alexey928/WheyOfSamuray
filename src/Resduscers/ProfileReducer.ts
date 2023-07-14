@@ -12,13 +12,12 @@ export type PostsItem  = {
 };
 
 export type ProfilePageStateType = {
-    enteredPostValue:string
     postItems:Array<PostsItem>
 }
 
 export  type ActionType  = addNewPostActionType | removePostActionType;
 
-const initialProfileState:ProfilePageStateType  ={enteredPostValue:"",postItems:[]};
+const initialProfileState:ProfilePageStateType  ={postItems:[]};
 
 
 export const profileReducer = (state:ProfilePageStateType = initialProfileState,action:ActionType):ProfilePageStateType=>{

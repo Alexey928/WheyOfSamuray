@@ -10,13 +10,11 @@ import {AppRootStateType} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, updateEnteredPostsValueAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC, updateEnteredDialogValueAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
-import {followUnfollowAC, setUsersAC, usersStateType, userType} from "./ActionCreators/usersAC";
+import {followUnfollowAC, setIsLoadAC, setUsersAC, usersStateType, userType} from "./ActionCreators/usersAC";
 import {dialogsStateType} from "./Resduscers/dialogsReduser";
 import {ProfilePageStateType} from "./Resduscers/ProfileReducer";
 
 const App = ()=>{
-
-
 
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
@@ -37,12 +35,21 @@ const App = ()=>{
    const removeDialog = (dialogID:string)=>{
         dispatch(remuveDialogAC(dialogID))
    }
+   //userPage colbacks
    const followUnfolowUser = (usreID:string)=>{
         dispatch(followUnfollowAC(usreID))
    }
    const setUsers = (users:Array<userType>)=>{
         dispatch(setUsersAC(users))
    }
+   const setUsersIsload = (flaf:boolean)=>{
+        dispatch(setIsLoadAC(flaf))
+   }
+
+
+
+
+
     console.log("app is coled")
     return(
         <Router>
@@ -69,6 +76,7 @@ const App = ()=>{
                     }/>
                     <Route path = {"/Users/*"} element={<Users setUsers={setUsers}
                                                                followUnfolowUser={followUnfolowUser}
+                                                               setUsersIsload={setUsersIsload}
                     />}/>
                 </Routes>
             </div>
