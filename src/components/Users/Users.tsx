@@ -14,12 +14,11 @@ export type UsersPropsType = {
     setUsers:(users:Array<userType>)=>void
     setUsersIsload:(flag:boolean)=>void
     setUserTotalCount:(count:number)=>void
+    setCurentPage:(pageNumber:number)=>void
 }
 const Users = (props:UsersPropsType) => {
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
-
     console.log("users")
-
     useEffect(  ()=>{
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=8&page=${usersPage.curentPage}`).then(
             (response:AxiosResponse) => {
@@ -38,18 +37,21 @@ const Users = (props:UsersPropsType) => {
         console.log("preloader");
         props.setUsersIsload(true);
         return ()=>props.setUsers([])
-    },[]);
+    },[usersPage.curentPage]);
 
     return (
         <div className={style.usersContayner}>
-            <PaginationBlock pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
+            <PaginationBlock setCurentPage={props.setCurentPage}
+                             pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
                              curentPage={usersPage.curentPage}
+
             />
             {usersPage.isLoading?<Preloader/>:usersPage.users.map((user)=><User
                 followUnfolowUser={props.followUnfolowUser}
                 key={user.id}
                 user={user}/>)}
-            <PaginationBlock pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
+            <PaginationBlock setCurentPage={props.setCurentPage}
+                             pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
                              curentPage={usersPage.curentPage}
             />
 

@@ -1,5 +1,5 @@
 import {
-    followUnfollowActionType,
+    followUnfollowActionType, setCurentPageType,
     setIsLoadActionType,
     setTotalUserCountType,
     setUsersActionType,
@@ -16,7 +16,9 @@ const initialState:usersStateType = {
 
 type actionType = followUnfollowActionType |
                  setUsersActionType|
-                 setIsLoadActionType|setTotalUserCountType;
+                 setIsLoadActionType|
+                 setTotalUserCountType|
+                 setCurentPageType;
 
 export const userReducer = (state=initialState, action:actionType):usersStateType=>{
     switch (action.type) {
@@ -29,6 +31,8 @@ export const userReducer = (state=initialState, action:actionType):usersStateTyp
             return {...state,isLoading:action.flag}
         case "SET_TOTAL_USER_COUNT":
             return {...state,totalUsersCount:action.count}
+        case "SET_CURENT_PAGE":
+            return {...state,curentPage:action.pageNumber}
         default:
             return state
     }

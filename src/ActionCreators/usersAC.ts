@@ -39,6 +39,11 @@ export type setTotalUserCountType = {
     type:"SET_TOTAL_USER_COUNT"
     count:number
 }
+export type setCurentPageType =  {
+    type:"SET_CURENT_PAGE"
+    pageNumber:number
+}
+
 
 export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
     return {type:"FOLLOW_UNFOLLOW",Userid}
@@ -52,4 +57,8 @@ export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
 export const setTotalUserCountAC = (count:number):setTotalUserCountType=>{
     return{type:"SET_TOTAL_USER_COUNT", count}
 }
+export const setCurentPageAC = (pageNumber:number):setCurentPageType=>{
+    return {type:"SET_CURENT_PAGE",pageNumber}
+}
+
 

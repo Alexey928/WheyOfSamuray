@@ -3,11 +3,11 @@ import React from 'react';
 export type paginationPropsType= {
     pagesCount:number
     curentPage:number
+    setCurentPage:(pageNumber:number)=>void
 }
 
 
 const PaginationBlock = (props:paginationPropsType) => {
-
     const firstButtons:Array<number> = [];
     const lastButtons:Array<number> = [];
     console.log(props.pagesCount)
@@ -22,12 +22,14 @@ const PaginationBlock = (props:paginationPropsType) => {
 }
 
 
+
+
 return (
         <div>
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{"<<"}</span>
-            {firstButtons.map(b=><button key={b}>{b}</button>)}
+            {firstButtons.map(el=><button onClick={()=>props.setCurentPage(el)} key={el}>{el}</button>)}
             {"<<...>>"}
-            {lastButtons.reverse().map(b=><button>{b}</button>)}
+            {lastButtons.reverse().map(el=><button onClick={()=>props.setCurentPage(el)}>{el}</button>)}
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{">>"}</span>
         </div>
     );

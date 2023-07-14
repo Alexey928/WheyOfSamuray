@@ -11,7 +11,7 @@ import {addPostAC, remuveNewPostAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
 import {
-    followUnfollowAC,
+    followUnfollowAC, setCurentPageAC,
     setIsLoadAC,
     setTotalUserCountAC,
     setUsersAC,
@@ -52,7 +52,9 @@ const App = ()=>{
    const setUserTotalCount = (count:number)=>{
         dispatch(setTotalUserCountAC(count))
    }
-
+    const setCurentPage = (pageNumber:number)=>{
+        dispatch(setCurentPageAC(pageNumber))
+    }
 
 
 
@@ -81,6 +83,7 @@ const App = ()=>{
                                                                followUnfolowUser={followUnfolowUser}
                                                                setUsersIsload={setUsersIsload}
                                                                setUserTotalCount={setUserTotalCount}
+                                                               setCurentPage={setCurentPage}
                     />}/>
                 </Routes>
             </div>
