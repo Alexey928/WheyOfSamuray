@@ -8,9 +8,9 @@ import {
 
 const initialState:usersStateType = {
     users:[],
-    pageSize:6,
-    totalUsersCount:0,
-    curentPage:1,
+    pageSize:9,
+    totalUsersCount:100,
+    curentPage:3,
     isLoading:false,
 }
 
@@ -27,6 +27,8 @@ export const userReducer = (state=initialState, action:actionType):usersStateTyp
             return {...state, users:[...action.users]}
         case "SET_IS_LOAD":
             return {...state,isLoading:action.flag}
+        case "SET_TOTAL_USER_COUNT":
+            return {...state,totalUsersCount:action.count}
         default:
             return state
     }

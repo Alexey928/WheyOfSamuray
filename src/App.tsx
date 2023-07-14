@@ -7,10 +7,16 @@ import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./State/reduxStore";
-import {addPostAC, remuveNewPostAC, updateEnteredPostsValueAC} from "./ActionCreators/profilePageAC"
-import {addDialogAC, remuveDialogAC, updateEnteredDialogValueAC} from "./ActionCreators/dialogsPageAC"
+import {addPostAC, remuveNewPostAC} from "./ActionCreators/profilePageAC"
+import {addDialogAC, remuveDialogAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
-import {followUnfollowAC, setIsLoadAC, setUsersAC, usersStateType, userType} from "./ActionCreators/usersAC";
+import {
+    followUnfollowAC,
+    setIsLoadAC,
+    setTotalUserCountAC,
+    setUsersAC,
+    userType
+} from "./ActionCreators/usersAC";
 import {dialogsStateType} from "./Resduscers/dialogsReduser";
 import {ProfilePageStateType} from "./Resduscers/ProfileReducer";
 
@@ -19,16 +25,14 @@ const App = ()=>{
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
     const dispatch = useDispatch();
-
+    //profilePage calbaks
     const addPost = (newPost:string)=>{
         dispatch(addPostAC(newPost));
     }
     const remuvePost =(postID:string)=>{
         dispatch(remuveNewPostAC(postID))
     }
-    const updateNewPostValue = (currentValue:string)=>{
-        dispatch(updateEnteredPostsValueAC(currentValue))
-    }
+    //dialogPage colbacks
     const addDialog = (newDialog:string)=>{
         dispatch(addDialogAC(newDialog))
     }
@@ -44,6 +48,9 @@ const App = ()=>{
    }
    const setUsersIsload = (flaf:boolean)=>{
         dispatch(setIsLoadAC(flaf))
+   }
+   const setUserTotalCount = (count:number)=>{
+        dispatch(setTotalUserCountAC(count))
    }
 
 
@@ -69,14 +76,11 @@ const App = ()=>{
                                                                             removeDialog={removeDialog}
                     />
                     }/>
-                    <Route path = {"/DialogesPage/*"} element={<DialogsPage addDialog={addDialog}
-                                                                            dialogItems = {dialogsPage.dialogs}
-                                                                            removeDialog={removeDialog}
-                    />
-                    }/>
+
                     <Route path = {"/Users/*"} element={<Users setUsers={setUsers}
                                                                followUnfolowUser={followUnfolowUser}
                                                                setUsersIsload={setUsersIsload}
+                                                               setUserTotalCount={setUserTotalCount}
                     />}/>
                 </Routes>
             </div>
