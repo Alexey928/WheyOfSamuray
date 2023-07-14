@@ -8,23 +8,26 @@ export type paginationPropsType= {
 
 const PaginationBlock = (props:paginationPropsType) => {
 
-    console.log(props.pagesCount)
-    const fulRange:Array<number> = []
-    const firstButons:Array<number> = [];
+    const firstButtons:Array<number> = [];
     const lastButtons:Array<number> = [];
+    console.log(props.pagesCount)
+
+    if(props.pagesCount>=5){
+    for (let i=props.curentPage;i<props.curentPage+3;i++){
+        firstButtons.push(i);
+    }
+    for (let i = props.pagesCount;i>props.pagesCount-2;i--){
+        lastButtons.push(i);
+    }
+}
 
 
-
-
-    return (
+return (
         <div>
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{"<<"}</span>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            ...
-            <button>perLast</button>
-            <button>last</button>
+            {firstButtons.map(b=><button key={b}>{b}</button>)}
+            {"<<...>>"}
+            {lastButtons.reverse().map(b=><button>{b}</button>)}
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{">>"}</span>
         </div>
     );

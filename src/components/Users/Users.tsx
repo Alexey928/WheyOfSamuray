@@ -26,7 +26,7 @@ const Users = (props:UsersPropsType) => {
                 console.log(response)
                 props.setUsers(response.data.items)
                 props.setUsersIsload(false);
-                props.setUserTotalCount(100)
+                props.setUserTotalCount(response.data.totalCount)
             }
            ).catch((e:Error)=>{
                 props.setUsersIsload(false);
