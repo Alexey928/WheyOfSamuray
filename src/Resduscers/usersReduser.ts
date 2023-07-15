@@ -1,5 +1,6 @@
 import {
-    followUnfollowActionType, setCurentPageType,
+    followUnfollowActionType,
+    setCurentPageType,
     setIsLoadActionType,
     setTotalUserCountType,
     setUsersActionType,

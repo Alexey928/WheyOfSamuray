@@ -13,6 +13,7 @@ const PofileDiscription = (props:profileDescriptionType) => {
             <div className={style.profilDiscription}>
                 <img className={style.avatar} src={props.profileData?.photos.large||avatar}/>
                 <div className={style.description}>{props.profileData?.aboutMe||"About mee"}</div>
+                
             </div>
         </div>
     );

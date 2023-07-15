@@ -51,7 +51,7 @@ const App = ()=>{
    const setUsers = (users:Array<userType>)=>{
         dispatch(setUsersAC(users))
    }
-   const setUsersIsload = (flaf:boolean)=>{
+   const setComponentIsload = (flaf:boolean)=>{
         dispatch(setIsLoadAC(flaf))
    }
    const setUserTotalCount = (count:number)=>{
@@ -73,6 +73,7 @@ const App = ()=>{
                                                               addPost={addPost}
                                                               removePost={remuvePost}
                                                               setProfileData={setProfileData}
+                                                              setProfileIsLoad={setComponentIsload}
 
                         />
                     }/>
@@ -84,7 +85,7 @@ const App = ()=>{
 
                     <Route path = {"/Users/*"} element={<Users setUsers={setUsers}
                                                                followUnfolowUser={followUnfolowUser}
-                                                               setUsersIsload={setUsersIsload}
+                                                               setUsersIsload={setComponentIsload}
                                                                setUserTotalCount={setUserTotalCount}
                                                                setCurentPage={setCurentPage}
                     />}/>

@@ -16,6 +16,10 @@ export type setProfileDataActionType = {
     type:'SET_PROFILE_DATA'
     data:profileDataType
 }
+export type setIsLoadActionType = {
+    type:"SET_IS_LOAD"
+    flag:boolean
+}
 
 export const addPostAC = (newPost:string):addNewPostActionType=>{
   return   {type:"ADD_NEW_POST",newPost};
@@ -26,6 +30,11 @@ export const remuveNewPostAC = (postID:string):removePostActionType=>{
 export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValueActionType=>{
     return {type:"UPDATE_ENTERED_POST",currentValue}
 }
+
+export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
+    return{type:"SET_IS_LOAD",flag}
+}
+
 export const setProfileDataAC = (data:profileDataType):setProfileDataActionType=>{
  return {type:'SET_PROFILE_DATA', data}
 }

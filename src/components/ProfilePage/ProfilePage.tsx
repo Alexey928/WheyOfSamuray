@@ -7,11 +7,13 @@ import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../State/reduxStore";
 import {useParams} from "react-router-dom";
 import axios, {AxiosResponse} from "axios";
+import Preloader from "../Preloader/Preloader";
 
 type ProfilePageType = {
     addPost:(newPost:string)=>void
     removePost:(postID:string)=>void
     setProfileData:(data:profileDataType)=>void
+    setProfileIsLoad:(flag:boolean)=>void
 }
 
 function ProfilePage(props:ProfilePageType){
@@ -27,19 +29,24 @@ useEffect(()=>{
         .then((response:AxiosResponse) => {
             console.log(response.data);
             props.setProfileData(response.data);
-
-        });
-
-
-
-},[])
+            props.setProfileIsLoad(false);
+        }).catch((e:Error)=>{
+            props.setProfileIsLoad(false);
+            window.alert(e)
+        }
+    ).finally(()=>{
+        console.log("finely = > for some case ;)");
+    });
+    props.setProfileIsLoad(true);
+    },[])
     return(
         <div className={style.content}>
+            <div className={style.contentHeder}><span>Profile page</span></div>
+            {profilePage.isLoading?<Preloader/>:
             <>
-                <div className={style.contentHeder}><span>Profile page</span></div>
                 <PofileDiscription profileData={profilePage.profileData}/>
                 <MyPpsts removePost={props.removePost} addPost={props.addPost} posts = {profilePage.postItems}/>
-            </>
+            </>}
         </div>
     )
 }

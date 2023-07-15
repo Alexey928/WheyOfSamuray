@@ -1,4 +1,9 @@
-import {addNewPostActionType, removePostActionType, setProfileDataActionType} from "../ActionCreators/profilePageAC"
+import {
+    addNewPostActionType,
+    removePostActionType,
+    setIsLoadActionType,
+    setProfileDataActionType
+} from "../ActionCreators/profilePageAC"
 import {v1} from "uuid";
 import {urlRandomiser} from "../AuxiliaryLogic/tempImgUrlGenerator";
 
@@ -31,9 +36,10 @@ export type ProfilePageStateType = {
 
 export  type ActionType  = addNewPostActionType |
                            removePostActionType |
-                           setProfileDataActionType;
+                           setProfileDataActionType|
+                           setIsLoadActionType;
 
-const initialProfileState:ProfilePageStateType  ={postItems:[],profileData:null,isLoading:true};
+const initialProfileState:ProfilePageStateType  ={postItems:[],profileData:null,isLoading:false};
 
 export const profileReducer = (state:ProfilePageStateType = initialProfileState,action:ActionType):ProfilePageStateType=>{
     switch (action.type) {
@@ -44,6 +50,8 @@ export const profileReducer = (state:ProfilePageStateType = initialProfileState,
             return {...state,postItems:state.postItems.filter((p)=>p.id!==action.postID)}
         case "SET_PROFILE_DATA":
             return {...state,profileData:action.data}
+        case "SET_IS_LOAD":
+            return {...state,isLoading:action.flag}
         default:
            return  state
 
