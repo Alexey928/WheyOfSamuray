@@ -16,11 +16,16 @@ export type UsersPropsType = {
     setUserTotalCount:(count:number)=>void
     setCurentPage:(pageNumber:number)=>void
 }
+
 const Users = (props:UsersPropsType) => {
+
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
     console.log("users");
+
+
     useEffect(  ()=>{
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${usersPage.pageSize}&page=${usersPage.curentPage}`).then(
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${usersPage.pageSize}
+                       &page=${usersPage.curentPage}`).then(
             (response:AxiosResponse) => {
                 console.log(response)
                 props.setUsers(response.data.items)
@@ -35,10 +40,9 @@ const Users = (props:UsersPropsType) => {
            ).finally(()=>{
            console.log("finely = > for some case ;)");
         })
-        console.log("preloader");
         props.setUsersIsload(true);
         return ()=>props.setUsers([])
-    },[usersPage.curentPage]);
+    },[usersPage.curentPage, usersPage.pageSize]);
 
     return (
         <div className={style.usersContayner}>

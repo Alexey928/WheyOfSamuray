@@ -26,7 +26,7 @@ return (
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{"<<"}</span>
             {firstButtons.map(el=><button onClick={()=>props.setCurentPage(el)} key={el}>{el}</button>)}
             {"<<...>>"}
-            {lastButtons.reverse().map(el=><button onClick={()=>props.setCurentPage(el)}>{el}</button>)}
+            {lastButtons.reverse().map(el=><button onClick={()=>props.setCurentPage(el)} key={el}>{el}</button>)}
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{">>"}</span>
         </div>
     );

@@ -8,8 +8,10 @@ export type userPropsType = {
     followUnfolowUser:(userID:string)=> void
 }
 
-const User = React.memo((props:userPropsType) => {//
+const User = React.memo((props:userPropsType) => {
+
     const navigate = useNavigate();
+
     const handleMoveToUserProfile = () => {
         navigate(`/Profile/${props.user.id}`);
     };
@@ -18,7 +20,6 @@ const User = React.memo((props:userPropsType) => {//
     return (
         <div className={style.userContayner}>
                <div>
-
                    <img onClick={handleMoveToUserProfile} alt={"img"} className={style.avatar} src={props.user.photos.small||avatar}/>
                    <button onClick={()=>props.followUnfolowUser(props.user.id)}>{props.user.followed?"Unfollow":"Follow"}</button>
                </div>
