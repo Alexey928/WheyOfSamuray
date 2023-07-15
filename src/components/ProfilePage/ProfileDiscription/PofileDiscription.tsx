@@ -1,18 +1,20 @@
 import React from 'react';
 import style from "./ProfileDiscription.module.css"
+import {profileDataType} from "../../../Resduscers/ProfileReducer";
+import avatar from "../../../asets/avatar.jpg"
 
-const PofileDiscription = () => {
+type profileDescriptionType = {
+    profileData:profileDataType|null
+}
+const PofileDiscription = (props:profileDescriptionType) => {
     return (
-
         <div >
             <div>Myposts</div>
             <div className={style.profilDiscription}>
-                <img className={style.avatar} src={"https://vjoy.cc/wp-content/uploads/2020/10/foto-dlya-avatarki-dlya-parnej-v-vk011.jpg"}/>
-                <div className={style.description}>discription</div>
+                <img className={style.avatar} src={props.profileData?.photos.large||avatar}/>
+                <div className={style.description}>{props.profileData?.aboutMe||"About mee"}</div>
             </div>
-
         </div>
-
     );
 };
 

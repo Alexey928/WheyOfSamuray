@@ -1,3 +1,4 @@
+import {profileDataType} from "../Resduscers/ProfileReducer";
 
 export  type addNewPostActionType = {
     type:"ADD_NEW_POST"
@@ -7,10 +8,13 @@ export type removePostActionType = {
     type:"REMOVE_POST"
     postID:string
 }
-export type updateEnteredPostValue = {
+export type updateEnteredPostValueActionType = {
     type:"UPDATE_ENTERED_POST"
     currentValue:string
-
+}
+export type setProfileDataActionType = {
+    type:'SET_PROFILE_DATA'
+    data:profileDataType
 }
 
 export const addPostAC = (newPost:string):addNewPostActionType=>{
@@ -19,8 +23,9 @@ export const addPostAC = (newPost:string):addNewPostActionType=>{
 export const remuveNewPostAC = (postID:string):removePostActionType=>{
     return {type:"REMOVE_POST",postID}
 }
-export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValue=>{
+export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValueActionType=>{
     return {type:"UPDATE_ENTERED_POST",currentValue}
 }
-
-
+export const setProfileDataAC = (data:profileDataType):setProfileDataActionType=>{
+ return {type:'SET_PROFILE_DATA', data}
+}

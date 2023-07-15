@@ -7,7 +7,7 @@ import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./State/reduxStore";
-import {addPostAC, remuveNewPostAC} from "./ActionCreators/profilePageAC"
+import {addPostAC, remuveNewPostAC, setProfileDataAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
 import {
@@ -18,7 +18,7 @@ import {
     userType
 } from "./ActionCreators/usersAC";
 import {dialogsStateType} from "./Resduscers/dialogsReduser";
-import {ProfilePageStateType} from "./Resduscers/ProfileReducer";
+import {profileDataType, ProfilePageStateType} from "./Resduscers/ProfileReducer";
 
 const App = ()=>{
 
@@ -31,6 +31,9 @@ const App = ()=>{
     }
     const remuvePost =(postID:string)=>{
         dispatch(remuveNewPostAC(postID))
+    }
+    const setProfileData = (data:profileDataType)=>{
+        dispatch(setProfileDataAC(data))
     }
 
     //_______________________________dialogPage colbacks_______________________
@@ -69,6 +72,7 @@ const App = ()=>{
                     <Route  path = {"/Profile/*"} element={<ProfilePage
                                                               addPost={addPost}
                                                               removePost={remuvePost}
+                                                              setProfileData={setProfileData}
 
                         />
                     }/>
