@@ -22,8 +22,8 @@ import {profileDataType, ProfilePageStateType} from "./Resduscers/ProfileReducer
 
 const App = ()=>{
 
-    const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
+
     const dispatch = useDispatch();
     //_______________________________profilePage calbaks______________________
     const addPost = (newPost:string)=>{

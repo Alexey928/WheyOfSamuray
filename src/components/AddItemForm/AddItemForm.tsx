@@ -6,37 +6,46 @@ type AddItemFormPropsType ={
     addItem:(title:string)=>void
 }
 
-const AddItemForm:React.FC<AddItemFormPropsType> = ({addItem}) => {
-    const [inputValue,setInputValue]=useState<string>("");
-    const [error,setError] = useState<boolean>(false);
+const AddItemForm: React.FC<AddItemFormPropsType> = ({ addItem }) => {
+    const [inputValue, setInputValue] = useState("");
+    const [error, setError] = useState(false);
     const [isEnterPressed, setIsEnterPressed] = useState(false);
 
-const onClickHandler = ()=>{
-    validator(inputValue,setError) &&
-    addItem(inputValue);
-    setInputValue("");
-}
+    const onClickHandler = () => {
+        validator(inputValue, setError) && addItem(inputValue);
+        setInputValue("");
+        setIsEnterPressed(false);
+    };
 
+    const onKeyUpHandler = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter") {
+            setIsEnterPressed(true);
+            onClickHandler();
+        }
+    };
 
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setInputValue(e.currentTarget.value);
+        setError(false);
+        setIsEnterPressed(false);
+    };
 
     return (
-        <div>
+        <div >
             <div className={style.container}>
-            <textarea autoFocus={true} placeholder={isEnterPressed ? "" : "Enter Massage..."} className={style.input}
-                   value={inputValue}
-                   onChange={(e:ChangeEvent<HTMLTextAreaElement>)=> {
-                       setInputValue(e.currentTarget.value);
-                       setError(false);
-                   }}
-                  onKeyDown={(e:KeyboardEvent<HTMLTextAreaElement>)=> {
-                       e.key==="Enter" &&
-                       onClickHandler()
-                  }}
-            />
-            <span className={style.underline}></span>
-        </div>
-        <button onClick={onClickHandler}>add</button>
+                <textarea
+                    autoFocus={true}
+                    placeholder={isEnterPressed ? "" : "Yor text..."}
+                    className={style.input}
+                    value={inputValue}
+                    onChange={handleChange}
+                    onKeyUp={onKeyUpHandler}
+                />
+                <span className={style.underline}></span>
+            </div>
+            <button onClick={onClickHandler}>add</button>
         </div>
     );
 };
+
 export default AddItemForm;
