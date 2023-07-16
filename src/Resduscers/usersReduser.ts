@@ -4,8 +4,9 @@ import {
     setIsLoadActionType,
     setTotalUserCountType,
     setUsersActionType,
-    usersStateType
+    usersStateType, userType
 } from "../ActionCreators/usersAC";
+import {usersAPI} from "../API/dallAPI";
 
 const initialState:usersStateType = {
     users:[],
@@ -15,13 +16,13 @@ const initialState:usersStateType = {
     isLoading:false,
 }
 
-type actionType = followUnfollowActionType |
-                 setUsersActionType|
-                 setIsLoadActionType|
-                 setTotalUserCountType|
-                 setCurentPageType;
+export type userActionType = followUnfollowActionType |
+                             setUsersActionType|
+                             setIsLoadActionType|
+                             setTotalUserCountType|
+                             setCurentPageType;
 
-export const userReducer = (state=initialState, action:actionType):usersStateType=>{
+export const userReducer = (state=initialState, action:userActionType):usersStateType=>{
     switch (action.type) {
         case "FOLLOW_UNFOLLOW":
             return {...state, users:state.users.map((user)=>action.Userid===user.id?

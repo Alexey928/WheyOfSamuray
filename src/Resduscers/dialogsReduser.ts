@@ -14,14 +14,14 @@ export type dialogsStateType = {
 
 
 }
-export type ActionType = addDialogActionType |
+export type dialogsActionType = addDialogActionType |
                   removeDialog |
                   updateEnteredDialogValueActionType;
 
 const initialDialogState:dialogsStateType  ={enteredDialogValue:"",dialogs:[]};
 
 
-export const dialogsReduser  = (state:dialogsStateType = initialDialogState, action:ActionType):dialogsStateType=>{
+export const dialogsReduser  = (state:dialogsStateType = initialDialogState, action:dialogsActionType):dialogsStateType=>{
     switch (action.type) {
         case "REMOVE_DIALOG":
             return {...state,dialogs:state.dialogs.filter((d)=>d.id!==action.dialogID)};

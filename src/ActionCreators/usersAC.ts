@@ -1,3 +1,5 @@
+import {usersAPI} from "../API/dallAPI";
+import {DispatchType} from "../State/reduxStore";
 
 export type userType = {
     id:string
@@ -62,3 +64,16 @@ export const setCurentPageAC = (pageNumber:number):setCurentPageType=>{
 }
 
 
+export const getUsersThunkCreator = (curentPage:number,pageSize:number) => async (dispatch:DispatchType)=>{
+    try {
+        dispatch(setIsLoadAC(true))
+        const {items,totalCount} =  await usersAPI.getUsers(curentPage,pageSize);
+        dispatch(setUsersAC(items))
+        dispatch(setIsLoadAC(false))
+        dispatch(setTotalUserCountAC(totalCount))
+
+    }catch(e){
+        dispatch(setIsLoadAC(false))
+        window.alert(e);
+    }
+}

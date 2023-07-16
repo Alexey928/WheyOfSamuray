@@ -34,14 +34,14 @@ export type ProfilePageStateType = {
     isLoading:boolean,
 }
 
-export  type ActionType  = addNewPostActionType |
+export  type profileActionType  = addNewPostActionType |
                            removePostActionType |
                            setProfileDataActionType|
                            setIsLoadActionType;
 
 const initialProfileState:ProfilePageStateType  ={postItems:[],profileData:null,isLoading:false};
 
-export const profileReducer = (state:ProfilePageStateType = initialProfileState,action:ActionType):ProfilePageStateType=>{
+export const profileReducer = (state:ProfilePageStateType = initialProfileState,action:profileActionType):ProfilePageStateType=>{
     switch (action.type) {
         case "ADD_NEW_POST":
             return {...state,postItems:

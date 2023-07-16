@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import User from "./User";
 import style from "./users.module.css"
-import {usersStateType, userType} from "../../ActionCreators/usersAC";
-import {useSelector} from "react-redux";
-import {AppRootStateType} from "../../State/reduxStore";
-import axios, { AxiosResponse } from 'axios';
+import {getUsersThunkCreator, usersStateType, userType} from "../../ActionCreators/usersAC";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
+
 import Preloader from "../Preloader/Preloader";
 import PaginationBlock from "../PaginationBlock/PaginationBlock";
+import {usersUpdater} from "../../API/dallAPI"
 
 
 export type UsersPropsType = {
@@ -17,49 +18,39 @@ export type UsersPropsType = {
     setCurentPage:(pageNumber:number)=>void
 }
 
-const Users = (props:UsersPropsType) => {
-
+const Users:React.FC<UsersPropsType> = ({   followUnfolowUser,
+                                            setUsers,
+                                            setUsersIsload,
+                                            setUserTotalCount,
+                                            setCurentPage}) => {
+    const dispatch = useAppDispatch();
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
-    console.log("users");
 
+    const getUsers = (curentPage:number,pageSize:number)=>{
+        dispatch(getUsersThunkCreator(curentPage,pageSize))// КОЛБЕК ДИСПАЧАЧЕШИЙ САНКУ
+    }
 
-    useEffect(  ()=>{
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${usersPage.pageSize}
-                       &page=${usersPage.curentPage}`).then(
-            (response:AxiosResponse) => {
-                console.log(response)
-                props.setUsers(response.data.items)
-                props.setUsersIsload(false);
-                props.setUserTotalCount(response.data.totalCount)
-                console.log(response.data.totalCount)
-            }
-           ).catch((e:Error)=>{
-                props.setUsersIsload(false);
-                window.alert(e)
-           }
-           ).finally(()=>{
-           console.log("finely = > for some case ;)");
-        })
-        props.setUsersIsload(true);
-        return ()=>props.setUsers([])
-    },[usersPage.curentPage, usersPage.pageSize]);
+useEffect(  ()=>{
+    usersUpdater(setUsersIsload,setUsers,setUserTotalCount,usersPage)//CАМОПИСНЫЙ АНАЛОГ ))
 
-    return (
+    return ()=>setUsers([])
+},[usersPage.curentPage, usersPage.pageSize]);
+
+return (
         <div className={style.usersContayner}>
-            <PaginationBlock setCurentPage={props.setCurentPage}
+            <PaginationBlock setCurentPage={setCurentPage}
                              pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
                              curentPage={usersPage.curentPage}
 
             />
             {usersPage.isLoading?<Preloader/>:usersPage.users.map((user)=><User
-                followUnfolowUser={props.followUnfolowUser}
+                followUnfolowUser={followUnfolowUser}
                 key={user.id}
                 user={user}/>)}
-            <PaginationBlock setCurentPage={props.setCurentPage}
+            <PaginationBlock setCurentPage={setCurentPage}
                              pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
                              curentPage={usersPage.curentPage}
             />
-
         </div>
     );
 };

@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
+import {usersStateType, userType} from "../ActionCreators/usersAC";
 
 const axiosInstanse = axios.create({
     withCredentials:true,
@@ -8,9 +9,29 @@ const axiosInstanse = axios.create({
     }
 })
 export const usersAPI = {
-    getUsers(curentPage:string, pageSize:number){
-        return axiosInstanse.get(`users?page=${curentPage}&count=${pageSize}`).then(response=>response.data)
+    getUsers(curentPage:number, pageSize:number){
+        return axiosInstanse.get(`users?page=${curentPage}&count=${pageSize}`).then((response:AxiosResponse)=>response.data)
     },
+}
 
 
+
+
+export const usersUpdater = async (setUsersIsload:(flag:boolean)=>void,
+                                   setUsers:(users:Array<userType>)=>void,
+                                   setUserTotalCount:(count:number)=>void,
+                                   usersPage:usersStateType)=>{
+    let count:number|null=null
+    try {
+        setUsersIsload(true);
+        const {items,totalCount} =  await usersAPI.getUsers(usersPage.curentPage,usersPage.pageSize);
+        setUsers(items)
+        setUsersIsload(false);
+        setUserTotalCount(totalCount)
+        count=totalCount
+    }catch(e){
+        setUsersIsload(false);
+        window.alert(e);
+    }
+    return count
 }
