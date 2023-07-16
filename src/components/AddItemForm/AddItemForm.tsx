@@ -3,7 +3,7 @@ import {validateInputValue as validator} from "../../AuxiliaryLogic/validate"
 import style from "./adItemForm.module.css"
 
 type AddItemFormPropsType ={
-    addItem:(title:string)=>void
+    addItem:(title:string)=>void|null
 }
 
 const AddItemForm: React.FC<AddItemFormPropsType> = ({ addItem }) => {
@@ -31,7 +31,7 @@ const AddItemForm: React.FC<AddItemFormPropsType> = ({ addItem }) => {
     };
 
     return (
-        <div >
+        <div className={style.flexContayner}>
             <div className={style.container}>
                 <textarea
                     autoFocus={true}
@@ -43,7 +43,7 @@ const AddItemForm: React.FC<AddItemFormPropsType> = ({ addItem }) => {
                 />
                 <span className={style.underline}></span>
             </div>
-            <button className={style.button} onClick={onClickHandler}>+</button>
+            <button className={style.button} style={{color:error?"red":"whitesmoke"}} onClick={onClickHandler}>{error?"ER":"+"}</button>
         </div>
     );
 };
