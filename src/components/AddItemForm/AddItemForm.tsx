@@ -43,7 +43,7 @@ const AddItemForm: React.FC<AddItemFormPropsType> = ({ addItem }) => {
                 />
                 <span className={style.underline}></span>
             </div>
-            <button onClick={onClickHandler}>add</button>
+            <button className={style.button} onClick={onClickHandler}>+</button>
         </div>
     );
 };
