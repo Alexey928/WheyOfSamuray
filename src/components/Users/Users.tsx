@@ -31,8 +31,8 @@ const Users:React.FC<UsersPropsType> = ({   followUnfolowUser,
     }
 
 useEffect(  ()=>{
-    usersUpdater(setUsersIsload,setUsers,setUserTotalCount,usersPage)//CАМОПИСНЫЙ АНАЛОГ ))
-
+    //usersUpdater(setUsersIsload,setUsers,setUserTotalCount,usersPage)//CАМОПИСНЫЙ АНАЛОГ ))
+    getUsers(usersPage.curentPage,usersPage.pageSize)
     return ()=>setUsers([])
 },[usersPage.curentPage, usersPage.pageSize]);
 

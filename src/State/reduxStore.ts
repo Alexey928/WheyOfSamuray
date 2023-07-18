@@ -8,7 +8,8 @@ import thunkMiddleware ,{ ThunkAction, ThunkDispatch }from "redux-thunk"
 export const rootReducer = combineReducers({
     profilePage:profileReducer,
     dialogsPage:dialogsReduser,
-    usersPage:userReducer
+    usersPage:userReducer,
+
     }
 );
 

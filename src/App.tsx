@@ -69,6 +69,14 @@ const App = ()=>{
                 <Navigation/>
 
                 <Routes>
+                    <Route  path = {"/"} element={<ProfilePage
+                                                        addPost={addPost}
+                                                        removePost={remuvePost}
+                                                        setProfileData={setProfileData}
+                                                        setProfileIsLoad={setComponentIsload}
+
+                        />
+                    }/>
                     <Route  path = {"/Profile/*"} element={<ProfilePage
                                                               addPost={addPost}
                                                               removePost={remuvePost}

@@ -8,6 +8,11 @@ const axiosInstanse = axios.create({
         "API-KEY":"e5f7a28d-5af7-4c3f-9534-8b1e9889bba1"
     }
 })
+export const authUserAPI = {
+    isAuth(){
+        return axiosInstanse.get("auth/me").then((response:AxiosResponse)=>response.data)
+    }
+}
 export const usersAPI = {
     getUsers(curentPage:number, pageSize:number){
         return axiosInstanse.get(`users?page=${curentPage}&count=${pageSize}`).then((response:AxiosResponse)=>response.data)
