@@ -91,10 +91,8 @@ const App = ()=>{
                     />
                     }/>
 
-                    <Route path = {"/Users/*"} element={<Users setUsers={setUsers}
+                    <Route path = {"/Users/*"} element={<Users
                                                                followUnfolowUser={followUnfolowUser}
-                                                               setUsersIsload={setComponentIsload}
-                                                               setUserTotalCount={setUserTotalCount}
                                                                setCurentPage={setCurentPage}
                     />}/>
                 </Routes>

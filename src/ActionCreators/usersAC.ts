@@ -69,11 +69,12 @@ export const getUsersThunkCreator = (curentPage:number,pageSize:number) => async
         dispatch(setIsLoadAC(true))
         const {items,totalCount} =  await usersAPI.getUsers(curentPage,pageSize);
         dispatch(setUsersAC(items))
-        dispatch(setIsLoadAC(false))
         dispatch(setTotalUserCountAC(totalCount))
 
     }catch(e){
         dispatch(setIsLoadAC(false))
         window.alert(e);
+    }finally {
+        dispatch(setIsLoadAC(false))
     }
 }

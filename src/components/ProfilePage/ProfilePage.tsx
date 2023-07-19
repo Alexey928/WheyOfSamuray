@@ -17,9 +17,7 @@ type ProfilePageType = {
 }
 
 function ProfilePage(props:ProfilePageType){
-
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
-
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();
     const userID = Number(id["*"])?Number(id["*"]):myProfileID
@@ -42,6 +40,7 @@ useEffect(()=>{
     },[])
     return(
         <div className={style.content}>
+            <button className={style.button}>menu</button>
             <div className={style.contentHeder}><span>Profile page</span></div>
             {profilePage.isLoading?<Preloader/>:
             <>

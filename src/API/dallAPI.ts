@@ -9,7 +9,7 @@ const axiosInstanse = axios.create({
     }
 })
 export const authUserAPI = {
-    isAuth(){
+    authMe(){
         return axiosInstanse.get("auth/me").then((response:AxiosResponse)=>response.data)
     }
 }
@@ -18,6 +18,8 @@ export const usersAPI = {
         return axiosInstanse.get(`users?page=${curentPage}&count=${pageSize}`).then((response:AxiosResponse)=>response.data)
     },
 }
+
+
 
 
 

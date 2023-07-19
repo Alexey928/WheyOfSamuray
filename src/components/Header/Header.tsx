@@ -7,6 +7,7 @@ type HeaderPropstype = {
 const Header = (props:HeaderPropstype)=>{
     return (
         <header className={style.header}>
+
             <img src={props.logo} alt={"fone"}/>
          </header>
     )

@@ -1,15 +1,21 @@
-import {setAuthUserDataAC, UserAuthState} from "../ActionCreators/authUserAC";
+import {setAuthUserDataAC, setIsRequestProcessingStatusAC, UserAuthState} from "../ActionCreators/authUserAC";
 
 
 export type AuthActionsType =
     | ReturnType<typeof setAuthUserDataAC>
+    | ReturnType<typeof setIsRequestProcessingStatusAC>
 
 type UserAuthStateType = typeof UserAuthState
 
 
-export function authUserReduser(action:AuthActionsType, state=UserAuthState):UserAuthStateType{
+export function authUserReduser( state=UserAuthState,action:AuthActionsType,):UserAuthStateType{
     switch (action.type) {
         case "AUTH/SET-AUTH-USER-DATA":
-            return {...action.payload,}
+            return {...state,data:action.payload,}
+        case "SET-REQUST-PROCESSING-STATUS":
+            return {...state,isFeching: action.flag}
+        default:
+            return state
     }
+
 }

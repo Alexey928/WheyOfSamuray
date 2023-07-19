@@ -3,8 +3,12 @@
     margin-right: 30px;
     border-radius: 15px;
     font-size: 35px;
-
+    opacity: 1;
+    position: relative;
+    z-index: 0;
 }
+
+
 .navigation a{
     line-height: 40px;
     text-decoration: none;
@@ -31,3 +35,14 @@
     display: flex;
     flex-direction: column;
 }
+@media (max-width: 500px) {
+    .navigation{
+        opacity: 0;
+    }
+    .frendsCotayner{
+        opacity: 0;
+    }
+}
+
+
+

@@ -4,11 +4,13 @@ import {dialogsActionType, dialogsReduser} from "../Resduscers/dialogsReduser";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {userActionType, userReducer} from "../Resduscers/usersReduser";
 import thunkMiddleware ,{ ThunkAction, ThunkDispatch }from "redux-thunk"
+import {AuthActionsType, authUserReduser} from "../Resduscers/authUserReduser";
 
 export const rootReducer = combineReducers({
     profilePage:profileReducer,
     dialogsPage:dialogsReduser,
     usersPage:userReducer,
+    userAuth:authUserReduser
 
     }
 );
@@ -19,14 +21,17 @@ export const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
 export type AppRootStateType = ReturnType<typeof rootReducer>;
 export type AppRootActionsType = dialogsActionType|
                                 profileActionType|
-                                userActionType;
+                                userActionType|
+                                AuthActionsType;
 export type AppThunkType<ReturnType = void> = ThunkAction<
     ReturnType,
     AppRootStateType,
     unknown,
     AppRootActionsType
     >;
+
 export type DispatchType = ThunkDispatch<AppRootStateType, unknown, AppRootActionsType>;
+
 export const useAppDispatch = () => useDispatch<DispatchType>();
 
 export const useAppSelector: TypedUseSelectorHook<AppRootStateType> = useSelector;
