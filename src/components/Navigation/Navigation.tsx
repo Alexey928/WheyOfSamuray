@@ -1,11 +1,20 @@
 import React from 'react';
 import style from "./Nawigation.module.css"
 import {Link, NavLink, useLocation} from "react-router-dom";
+import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
+import {useSelector} from "react-redux";
+import {usersStateType} from "../../ActionCreators/usersAC";
+import {navigationStateType} from "../../Resduscers/navigationMenuReduser";
 
 
 const Navigation = ()=>{
  const location  = useLocation()
     console.log(location);//<---- interesting object ))
+    const dispatch = useAppDispatch();
+    const navigationStaete = useSelector<AppRootStateType,navigationStateType>(state => state.navigation);
+
+
+
     return (
        <div>
            <nav className={style.navigation}>

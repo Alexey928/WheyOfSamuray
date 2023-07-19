@@ -7,8 +7,6 @@ import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
 import Preloader from "../Preloader/Preloader";
 import PaginationBlock from "../PaginationBlock/PaginationBlock";
 
-
-
 export type UsersPropsType = {
     followUnfolowUser:(userID:string)=>void
     setCurentPage:(pageNumber:number)=>void
