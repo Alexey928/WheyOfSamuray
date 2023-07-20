@@ -10,7 +10,7 @@ type HeaderPropstype = {
     logo:string
 }
 
-const Header = (props:HeaderPropstype)=>{
+const Header = ()=>{
     const auth = useSelector<AppRootStateType,UserAuthStateType>(state => state.userAuth);
     console.log("header");
 

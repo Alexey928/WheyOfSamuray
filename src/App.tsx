@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
@@ -6,7 +6,7 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "./State/reduxStore";
+import {AppRootStateType, useAppDispatch} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, setProfileDataAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
@@ -19,12 +19,19 @@ import {
 } from "./ActionCreators/usersAC";
 import {dialogsStateType} from "./Resduscers/dialogsReduser";
 import {profileDataType, ProfilePageStateType} from "./Resduscers/ProfileReducer";
+import {authMeTC} from "./ActionCreators/authUserAC";
 
 const App = ()=>{
+    const dispatch = useAppDispatch();
+
+
 
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
+    useEffect(()=>{
+        dispatch(authMeTC())
+    },[])
 
-    const dispatch = useDispatch();
+
     //_______________________________profilePage calbaks______________________
     const addPost = (newPost:string)=>{
         dispatch(addPostAC(newPost));
@@ -65,7 +72,7 @@ const App = ()=>{
     return(
         <Router>
             <div className={"app-wraper"} >
-                <Header logo={"https://w7.pngwing.com/pngs/705/877/png-transparent-house-painter-and-decorator-building-home-highways-poster-banner-background-building-text-logo.png"}/>
+                <Header />
                 <Navigation/>
 
                 <Routes>

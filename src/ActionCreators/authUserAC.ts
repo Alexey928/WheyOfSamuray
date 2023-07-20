@@ -33,11 +33,13 @@ return {type:"SET-REQUST-PROCESSING-STATUS",flag} as const
 }
 
 export const authMeTC = ()  => async (dispatch:DispatchType) => {
+    debugger
     dispatch(setIsRequestProcessingStatusAC(true));
     try {
         const response = await authUserAPI.authMe();
-        if (response.data.resultCode === 0) {
-            const { id, login, email } = response.data.data;
+        debugger
+        if (response.resultCode === 0) {
+            const { id, login, email } = response.data;
             dispatch(setAuthUserDataAC(id, login, email, true));
             // const res = await profileAPI.getUserProfile(response.data.data.id);
             // dispatch(setAuthedUserProfileAC(res.data));
