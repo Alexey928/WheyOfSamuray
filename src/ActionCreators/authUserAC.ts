@@ -1,5 +1,5 @@
 import {DispatchType} from "../State/reduxStore";
-import {authUserAPI} from "../API/dallAPI";
+import {authUserAPI} from "../API/dalAPI";
 import { AxiosError } from "axios";
 
 

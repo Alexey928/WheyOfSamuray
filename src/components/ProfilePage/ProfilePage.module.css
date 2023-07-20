@@ -25,20 +25,20 @@
     border-radius: 50%;
     background-color: #7cf508;
     padding: 10px 5px;
+    z-index: 900;
+    position: absolute;
+    top:0;
+    right:0;
+    display: none;
 }
 .button:hover{
     cursor: pointer;
 }
-.content .button{
-    position: absolute;
-    top:0;
-    left:0;
-    display: none;
-}
+
 @media (max-width: 500px) {
     .content{
         z-index: 2;
-        margin-left: -183px;
+        margin-left: -185px;
     }
     .content .button{
         display: block;

@@ -6,19 +6,20 @@ import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
 import Preloader from "../Preloader/Preloader";
 import PaginationBlock from "../PaginationBlock/PaginationBlock";
+import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 
 export type UsersPropsType = {
-    followUnfolowUser:(userID:string)=>void
-    setCurentPage:(pageNumber:number)=>void
+    followUnfollowUser:(userID:string)=>void
+    setCurrentPage:(pageNumber:number)=>void
 }
 
 
-const Users:React.FC<UsersPropsType> = ({followUnfolowUser,setCurentPage}) => {
+const Users:React.FC<UsersPropsType> = ({followUnfollowUser,setCurrentPage}) => {
     const dispatch = useAppDispatch();
     const usersPage = useSelector<AppRootStateType,usersStateType>(state => state.usersPage);
 
-    const getUsers = (curentPage:number,pageSize:number)=>{
-        dispatch(getUsersThunkCreator(curentPage,pageSize))// КОЛБЕК ДИСПАЧАЧЕШИЙ САНКУ
+    const getUsers = (currentPage:number,pageSize:number)=>{
+        dispatch(getUsersThunkCreator(currentPage,pageSize))// КОЛБЕК ДИСПАЧАЧЕШИЙ САНКУ
     }
 
 useEffect(  ()=>{
@@ -28,16 +29,18 @@ useEffect(  ()=>{
 
 return (
         <div className={style.usersContayner}>
-            <PaginationBlock setCurentPage={setCurentPage}
+
+            <PaginationBlock setCurentPage={setCurrentPage}
                              pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
                              curentPage={usersPage.curentPage}
 
             />
+            <button onClick={()=>dispatch(sestIsMenuActiveAC())} className={style.button}>menu</button>
             {usersPage.isLoading?<Preloader/>:usersPage.users.map((user)=><User
-                followUnfolowUser={followUnfolowUser}
+                followUnfolowUser={followUnfollowUser}
                 key={user.id}
                 user={user}/>)}
-            <PaginationBlock setCurentPage={setCurentPage}
+            <PaginationBlock setCurentPage={setCurrentPage}
                              pagesCount={Math.ceil(usersPage.totalUsersCount/usersPage.pageSize)}
                              curentPage={usersPage.curentPage}
             />

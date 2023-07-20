@@ -7,7 +7,8 @@ export  type navigationMenuActionType =  ReturnType <typeof sestIsMenuActiveAC>
 export const navigationMenuReduser = (state=navigationStaete,action:navigationMenuActionType):navigationStateType=>{
     switch (action.type) {
         case "SET_NAV_STATUS":
-            return {...state,isActive: action.flag}
+            console.log(action.flag)
+            return action.flag===null?{...state,shoveIt: !state.shoveIt}:{...state,shoveIt: action.flag}
         default:
             return state
     }

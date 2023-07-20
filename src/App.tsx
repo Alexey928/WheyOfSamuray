@@ -92,8 +92,8 @@ const App = ()=>{
                     }/>
 
                     <Route path = {"/Users/*"} element={<Users
-                                                               followUnfolowUser={followUnfolowUser}
-                                                               setCurentPage={setCurentPage}
+                                                               followUnfollowUser={followUnfolowUser}
+                                                               setCurrentPage={setCurentPage}
                     />}/>
                 </Routes>
             </div>

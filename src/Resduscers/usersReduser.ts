@@ -6,7 +6,7 @@ import {
     setUsersActionType,
     usersStateType, userType
 } from "../ActionCreators/usersAC";
-import {usersAPI} from "../API/dallAPI";
+import {usersAPI} from "../API/dalAPI";
 
 const initialState:usersStateType = {
     users:[],

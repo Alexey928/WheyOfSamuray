@@ -3,11 +3,12 @@ import style from "./ProfilePage.module.css"
 import PofileDiscription from "./ProfileDiscription/PofileDiscription";
 import MyPpsts from "./MyPosts/MyPpsts";
 import {profileDataType, ProfilePageStateType} from "../../Resduscers/ProfileReducer";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../State/reduxStore";
 import {useParams} from "react-router-dom";
 import axios, {AxiosResponse} from "axios";
 import Preloader from "../Preloader/Preloader";
+import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 
 type ProfilePageType = {
     addPost:(newPost:string)=>void
@@ -21,6 +22,7 @@ function ProfilePage(props:ProfilePageType){
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();
     const userID = Number(id["*"])?Number(id["*"]):myProfileID
+    const dispatch =useDispatch()
 
 
 useEffect(()=>{
@@ -40,7 +42,7 @@ useEffect(()=>{
     },[])
     return(
         <div className={style.content}>
-            <button className={style.button}>menu</button>
+            <button onClick={()=>dispatch(sestIsMenuActiveAC())} className={style.button}>menu</button>
             <div className={style.contentHeder}><span>Profile page</span></div>
             {profilePage.isLoading?<Preloader/>:
             <>

@@ -6,8 +6,17 @@
     opacity: 1;
     position: relative;
     z-index: 0;
+    transition: all 0.5s linear;
 }
-
+.navigationSelected.navigation{
+    background-image:linear-gradient(270deg, rgb(239, 0, 66), rgb(233, 197, 20));
+    margin-right: 30px;
+    border-radius: 15px;
+    font-size: 35px;
+    opacity: 1;
+    position: relative;
+    z-index: 200;
+}
 
 .navigation a{
     line-height: 40px;
@@ -20,7 +29,6 @@
 }
 .navigation .active {
     transition: 0.5s all ;
-    /*color: rgba(71, 250, 23, 0.89);*/
     text-decoration: underline;
     font-size: 40px;
 }
@@ -35,6 +43,8 @@
     display: flex;
     flex-direction: column;
 }
+
+
 @media (max-width: 500px) {
     .navigation{
         opacity: 0;
