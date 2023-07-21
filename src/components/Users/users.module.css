@@ -1,12 +1,11 @@
 .usersContayner{
-
+    margin-top: 70px;
     height: 100vh;
     overflow: scroll;
     position: relative;
-
 }
 .usersContayner::-webkit-scrollbar {
-    width: 0px;
+    width: 0;
 }
 
 .button{

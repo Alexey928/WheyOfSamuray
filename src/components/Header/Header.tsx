@@ -5,7 +5,7 @@ import {AppRootStateType} from "../../State/reduxStore";
 import {usersStateType} from "../../ActionCreators/usersAC";
 import {UserAuthStateType} from "../../Resduscers/authUserReduser";
 import isAuthed from "../../asets/free-icon-approved-1478873.png"
-import logo from "../../asets/—Pngtree—hand-painted japanese samurai knife_4236036 (1).png"
+import logo from "../../asets/png-clipart-samurai-holding-sword-graphic-onna-bugeisha-samurai-woman-bushido-katana-samurai-computer-wallpaper-sports-equipment.png"
 type HeaderPropstype = {
     logo:string
 }

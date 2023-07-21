@@ -12,6 +12,9 @@ const MyPpsts = (props: MyposPropsType) => {
     console.log(props)
     return (
         <div>
+            <div style={{paddingTop:80}}>
+
+            </div>
             <AddItemForm addItem={props.addPost}/>
             <div>
                 {props.posts.map((el)=><Post removePost={()=>props.removePost(el.id)} key={el.id} post={el}/>)}

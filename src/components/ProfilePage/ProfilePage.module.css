@@ -1,24 +1,33 @@
+
 .content{
-    background-image:linear-gradient(rgba(239, 0, 66, 0.65), rgba(233, 197, 20, 0.54));
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    background-color:  #002041;
     border-radius: 25px;
     position: relative;
-
+}
+.descriptionAndPostWraper{
+    background-color: #002041;
+    height: calc(100% - 45px);
+    overflow: scroll;
+}
+.descriptionAndPostWraper::-webkit-scrollbar {
+    width: 0;
+    display: none;
 }
 .contentHeder span{
-    color: #020ff8;
     background-image:linear-gradient(270deg, rgba(104, 246, 10, 0.84), rgba(20, 31, 233, 0.86));
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
-
 }
 .content .contentHeder {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     font-style: italic;
     font-weight: bold;
-    min-height: 100px;
-    background-image:linear-gradient(270deg, rgba(239, 0, 66, 0.63), rgba(233, 197, 20, 0.65));
-    font-size: 50px;
+    height: 45px;
+    background-image:linear-gradient(270deg, rgba(0, 20, 232, 0.63), rgba(124, 243, 248, 0.65));
+    font-size: 30px;
     text-align: center;
 }
 .button{
@@ -34,6 +43,7 @@
 .button:hover{
     cursor: pointer;
 }
+
 
 @media (max-width: 500px) {
     .content{

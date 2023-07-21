@@ -17,8 +17,8 @@ const Navigation = ()=>{
 const f = style.navigation
     console.log(f)
     return (
-       <div>
-           <nav className={navigationState.shoveIt?`${style.navigation} ${style.navigationSelected} `:style.navigation}>
+       <div className={style.navigationWrapper}>
+           <nav className={navigationState.shoveIt?`${style.navigation} ${style.navigationSelected}`:style.navigation}>
                <div>
                    <NavLink onClick={()=>{dispatch(sestIsMenuActiveAC(false))}} to={"/Profile"} className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Profile</NavLink>
                </div>

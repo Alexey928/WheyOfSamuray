@@ -45,7 +45,7 @@ export const profileReducer = (state:ProfilePageStateType = initialProfileState,
     switch (action.type) {
         case "ADD_NEW_POST":
             return {...state,postItems:
-                    [...state.postItems,{id:v1(),avatarURL:urlRandomiser(),time:"10:00",post:action.newPost}]}
+                    [{id:v1(),avatarURL:urlRandomiser(),time:"10:00",post:action.newPost},...state.postItems]}
         case "REMOVE_POST":
             return {...state,postItems:state.postItems.filter((p)=>p.id!==action.postID)}
         case "SET_PROFILE_DATA":
