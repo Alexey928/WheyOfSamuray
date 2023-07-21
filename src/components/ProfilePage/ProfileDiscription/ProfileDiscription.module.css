@@ -2,8 +2,9 @@
     display: flex;
     position: fixed;
     z-index: 100;
-    background-color: rgba(1, 22, 49, 0.71);
+    background-color: rgba(1, 22, 49, 0.78);
     width: 100%;
+
 }
 .description{
     font-size: 18px;
@@ -11,8 +12,8 @@
     background-color: rgba(2, 3, 40, 0.7);
     margin: 6px 6px 6px 0;
     box-shadow: 0 -2px 12px 4px rgb(99, 252, 252);
-    width: 100%;
     transition: all 0.3s linear;
+
 }
 .description:hover{
     box-shadow: 0 -2px 12px 4px rgb(146, 255, 71);
