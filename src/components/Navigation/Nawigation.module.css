@@ -23,17 +23,20 @@
     text-decoration: none;
     color: #095a57;
     margin-left: 5px;
+    transition: 0.7s all ;
+    border-radius: 10px;
 }
+
+
 .navigation div:last-child{
     margin-top: 40px;
 }
-.navigation .active {
-    transition: 0.5s all ;
-    text-decoration: underline;
-    font-size: 40px;
-}
+
 .navigation .act {
-    color: #7cf508
+    color: #08e1f5;
+    background-image:linear-gradient(90deg, rgb(4, 0, 253), rgb(2, 255, 12));
+    border-radius: 10px;
+
 }
 .frendsCotayner{
     background-color: rgba(248, 96, 242, 0.85);
@@ -43,7 +46,6 @@
     display: flex;
     flex-direction: column;
 }
-
 
 @media (max-width: 500px) {
     .navigation{

@@ -10,7 +10,7 @@ import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 const Navigation = ()=>{
  const location  = useLocation()
     console.log(location);//<---- interesting object ))
-    const navigationStaete = useSelector<AppRootStateType,navigationStateType>(state => state.navigation);
+    const navigationState = useSelector<AppRootStateType,navigationStateType>(state => state.navigation);
     const dispatch = useAppDispatch();
 
 
@@ -18,7 +18,7 @@ const f = style.navigation
     console.log(f)
     return (
        <div>
-           <nav className={navigationStaete.shoveIt?`${style.navigation} ${style.navigationSelected} `:style.navigation}>
+           <nav className={navigationState.shoveIt?`${style.navigation} ${style.navigationSelected} `:style.navigation}>
                <div>
                    <NavLink onClick={()=>{dispatch(sestIsMenuActiveAC(false))}} to={"/Profile"} className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Profile</NavLink>
                </div>

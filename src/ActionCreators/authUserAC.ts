@@ -46,7 +46,6 @@ export const authMeTC = ()  => async (dispatch:DispatchType) => {
         }
     } catch (e) {
         const err = e as Error | AxiosError<{ error: string }>;//for types error as "Error" , or  as "AxiosError"
-        //handleError(e, dispatch);
         console.log(err.message)
         alert(e)
     } finally {

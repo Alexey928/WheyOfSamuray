@@ -17,3 +17,10 @@ body {
     grid-template-rows: 60px 1fr;
 }
 
+a {/* убирает браузерную подсветку при табе*/
+    -webkit-tap-highlight-color: transparent; /* Для WebKit-браузеров (Safari, Chrome) */
+    -moz-tap-highlight-color: transparent; /* Для Firefox */
+    -ms-tap-highlight-color: transparent; /* Для IE/Edge */
+    tap-highlight-color: transparent; /* Общий вариант */
+}
+

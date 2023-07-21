@@ -8,12 +8,10 @@ type profileDescriptionType = {
 }
 const PofileDiscription = (props:profileDescriptionType) => {
     return (
-        <div >
-            <div>Myposts</div>
+        <div className={style.descriptionWrapper}>
             <div className={style.profilDiscription}>
                 <img className={style.avatar} src={props.profileData?.photos.large||avatar}/>
-                <div className={style.description}>{props.profileData?.aboutMe||"About mee"}</div>
-                
+                <span className={style.description}>{props.profileData?.aboutMe||"About mee"}</span>
             </div>
         </div>
     );

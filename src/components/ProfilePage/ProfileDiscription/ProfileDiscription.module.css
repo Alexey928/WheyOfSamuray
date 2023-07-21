@@ -2,13 +2,29 @@
     display: flex;
 }
 .description{
-    font-size: 25px;
-    color: aqua;
+    font-size: 18px;
+    color: #ff0026;
+    background-color: #c004ee;
+    margin: 6px 6px 6px 0;
+    box-shadow: 0 -2px 12px 4px rgb(75, 255, 255);
+    width: 100%;
 }
+
 .avatar{
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    margin: 0 50px 0 50px;
+    margin: 5px 20px 5px 20px;
 
+}
+.descriptionWrapper{
+    max-height: 120px;
+    background-color: #002041;
+    max-width: 55%;
+
+}
+@media (max-width: 500px) {
+    .descriptionWrapper{
+        max-width: 100%;
+    }
 }

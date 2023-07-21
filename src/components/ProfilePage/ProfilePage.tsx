@@ -33,7 +33,7 @@ useEffect(()=>{
             props.setProfileIsLoad(false);
         }).catch((e:Error)=>{
             props.setProfileIsLoad(false);
-            window.alert(e)
+
         }
     ).finally(()=>{
         console.log("finely = > for some case ;)");
