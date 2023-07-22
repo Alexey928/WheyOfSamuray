@@ -9,7 +9,6 @@ import {useParams} from "react-router-dom";
 import axios, {AxiosResponse} from "axios";
 import Preloader from "../Preloader/Preloader";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
-
 import background from "../../asets/1653409714_38-celes-club-p-beskonechnii-fon-dlya-saita-krasivie-39.jpg"
 
 
@@ -21,11 +20,12 @@ type ProfilePageType = {
 }
 
 function ProfilePage(props:ProfilePageType){
-    const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage)
+    const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage);
+
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();
-    const userID = Number(id["*"])?Number(id["*"]):myProfileID
-    const dispatch =useDispatch()
+    let userID = Number(id["*"])?Number(id["*"]):myProfileID
+    const dispatch =useDispatch();
 
 
 useEffect(()=>{
@@ -49,7 +49,6 @@ useEffect(()=>{
             <div className={style.contentHeder}><span>Profile page</span></div>
             {profilePage.isLoading?<Preloader/>:
             <div style={{backgroundImage:`url(${background})`}} className={style.descriptionAndPostWraper}>
-
                 <PofileDiscription profileData={profilePage.profileData}/>
                 <MyPpsts removePost={props.removePost} addPost={props.addPost} posts = {profilePage.postItems}/>
             </div>}

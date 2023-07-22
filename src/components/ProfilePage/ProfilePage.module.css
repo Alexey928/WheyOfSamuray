@@ -10,13 +10,16 @@
     background-color: #002041;
     height: calc(100% - 45px);
     overflow: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .descriptionAndPostWraper::-webkit-scrollbar {
+
     width: 0;
     display: none;
 }
 .contentHeder span{
-    background-image:linear-gradient(270deg, rgba(104, 246, 10, 0.84), rgba(20, 31, 233, 0.86));
+    background-image:linear-gradient(270deg, rgba(1, 255, 5, 0.91), rgba(0, 8, 112, 0.96));
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
 }
@@ -48,7 +51,7 @@
 @media (max-width: 500px) {
     .content{
         z-index: 2;
-        margin-left: -185px;
+        margin-left: -190px;
     }
     .content .button{
         display: block;

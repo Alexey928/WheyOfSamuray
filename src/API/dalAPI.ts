@@ -19,6 +19,15 @@ export const usersAPI = {
     },
 }
 
+export const profileApi = {
+    getUserProfile(id:number){
+        return axiosInstanse.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+    }
+}
+
+
+
+
 
 
 

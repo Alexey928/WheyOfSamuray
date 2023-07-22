@@ -10,7 +10,7 @@ export const UserAuthState = {// auto types constant --> typeof constType =
        login: null as string | null,
        isAuth: false,
    },
-    isFeching:false
+    isLading:false
 };
 
 export const setAuthUserDataAC = (//auto types function --> type actionType = typeof setAuthUserDataAC,
@@ -33,21 +33,20 @@ return {type:"SET-REQUST-PROCESSING-STATUS",flag} as const
 }
 
 export const authMeTC = ()  => async (dispatch:DispatchType) => {
-    debugger
     dispatch(setIsRequestProcessingStatusAC(true));
     try {
         const response = await authUserAPI.authMe();
-        debugger
+
         if (response.resultCode === 0) {
-            const { id, login, email } = response.data;
+            const { id, login, email, isAuth} = response.data;
             dispatch(setAuthUserDataAC(id, login, email, true));
             // const res = await profileAPI.getUserProfile(response.data.data.id);
             // dispatch(setAuthedUserProfileAC(res.data));
         }
-    } catch (e) {
+    } catch (e){
         const err = e as Error | AxiosError<{ error: string }>;//for types error as "Error" , or  as "AxiosError"
-        console.log(err.message)
-        alert(e)
+        console.log(err);
+
     } finally {
         dispatch(setIsRequestProcessingStatusAC(false));
     }

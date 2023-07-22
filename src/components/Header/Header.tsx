@@ -10,7 +10,7 @@ import logo from "../../asets/—Pngtree—hand-painted japanese samurai knife_4
 
 const Header = ()=>{
     const auth = useSelector<AppRootStateType,UserAuthStateType>(state => state.userAuth);
-    console.log("header");
+    console.log(auth);
 
     return (
         <header className={style.header}>

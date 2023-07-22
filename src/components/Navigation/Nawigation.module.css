@@ -1,10 +1,11 @@
 
 .navigationWrapper{
     margin-top: 70px;
+    width: 190px;
 }
 .navigation{
     background-image:linear-gradient(270deg, rgb(21, 208, 0), rgb(1, 2, 68));
-    margin-right: 30px;
+    margin-right: 20px;
     border-radius: 15px;
     font-size: 35px;
     opacity: 1;

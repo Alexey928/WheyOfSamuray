@@ -1,9 +1,10 @@
 .message {
-    background-image: linear-gradient(45deg, #ead80d, #c004ee);
+    background-image: linear-gradient(45deg, #00083d, #256400);
     display: flex;
     max-width: 50vw;
     padding: 10px;
     border-radius: 10px;
+    width: 100%;
 }
 .message img {
     border-radius: 50%;
@@ -11,7 +12,8 @@
     height: 60px;
     margin-right: 10px;
     align-self: flex-end;
-    border: 2px solid rgba(0, 51, 255, 0.79);
+    border: 3px solid rgb(0, 9, 52);
+    box-shadow: 0 -2px 12px 4px rgb(99, 252, 252);
 }
  .MasegeContentWrapper {
     font-size: 15px;
@@ -37,7 +39,7 @@
     position: absolute;
     top: 0;
     left: 15px;
-    color: #e500db;
+    color: #010333;
 }
 .MasegeContentWrapper:before{
     content: "";
@@ -60,10 +62,10 @@
 .deleteItem{
     position: relative;
     border: 1px solid #7cf508;
-    background-color: #ead80d;
+    background-color: #010d38;
     padding: 5px;
     border-radius: 50%;
-    color: #fc2f70;
+    color: #d6ffef;
 
 }
 .deleteItem:hover{

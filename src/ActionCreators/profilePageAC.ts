@@ -1,4 +1,5 @@
 import {profileDataType} from "../Resduscers/ProfileReducer";
+import {DispatchType} from "../State/reduxStore";
 
 export  type addNewPostActionType = {
     type:"ADD_NEW_POST"
@@ -7,10 +8,6 @@ export  type addNewPostActionType = {
 export type removePostActionType = {
     type:"REMOVE_POST"
     postID:string
-}
-export type updateEnteredPostValueActionType = {
-    type:"UPDATE_ENTERED_POST"
-    currentValue:string
 }
 export type setProfileDataActionType = {
     type:'SET_PROFILE_DATA'
@@ -27,14 +24,18 @@ export const addPostAC = (newPost:string):addNewPostActionType=>{
 export const remuveNewPostAC = (postID:string):removePostActionType=>{
     return {type:"REMOVE_POST",postID}
 }
-export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValueActionType=>{
-    return {type:"UPDATE_ENTERED_POST",currentValue}
-}
+// export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValueActionType=>{
+//     return {type:"UPDATE_ENTERED_POST",currentValue}
+// }
 
-export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
-    return{type:"SET_IS_LOAD",flag}
-}
+// export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
+//     return{type:"SET_IS_LOAD",flag}
+// }
 
 export const setProfileDataAC = (data:profileDataType):setProfileDataActionType=>{
  return {type:'SET_PROFILE_DATA', data}
+}
+
+export const updateUserProfileDataTC = (data:profileDataType) => async (dispatch:DispatchType)=>{
+
 }

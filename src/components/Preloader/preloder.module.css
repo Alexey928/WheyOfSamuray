@@ -5,7 +5,7 @@
     height: 40px;
     animation: load 2s linear infinite;
 }
-.loadWrapper {
+.loadWrapper{
     display: flex;
     align-items: center;
     justify-content: center;
