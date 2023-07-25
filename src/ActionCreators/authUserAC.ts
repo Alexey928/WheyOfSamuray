@@ -36,7 +36,6 @@ export const authMeTC = ()  => async (dispatch:DispatchType) => {
     dispatch(setIsRequestProcessingStatusAC(true));
     try {
         const response = await authUserAPI.authMe();
-
         if (response.resultCode === 0) {
             const { id, login, email, isAuth} = response.data;
             dispatch(setAuthUserDataAC(id, login, email, true));
@@ -45,8 +44,6 @@ export const authMeTC = ()  => async (dispatch:DispatchType) => {
         }
     } catch (e){
         const err = e as Error | AxiosError<{ error: string }>;//for types error as "Error" , or  as "AxiosError"
-        console.log(err);
-
     } finally {
         dispatch(setIsRequestProcessingStatusAC(false));
     }

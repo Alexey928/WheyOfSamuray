@@ -8,6 +8,7 @@ export type paginationPropsType= {
 
 
 const PaginationBlock = (props:paginationPropsType) => {
+
     const firstButtons:Array<number> = [];
     const lastButtons:Array<number> = [];
     console.log(props.pagesCount)

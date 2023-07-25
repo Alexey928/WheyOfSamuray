@@ -14,7 +14,7 @@ export type setProfileDataActionType = {
     data:profileDataType
 }
 export type setIsLoadActionType = {
-    type:"SET_IS_LOAD"
+    type:"SET-REQUST-PROCESSING-STATUS"
     flag:boolean
 }
 

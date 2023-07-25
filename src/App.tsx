@@ -5,29 +5,24 @@ import Navigation from "./components/Navigation/Navigation";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, setProfileDataAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
-import {
-    followUnfollowAC, setCurentPageAC,
-    setIsLoadAC,
-    setTotalUserCountAC,
-    setUsersAC,
-    userType
-} from "./ActionCreators/usersAC";
+import {followUnfollowAC, setCurentPageAC,} from "./ActionCreators/usersAC";
 import {dialogsStateType} from "./Resduscers/dialogsReduser";
-import {profileDataType, ProfilePageStateType} from "./Resduscers/ProfileReducer";
-import {authMeTC} from "./ActionCreators/authUserAC";
+import {profileDataType} from "./Resduscers/ProfileReducer";
+import {authMeTC, setIsRequestProcessingStatusAC} from "./ActionCreators/authUserAC";
+import LoginPage from "./components/Login/loginPage";
 
 const App = ()=>{
     const dispatch = useAppDispatch();
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
 
-    useEffect(()=>{
-        dispatch(authMeTC())
-    },[])
+    // useEffect(()=>{
+    //     dispatch(authMeTC())
+    // },[])
 
 
     //_______________________________profilePage calbaks______________________
@@ -53,15 +48,15 @@ const App = ()=>{
    const followUnfolowUser = (usreID:string)=>{
         dispatch(followUnfollowAC(usreID))
    }
-   const setUsers = (users:Array<userType>)=>{
-        dispatch(setUsersAC(users))
-   }
+   // const setUsers = (users:Array<userType>)=>{ // виніс у санку
+   //      dispatch(setUsersAC(users))
+   // }
    const setComponentIsload = (flaf:boolean)=>{
-        dispatch(setIsLoadAC(flaf))
+        dispatch(setIsRequestProcessingStatusAC(flaf)) //setIsRequestProcessingStatusAC загальний AC
    }
-   const setUserTotalCount = (count:number)=>{
-        dispatch(setTotalUserCountAC(count))
-   }
+   // const setUserTotalCount = (count:number)=>{//виніс у санку
+   //      dispatch(setTotalUserCountAC(count))
+   // }
     const setCurentPage = (pageNumber:number)=>{
         dispatch(setCurentPageAC(pageNumber))
     }
@@ -72,8 +67,8 @@ const App = ()=>{
             <div className={"app-wraper"} >
                 <Header />
                 <Navigation/>
-
                 <Routes>
+                    <Route path={"/Login/*"} element={<LoginPage/>}/>
                     <Route  path = {"/"} element={<ProfilePage
                                                         addPost={addPost}
                                                         removePost={remuvePost}

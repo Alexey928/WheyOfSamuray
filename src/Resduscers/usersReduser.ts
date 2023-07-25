@@ -29,7 +29,7 @@ export const userReducer = (state=initialState, action:userActionType):usersStat
                     {...user,followed:!user.followed}:user)}
         case "SET_USERS":
             return {...state, users:[...action.users]}
-        case "SET_IS_LOAD":
+        case "SET-REQUST-PROCESSING-STATUS":
             return {...state,isLoading:action.flag}
         case "SET_TOTAL_USER_COUNT":
             console.log(action.count)

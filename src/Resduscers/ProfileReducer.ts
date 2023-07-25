@@ -50,7 +50,7 @@ export const profileReducer = (state:ProfilePageStateType = initialProfileState,
             return {...state,postItems:state.postItems.filter((p)=>p.id!==action.postID)}
         case "SET_PROFILE_DATA":
             return {...state,profileData:action.data}
-        case "SET_IS_LOAD":
+        case "SET-REQUST-PROCESSING-STATUS":
             return {...state,isLoading:action.flag}
         default:
            return  state

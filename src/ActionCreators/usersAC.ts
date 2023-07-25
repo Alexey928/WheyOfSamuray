@@ -1,5 +1,6 @@
 import {usersAPI} from "../API/dalAPI";
 import {DispatchType} from "../State/reduxStore";
+import {setIsRequestProcessingStatusAC} from "./authUserAC";
 
 export type userType = {
     id:string
@@ -34,7 +35,7 @@ export type setUsersActionType = {
     users:Array<userType>
 }
 export type setIsLoadActionType = {
-    type:"SET_IS_LOAD"
+    type:"SET-REQUST-PROCESSING-STATUS"
     flag:boolean
 }
 export type setTotalUserCountType = {
@@ -53,9 +54,9 @@ export const followUnfollowAC = (Userid:string):followUnfollowActionType =>{
 export const setUsersAC = (users:Array<userType>):setUsersActionType=>{
     return {type:"SET_USERS",users}
 }
-export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
-    return{type:"SET_IS_LOAD",flag}
-}
+// export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
+//     return{type:"SET_IS_LOAD",flag}
+// }
 export const setTotalUserCountAC = (count:number):setTotalUserCountType=>{
     return{type:"SET_TOTAL_USER_COUNT", count}
 }
@@ -66,15 +67,15 @@ export const setCurentPageAC = (pageNumber:number):setCurentPageType=>{
 
 export const getUsersThunkCreator = (curentPage:number,pageSize:number) => async (dispatch:DispatchType)=>{
     try {
-        dispatch(setIsLoadAC(true))
+        dispatch(setIsRequestProcessingStatusAC(true))
         const {items,totalCount} =  await usersAPI.getUsers(curentPage,pageSize);
         dispatch(setUsersAC(items))
         dispatch(setTotalUserCountAC(totalCount))
 
     }catch(e){
-        dispatch(setIsLoadAC(false))
+        dispatch(setIsRequestProcessingStatusAC(false))
         window.alert(e);
     }finally {
-        dispatch(setIsLoadAC(false))
+        dispatch(setIsRequestProcessingStatusAC(false))
     }
 }

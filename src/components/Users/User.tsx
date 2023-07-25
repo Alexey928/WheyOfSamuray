@@ -15,7 +15,6 @@ const User = React.memo((props:userPropsType) => {
     const handleMoveToUserProfile = () => {
         navigate(`/Profile/${props.user.id}`);
     };
-
     console.log("user")
     return (
         <div className={style.userContayner}>
