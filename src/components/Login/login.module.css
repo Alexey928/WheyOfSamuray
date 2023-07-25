@@ -18,9 +18,10 @@
     justify-content: center;
 }
 .form span{
+    padding: 2px 5px;
     background-color: #002041;
     color: azure;
-    border: 2px solid #2fff00;
+
     margin-top: 20px;
     box-shadow: 0 0 10px rgb(2, 248, 43);
     border-radius: 5px;
@@ -30,7 +31,7 @@ form input{
     overflow: hidden;
     resize: none;
     width: 200px;
-    height: 30px;
+    height: 25px;
     color: white;
     font-size: small;
     line-height: 16px;
@@ -40,8 +41,7 @@ form input{
     border-bottom-width: 3px;
     border-radius: 5px;
     transition: all 0.3s linear;
-
-    box-shadow: 0 0 10px rgba(2, 248, 248, 0.91);
+    box-shadow: 0 0 10px rgba(3, 248, 248, 0.91);
 }
 .form span:hover{
     cursor: pointer;

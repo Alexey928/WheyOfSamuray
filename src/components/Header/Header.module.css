@@ -1,4 +1,5 @@
 .header{
+    color: azure;
     position: fixed;
     grid-column: 1/12;
     margin-bottom: 4px;
@@ -16,6 +17,9 @@ header img{
 .auth{
     display: inline-block;
     float: right;
+}
+.auth span:hover{
+    cursor: pointer;
 }
 
 

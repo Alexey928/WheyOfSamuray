@@ -9,11 +9,10 @@ type EditableSpanPropsType = {
 export function EditableSpan(props: EditableSpanPropsType){
 
     let [editMode, setEditMode] = useState(false);
-    let [title, setTitle] = useState(props.titlle);
+    let [title, setTitle] = useState("");
 
     const activateEditMode = () => {
         setEditMode(true);
-        setTitle(props.titlle);
     }
     const activateViewMode = () => {
         setEditMode(false);
@@ -30,5 +29,5 @@ export function EditableSpan(props: EditableSpanPropsType){
                   autoFocus onBlur={activateViewMode}
                   onKeyDown={(e:KeyboardEvent<HTMLInputElement>)=>e.key==="Enter"&&activateViewMode()}
         /> :
-        <span onClick={activateEditMode}>{title}</span>
+        <span onClick={activateEditMode}>{title?title:props.titlle}</span>
 }

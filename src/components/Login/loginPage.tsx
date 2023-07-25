@@ -10,8 +10,8 @@ const LoginPage = () => {
     return (
         <div className={style.loginFormContayner}>
             <form className={style.form}>
-                <EditableSpan titlle={"login"} type={"text"}/>
-                <EditableSpan titlle={"Password"} type={"password"}/>
+                <EditableSpan titlle={"Yor login"} type={"text"}/>
+                <EditableSpan titlle={"Yor Password"} type={"password"}/>
             </form>
         </div>
 
