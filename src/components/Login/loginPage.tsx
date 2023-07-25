@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './login.module.css';
+import {EditableSpan} from "../editinebalSpan/EditableSpan";
 
 
 
@@ -8,13 +9,9 @@ const LoginPage = () => {
 
     return (
         <div className={style.loginFormContayner}>
-            <div>
-                <span>Sing In</span>
-                <span>Log In</span>
-            </div>
-            <form>
-                <input type={"text"}/> <span>login</span>
-                <input type={"text"}/> <span>Password</span>
+            <form className={style.form}>
+                <EditableSpan titlle={"login"} type={"text"}/>
+                <EditableSpan titlle={"Password"} type={"password"}/>
             </form>
         </div>
 

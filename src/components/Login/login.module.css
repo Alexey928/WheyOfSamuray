@@ -1,4 +1,48 @@
 .loginFormContayner{
     margin-top: 70px;
     height: calc(100vh - 70px);
+    background-color: rgba(128, 128, 128, 0.62);
+    display: flex;
+    justify-content: center;
+}
+.form{
+    flex: 1;
+    margin: auto;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    background-color: #01093f;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+.form span{
+    background-color: #002041;
+    color: azure;
+    border: 2px solid #2fff00;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(2, 248, 43);
+    border-radius: 5px;
+}
+form input{
+    margin-top: 10px;
+    overflow: hidden;
+    resize: none;
+    width: 200px;
+    height: 30px;
+    color: white;
+    font-size: small;
+    line-height: 16px;
+    border-color: #00ffef;
+    background-color: rgb(0, 20, 47);
+    border-bottom-color: hsl(118, 100%, 49%);
+    border-bottom-width: 3px;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+
+    box-shadow: 0 0 10px rgba(2, 248, 248, 0.91);
+}
+.form span:hover{
+    cursor: pointer;
 }
