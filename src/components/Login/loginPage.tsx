@@ -12,6 +12,7 @@ const LoginPage = () => {
             <form className={style.form}>
                 <EditableSpan titlle={"Yor login"} type={"text"}/>
                 <EditableSpan titlle={"Yor Password"} type={"password"}/>
+                <button onClick={(e:any)=>{e.preventDefault()}} className={style.button}>sin In</button>
             </form>
         </div>
 
