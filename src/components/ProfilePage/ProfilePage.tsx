@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../State/reduxStore";
 import {useParams} from "react-router-dom";
 import axios, {AxiosResponse} from "axios";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../UIcomponets/Preloader/Preloader";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 import background from "../../asets/1653409714_38-celes-club-p-beskonechnii-fon-dlya-saita-krasivie-39.jpg"
 

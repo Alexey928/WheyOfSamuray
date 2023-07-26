@@ -43,7 +43,8 @@ const AddItemForm: React.FC<AddItemFormPropsType> = ({ addItem }) => {
                 />
                 <span className={style.underline}></span>
             </div>
-            <button className={style.button} style={{color:error?"red":"whitesmoke"}} onClick={onClickHandler}>{error?"ER":"+"}</button>
+            <button className={style.button} style={{color:error?"red":"whitesmoke"}}
+                    onClick={onClickHandler}>{error?"ER":"+"}</button>
         </div>
     );
 };

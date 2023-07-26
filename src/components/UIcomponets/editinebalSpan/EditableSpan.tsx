@@ -5,7 +5,7 @@ import style from "./editinebalSpan.module.css"
 type EditableSpanPropsType = {
     title: string
     type:"password"|"text"
-    handler:(value:string)=>void
+    handler?:(value:string)=>void
     placeholder?:string
 }
 export function EditableSpan(props: EditableSpanPropsType){
