@@ -4,7 +4,7 @@ import style from "./users.module.css"
 import {getUsersThunkCreator, setUsersAC, usersStateType} from "../../ActionCreators/usersAC";
 import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
-import Preloader from "../UIcomponets/Preloader/Preloader";
+import Preloader from "../UIcomponets/generalPreloader/Preloader";
 import PaginationBlock from "../PaginationBlock/PaginationBlock";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 
