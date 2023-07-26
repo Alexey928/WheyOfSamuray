@@ -1,5 +1,7 @@
 import {profileDataType} from "../Resduscers/ProfileReducer";
 import {DispatchType} from "../State/reduxStore";
+import {setIsRequestProcessingStatusAC} from "../ActionCreators/authUserAC"
+import {profileApi} from "../API/dalAPI";
 
 export  type addNewPostActionType = {
     type:"ADD_NEW_POST"
@@ -36,6 +38,15 @@ export const setProfileDataAC = (data:profileDataType):setProfileDataActionType=
  return {type:'SET_PROFILE_DATA', data}
 }
 
-export const updateUserProfileDataTC = (data:profileDataType) => async (dispatch:DispatchType)=>{
-
+export const updateUserProfileDataTC = (id:number) => async (dispatch:DispatchType)=>{
+    dispatch(setIsRequestProcessingStatusAC(true));
+try {
+    const data:profileDataType = await profileApi.getUserProfile(id);
+   dispatch(setProfileDataAC(data))
+    console.log(data)
+}catch (e) {
+    console.log(e)
+}finally {
+    dispatch(setIsRequestProcessingStatusAC(false));
+}
 }

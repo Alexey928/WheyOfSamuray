@@ -1,5 +1,6 @@
 import axios, {AxiosResponse} from "axios";
 import {usersStateType, userType} from "../ActionCreators/usersAC";
+import {profileDataType} from "../Resduscers/ProfileReducer";
 
 const axiosInstanse = axios.create({
     withCredentials:true,
@@ -21,7 +22,8 @@ export const usersAPI = {
 
 export const profileApi = {
     getUserProfile(id:number){
-        return axiosInstanse.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+        return axiosInstanse.get<profileDataType>(`https://social-network.samuraijs.com/api/1.0/profile/${id}`).
+        then((response:AxiosResponse)=>response.data);
     }
 }
 
