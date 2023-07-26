@@ -1,0 +1,25 @@
+.input{
+    overflow: hidden;
+    width: 200px;
+    height: 35px;
+    color: white;
+    font-size: medium;
+    line-height: 16px;
+    background-color: rgb(0, 20, 47);
+    border-bottom-color: hsl(118, 100%, 49%);
+    border-bottom-width: 4px;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    box-shadow: 0 0 10px rgba(3, 248, 248, 0.91);
+}
+.span{
+    padding: 2px 5px;
+    background-color: #002041;
+    color: azure;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(2, 248, 43);
+    border-radius: 5px;
+}
+.span:hover{
+    cursor:pointer;
+}

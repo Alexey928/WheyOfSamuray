@@ -1,7 +1,7 @@
 .loginFormContayner{
     margin-top: 70px;
     height: calc(100vh - 70px);
-    background-color: rgba(128, 128, 128, 0.62);
+    background-color: rgb(3 13 40 / 74%);
     display: flex;
     justify-content: center;
 }
@@ -16,36 +16,18 @@
     flex-direction: column;
     justify-content: center;
 }
-.form span{
+
+.form > span{
     padding: 2px 5px;
-    background-color: #002041;
-    color: azure;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgb(2, 248, 43);
-    border-radius: 5px;
+
 }
 form input{
     margin-top: 10px;
-    overflow: hidden;
-    resize: none;
-    width: 200px;
-    height: 35px;
-    color: white;
-    font-size: small;
-    line-height: 16px;
-    background-color: rgb(0, 20, 47);
-    border-bottom-color: hsl(118, 100%, 49%);
-    border-bottom-width: 4px;
-    border-radius: 5px;
-    transition: all 0.3s linear;
-    box-shadow: 0 0 10px rgba(3, 248, 248, 0.91);
 }
-.form span:hover{
-    cursor: pointer;
-}
+
 .button{
-    color: azure;
     margin-top: 20px;
+    color: azure;
     align-self: center;
     z-index: 1;
     position: relative;

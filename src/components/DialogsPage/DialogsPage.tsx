@@ -2,13 +2,15 @@ import React from 'react';
 import style from "./dialogs.module.css"
 import DialigsItem from "./DialogsItem/DialigsItem";
 import {DialogsItemType} from "../../Resduscers/dialogsReduser";
-import AddItemForm from "../AddItemForm/AddItemForm";
+import AddItemForm from "../UIcomponets/AddItemForm/AddItemForm";
+
 
 
 type DialogsPagePropstype = {
     dialogItems:Array<DialogsItemType>
     addDialog:(nevDialog:string)=>void
     removeDialog:(dialogID:string)=>void
+
 }
 
 const DialogsPage = (props:DialogsPagePropstype) => {
@@ -16,12 +18,13 @@ const DialogsPage = (props:DialogsPagePropstype) => {
         <div className={style.dialogsContent}>
             <AddItemForm addItem={props.addDialog}/>
             <div style={{height:"90vh",overflow:"scroll"}}>
-                {props.dialogItems.map((elem,i)=><DialigsItem
+                {props.dialogItems.map((elem)=><DialigsItem
                       removeDialog={()=>props.removeDialog(elem.id)}
                       target={elem.target}
                       key={elem.id}
                       mesege = {elem.message}
                       user={elem.userFirstName}/>)}
+
             </div>
         </div>
     );

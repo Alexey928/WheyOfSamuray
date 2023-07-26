@@ -1,5 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import {validateInputValue as validator} from "../../AuxiliaryLogic/validate"
+import {validateInputValue as validator} from "../../../AuxiliaryLogic/validate"
 import style from "./adItemForm.module.css"
 
 type AddItemFormPropsType ={

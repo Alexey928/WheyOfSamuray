@@ -1,6 +1,6 @@
 import React from 'react';
 import Post from "./Posts/Post";
-import AddItemForm from "../../AddItemForm/AddItemForm";
+import AddItemForm from "../../UIcomponets/AddItemForm/AddItemForm";
 import {PostsItem} from "../../../State/Store";
 import style from "./myPosts.module.css"
 type MyposPropsType = {
