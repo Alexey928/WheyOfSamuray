@@ -6,6 +6,7 @@
     justify-content: center;
 }
 .form{
+    color: #d9f8ec;
     flex: 1;
     margin: auto;
     align-items: center;

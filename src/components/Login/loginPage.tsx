@@ -12,6 +12,7 @@ const LoginPage = () => {
             <form className={style.form}>
                 <EditableSpan  title={"Yor login ?"} type={"text"} placeholder={"Enter Login"}/>
                 <EditableSpan  title={"Yor Password ?"} type={"password"} placeholder={"Enter Password"}/>
+                <span> remember me <input type={"checkbox"} /></span>
                 <button onClick={(e:any)=>{e.preventDefault()}} className={style.button}>Sing In</button>
             </form>
         </div>

@@ -26,7 +26,6 @@ export function EditableSpan(props: EditableSpanPropsType){
     const hiddenPassword = (password:string):string=>{
         return visible ? password : password.split("").map(()=>"*").join("");
     }
-
     return editMode ?
         <input className={style.input}
             type={props.type}
