@@ -23,6 +23,7 @@ type ProfilePageType = {
 function ProfilePage(props:ProfilePageType){
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage);
 
+
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();
     let userID = Number(id["*"])?Number(id["*"]):myProfileID

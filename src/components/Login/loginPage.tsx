@@ -10,8 +10,8 @@ const LoginPage = () => {
     return (
         <div className={style.loginFormContayner}>
             <form className={style.form}>
-                <EditableSpan  title={"Yor login"} type={"text"} placeholder={"Enter Login"}/>
-                <EditableSpan  title={"Yor Password"} type={"password"} placeholder={"Enter Password"}/>
+                <EditableSpan  title={"Yor login ?"} type={"text"} placeholder={"Enter Login"}/>
+                <EditableSpan  title={"Yor Password ?"} type={"password"} placeholder={"Enter Password"}/>
                 <button onClick={(e:any)=>{e.preventDefault()}} className={style.button}>Sing In</button>
             </form>
         </div>

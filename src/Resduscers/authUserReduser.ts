@@ -1,6 +1,5 @@
 import {setAuthUserDataAC, setIsRequestProcessingStatusAC, UserAuthState} from "../ActionCreators/authUserAC";
 
-
 export type AuthActionsType =
     | ReturnType<typeof setAuthUserDataAC>
     | ReturnType<typeof setIsRequestProcessingStatusAC>
