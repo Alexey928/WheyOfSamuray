@@ -3,10 +3,9 @@ import style from "./ProfilePage.module.css"
 import PofileDiscription from "./ProfileDiscription/PofileDiscription";
 import MyPpsts from "./MyPosts/MyPpsts";
 import {profileDataType, ProfilePageStateType} from "../../Resduscers/ProfileReducer";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
 import {useParams} from "react-router-dom";
-import axios, {AxiosResponse} from "axios";
 import Preloader from "../UIcomponets/generalPreloader/Preloader";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 import background from "../../asets/1653409714_38-celes-club-p-beskonechnii-fon-dlya-saita-krasivie-39.jpg"
@@ -22,7 +21,6 @@ type ProfilePageType = {
 
 function ProfilePage(props:ProfilePageType){
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage);
-
 
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();

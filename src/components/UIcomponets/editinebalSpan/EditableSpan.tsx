@@ -1,5 +1,6 @@
 import React, {KeyboardEvent,ChangeEvent, useState} from 'react';
 import style from "./editinebalSpan.module.css"
+import aie from "../../../asets/eye256x256_114396.png"
 
 type EditableSpanPropsType = {
     title: string
@@ -39,7 +40,7 @@ export function EditableSpan(props: EditableSpanPropsType){
         <span className={style.spanContainer}>
             {title&& <span className={style.fieldName}
                            style={{left:props.type==="password"?-90:-60}}>
-                           {props.type==="password"?"password->":"login->"}
+                           {props.type==="password"?"password ➤":"login ➤"}
                       </span>}
             <span className={style.span}
                 onClick={activateEditMode}>
@@ -52,8 +53,7 @@ export function EditableSpan(props: EditableSpanPropsType){
             </span>{props.type==="password" && title &&
             <span className={style.triger}
                 onClick={()=>setVisible(!visible)}
-                style={{marginLeft:8,backgroundColor:"blue"}}>
-                {visible?"of":"on"}
+                style={{ backgroundImage:`url(${aie})`}}>
             </span>}
         </span>
 

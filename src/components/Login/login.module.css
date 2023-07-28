@@ -4,6 +4,7 @@
     background-color: rgb(3 13 40 / 74%);
     display: flex;
     justify-content: center;
+    position: relative;
 }
 .form{
     color: #d9f8ec;
@@ -17,17 +18,12 @@
     flex-direction: column;
     justify-content: center;
 }
-
-.form > span{
-    padding: 2px 5px;
-
-}
 form input{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .button{
-    margin-top: 20px;
+    margin-top: 15px;
     color: azure;
     align-self: center;
     z-index: 1;
@@ -68,7 +64,7 @@ form input{
 .button:hover{
     border-color: hsl(237, 100%, 51%);
 }
-@media (max-width: 500px) {
+@media (max-width: 560px) {
     .loginFormContayner{
         z-index: 2;
         margin-left: -190px;
