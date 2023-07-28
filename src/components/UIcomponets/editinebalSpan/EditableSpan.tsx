@@ -18,9 +18,10 @@ export function EditableSpan(props: EditableSpanPropsType){
     }
     const activateViewMode = () => {
         setEditMode(false);
+        setTitle(title.trim().split(" ").join(""))
         props.handler && props.handler(title)
-
     }
+
     const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
@@ -53,7 +54,7 @@ export function EditableSpan(props: EditableSpanPropsType){
             </span>{props.type==="password" && title &&
             <span className={style.triger}
                 onClick={()=>setVisible(!visible)}
-                style={{ backgroundImage:`url(${aie})`}}>
+                style={{ backgroundImage:`url(${aie})`,boxShadow: visible?`rgb(7 244 30) -8px 0px 5px 1px`:"none",}}>
             </span>}
         </span>
 
