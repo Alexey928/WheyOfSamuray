@@ -12,12 +12,10 @@ import {useNavigate} from "react-router-dom";
 
 const Header = ()=>{
     const auth = useSelector<AppRootStateType,UserAuthStateType>(state => state.userAuth);
-    console.log(auth.isLading);
     const navigate = useNavigate();
     const navigateTologin = ()=>{
         navigate("/Login")
     }
-
     return (
         <header className={style.header}>
             <img src={logo} alt={"img"}/>

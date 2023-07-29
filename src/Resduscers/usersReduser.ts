@@ -6,7 +6,6 @@ import {
     setUsersActionType,
     usersStateType, userType
 } from "../ActionCreators/usersAC";
-import {usersAPI} from "../API/dalAPI";
 
 const initialState:usersStateType = {
     users:[],
@@ -32,7 +31,6 @@ export const userReducer = (state=initialState, action:userActionType):usersStat
         case "SET-REQUST-PROCESSING-STATUS":
             return {...state,isLoading:action.flag}
         case "SET_TOTAL_USER_COUNT":
-            console.log(action.count)
             return {...state,totalUsersCount:action.count}
         case "SET_CURENT_PAGE":
             return {...state,curentPage:action.pageNumber}

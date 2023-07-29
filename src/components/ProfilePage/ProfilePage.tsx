@@ -10,6 +10,7 @@ import Preloader from "../UIcomponets/generalPreloader/Preloader";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 import background from "../../asets/1653409714_38-celes-club-p-beskonechnii-fon-dlya-saita-krasivie-39.jpg"
 import {updateUserProfileDataTC} from "../../ActionCreators/profilePageAC";
+import {UserAuthStateType} from "../../Resduscers/authUserReduser";
 
 
 type ProfilePageType = {
@@ -21,18 +22,16 @@ type ProfilePageType = {
 
 function ProfilePage(props:ProfilePageType){
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage);
+    const auathData = useSelector<AppRootStateType,UserAuthStateType>(state=>state.userAuth)
 
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();
-    let userID = Number(id["*"])?Number(id["*"]):myProfileID
+    let userID = Number(id["*"])?Number(id["*"]):auathData.data.id?auathData.data.id:myProfileID
     const dispatch = useAppDispatch()
 
-
-
-useEffect(()=>{
+    useEffect(()=>{
     dispatch(updateUserProfileDataTC(userID))
-
-    },[])
+},[userID,dispatch])
     return(
         <div className={style.content}>
             <button onClick={()=>dispatch(sestIsMenuActiveAC())} className={style.button}>menu</button>

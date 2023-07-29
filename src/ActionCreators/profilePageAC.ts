@@ -26,13 +26,6 @@ export const addPostAC = (newPost:string):addNewPostActionType=>{
 export const remuveNewPostAC = (postID:string):removePostActionType=>{
     return {type:"REMOVE_POST",postID}
 }
-// export const updateEnteredPostsValueAC = (currentValue:string):updateEnteredPostValueActionType=>{
-//     return {type:"UPDATE_ENTERED_POST",currentValue}
-// }
-
-// export const setIsLoadAC = (flag:boolean):setIsLoadActionType=>{
-//     return{type:"SET_IS_LOAD",flag}
-// }
 
 export const setProfileDataAC = (data:profileDataType):setProfileDataActionType=>{
  return {type:'SET_PROFILE_DATA', data}

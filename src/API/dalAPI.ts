@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import {usersStateType, userType} from "../ActionCreators/usersAC";
 import {profileDataType} from "../Resduscers/ProfileReducer";
+import {UserAuthStateType} from "../Resduscers/authUserReduser";
 
 const axiosInstanse = axios.create({
     withCredentials:true,

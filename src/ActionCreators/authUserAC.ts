@@ -1,5 +1,5 @@
 import {DispatchType} from "../State/reduxStore";
-import {authUserAPI} from "../API/dalAPI";
+import {authUserAPI, profileApi} from "../API/dalAPI";
 import { AxiosError } from "axios";
 
 
@@ -37,8 +37,9 @@ export const authMeTC = ()  => async (dispatch:DispatchType) => {
     try {
         const response = await authUserAPI.authMe();
         if (response.resultCode === 0) {
-            const { id, login, email, isAuth} = response.data;
+            const { id, login, email} = response.data;
             dispatch(setAuthUserDataAC(id, login, email, true));
+            const res = await profileApi.getUserProfile(id);
             // const res = await profileAPI.getUserProfile(response.data.data.id);
             // dispatch(setAuthedUserProfileAC(res.data));
         }

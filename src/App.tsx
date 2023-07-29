@@ -19,9 +19,9 @@ import LoginPage from "./components/Login/loginPage";
 const App = ()=>{
     const dispatch = useAppDispatch();
     const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
-    // useEffect(()=>{
-    //     dispatch(authMeTC())
-    // },[])
+    useEffect(()=>{
+        dispatch(authMeTC())
+    },[])
     //_______________________________profilePage calbaks______________________
     const addPost = (newPost:string)=>{
         dispatch(addPostAC(newPost));

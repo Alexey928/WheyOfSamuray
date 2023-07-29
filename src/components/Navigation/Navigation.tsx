@@ -8,14 +8,11 @@ import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 
 
 const Navigation = ()=>{
- const location  = useLocation()
-    console.log(location);//<---- interesting object ))
+    const location  = useLocation()//<---- interesting object ))
+
     const navigationState = useSelector<AppRootStateType,navigationStateType>(state => state.navigation);
     const dispatch = useAppDispatch();
 
-
-const f = style.navigation
-    console.log(f)
     return (
        <div className={style.navigationWrapper}>
            <nav className={navigationState.shoveIt?`${style.navigation} ${style.navigationSelected}`:style.navigation}>
