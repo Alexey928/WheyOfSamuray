@@ -30,6 +30,7 @@ function ProfilePage(props:ProfilePageType){
     const dispatch = useAppDispatch()
 
     useEffect(()=>{
+
     dispatch(updateUserProfileDataTC(userID))
 },[userID,dispatch])
     return(

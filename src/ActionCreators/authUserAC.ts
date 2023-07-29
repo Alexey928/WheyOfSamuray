@@ -1,4 +1,4 @@
-import {DispatchType} from "../State/reduxStore";
+import {AppThunkType, DispatchType} from "../State/reduxStore";
 import {authUserAPI, profileApi} from "../API/dalAPI";
 import { AxiosError } from "axios";
 
@@ -32,8 +32,10 @@ export const setIsRequestProcessingStatusAC = (flag:boolean)=>{
 return {type:"SET-REQUST-PROCESSING-STATUS",flag} as const
 }
 
-export const authMeTC = ()  => async (dispatch:DispatchType) => {
+export const authMeTC = ():AppThunkType  => async (dispatch:DispatchType) => {
+
     dispatch(setIsRequestProcessingStatusAC(true));
+
     try {
         const response = await authUserAPI.authMe();
         if (response.resultCode === 0) {

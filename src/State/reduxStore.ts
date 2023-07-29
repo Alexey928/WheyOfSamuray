@@ -9,13 +9,16 @@ import {
     navigationMenuActionType,
     navigationMenuReduser,
 } from "../Resduscers/navigationMenuReduser";
+import {AppActionsType} from "../ActionCreators/AppAC";
+import {appReducer} from "../Resduscers/AppReducer";
 
 export const rootReducer = combineReducers({
     profilePage:profileReducer,
     dialogsPage:dialogsReduser,
     usersPage:userReducer,
     userAuth:authUserReduser,
-    navigation:navigationMenuReduser
+    navigation:navigationMenuReduser,
+    App:appReducer,
 }
 );
 
@@ -27,7 +30,8 @@ export type AppRootActionsType = dialogsActionType|
                                 profileActionType|
                                 userActionType|
                                 AuthActionsType|
-                        navigationMenuActionType;
+                                navigationMenuActionType|
+                                AppActionsType;
 export type AppThunkType<ReturnType = void> = ThunkAction<
     ReturnType,
     AppRootStateType,

@@ -5,22 +5,26 @@ import Navigation from "./components/Navigation/Navigation";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import DialogsPage from "./components/DialogsPage/DialogsPage";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {useSelector} from "react-redux";
+
 import {AppRootStateType, useAppDispatch} from "./State/reduxStore";
 import {addPostAC, remuveNewPostAC, setProfileDataAC} from "./ActionCreators/profilePageAC"
 import {addDialogAC, remuveDialogAC} from "./ActionCreators/dialogsPageAC"
 import Users from "./components/Users/Users";
 import {followUnfollowAC, setCurentPageAC,} from "./ActionCreators/usersAC";
-import {dialogsStateType} from "./Resduscers/dialogsReduser";
+
 import {profileDataType} from "./Resduscers/ProfileReducer";
-import {authMeTC, setIsRequestProcessingStatusAC} from "./ActionCreators/authUserAC";
+import {setIsRequestProcessingStatusAC} from "./ActionCreators/authUserAC";
 import LoginPage from "./components/Login/loginPage";
+import Preloader from "./components/UIcomponets/generalPreloader/Preloader";
+import {AppStateType, initializeAppTC} from "./ActionCreators/AppAC";
+import {useSelector} from "react-redux";
 
 const App = ()=>{
     const dispatch = useAppDispatch();
-    const dialogsPage = useSelector<AppRootStateType,dialogsStateType>(state => state.dialogsPage)
+    const AppState = useSelector<AppRootStateType,AppStateType>((state:AppRootStateType)=>state.App)
+
     useEffect(()=>{
-        dispatch(authMeTC())
+        dispatch(initializeAppTC())
     },[])
     //_______________________________profilePage calbaks______________________
     const addPost = (newPost:string)=>{
@@ -57,8 +61,13 @@ const App = ()=>{
     const setCurentPage = (pageNumber:number)=>{
         dispatch(setCurentPageAC(pageNumber))
     }
-
     console.log("app is coled")
+    if(!AppState.isInitialized){
+        return(
+            <div>
+                <Preloader/>
+           </div>)
+    }
     return(
         <Router>
             <div className={"app-wraper"} >
@@ -83,7 +92,6 @@ const App = ()=>{
                         />
                     }/>
                     <Route path = {"/DialogesPage/*"} element={<DialogsPage addDialog={addDialog}
-                                                                            dialogItems = {dialogsPage.dialogs}
                                                                             removeDialog={removeDialog}
                     />
                     }/>
