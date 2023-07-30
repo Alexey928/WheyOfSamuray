@@ -1,6 +1,8 @@
 import React, {KeyboardEvent,ChangeEvent, useState} from 'react';
+
 import style from "./editinebalSpan.module.css"
 import aie from "../../../asets/eye256x256_114396.png"
+import {Field} from "redux-form";
 
 type EditableSpanPropsType = {
     title: string
@@ -8,10 +10,11 @@ type EditableSpanPropsType = {
     handler?:(value:string)=>void
     placeholder?:string
 }
-export function EditableSpan(props: EditableSpanPropsType){
+export function EditableSpan(props: EditableSpanPropsType ){
     let [editMode, setEditMode] = useState<boolean>(false);
     let [title, setTitle] = useState<string>("");
     let [visible, setVisible] = useState<boolean>(false);
+
 
     const activateEditMode = () => {
         setEditMode(true);
@@ -29,8 +32,10 @@ export function EditableSpan(props: EditableSpanPropsType){
         return visible ? password : password.split("").map(()=>"*").join("");
     }
     return editMode ?
-        <input className={style.input}
-            type={props.type}
+        <Field
+                    name={props.type==="text"?"login":"password"} component="input"
+                    className={style.input}
+                    type={props.type}
                     placeholder={props.placeholder?props.placeholder:""}
                     value={title}
                     onChange={changeTitle}

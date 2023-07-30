@@ -11,6 +11,7 @@ import {
 } from "../Resduscers/navigationMenuReduser";
 import {AppActionsType} from "../ActionCreators/AppAC";
 import {appReducer} from "../Resduscers/AppReducer";
+import {reducer as formReducer} from "redux-form";
 
 export const rootReducer = combineReducers({
     profilePage:profileReducer,
@@ -19,6 +20,7 @@ export const rootReducer = combineReducers({
     userAuth:authUserReduser,
     navigation:navigationMenuReduser,
     App:appReducer,
+    form:formReducer
 }
 );
 

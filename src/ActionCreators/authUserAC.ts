@@ -35,7 +35,6 @@ return {type:"SET-REQUST-PROCESSING-STATUS",flag} as const
 export const authMeTC = ():AppThunkType  => async (dispatch:DispatchType) => {
 
     dispatch(setIsRequestProcessingStatusAC(true));
-
     try {
         const response = await authUserAPI.authMe();
         if (response.resultCode === 0) {

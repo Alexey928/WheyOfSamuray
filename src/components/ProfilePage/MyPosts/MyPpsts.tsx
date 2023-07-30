@@ -15,7 +15,6 @@ const MyPpsts = (props: MyposPropsType) => {
     return (
         <div>
             <div style={{paddingTop:80}}>
-
             </div>
             <AddItemForm addItem={props.addPost}/>
             <div className={style.postsContainer}>

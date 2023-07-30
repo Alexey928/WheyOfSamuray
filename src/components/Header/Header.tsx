@@ -2,7 +2,6 @@ import React from 'react';
 import style from "./Header.module.css"
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../State/reduxStore";
-import {usersStateType} from "../../ActionCreators/usersAC";
 import {UserAuthStateType} from "../../Resduscers/authUserReduser";
 import isAuthed from "../../asets/free-icon-approved-1478873.png"
 import notAused from "../../asets/free-icon-x-button-458594.png"
@@ -16,11 +15,14 @@ const Header = ()=>{
     const navigateTologin = ()=>{
         navigate("/Login")
     }
+    const logAut = ()=>{
+
+    }
     return (
         <header className={style.header}>
             <img src={logo} alt={"img"}/>
             <div className={style.auth}>
-                {!auth.data.isAuth&&<span onClick={navigateTologin}>login</span>}
+                <span onClick={auth.data.isAuth?navigateTologin:undefined}>{auth.data.isAuth?"log-aut":"login"}</span>
                 <img src={auth.data.isAuth?isAuthed:notAused} alt={"img"}/>
             </div>
          </header>

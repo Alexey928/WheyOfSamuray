@@ -21,9 +21,10 @@ type ProfilePageType = {
 }
 
 function ProfilePage(props:ProfilePageType){
+
+
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage);
     const auathData = useSelector<AppRootStateType,UserAuthStateType>(state=>state.userAuth)
-
     const myProfileID = 2//пока так )
     const id  = useParams<'*'>();
     let userID = Number(id["*"])?Number(id["*"]):auathData.data.id?auathData.data.id:myProfileID
