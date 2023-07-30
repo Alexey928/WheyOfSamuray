@@ -9,7 +9,9 @@ type FormDataType = {
     login?: string;
     password?: string;
 };
-
+export const RenderedField = ({input,className}:{input:any,className:string})=>{
+return(<input {...input} className={className}/>)
+}
 const LoginForm = (props:InjectedFormProps)=>{
     console.log(props)
     return(
@@ -17,7 +19,7 @@ const LoginForm = (props:InjectedFormProps)=>{
             <EditableSpan  title={"Yor login ?"} type={"text"} placeholder={"Enter Login"}
                            handler={(tittle:string)=>console.log(tittle)}/>
 
-            <EditableSpan  title={"Yor Password ?"} type={"password"} placeholder={"Enter Password"}/>
+            <EditableSpan  title={"Yor Password ?"} type={"password"} placeholder={"test"}/>
             <span> remember me <Field name={"rememberMe"} type={"checkbox"} component="input"/></span>
             <button type={"submit"} className={style.button}>Sing In</button>
         </form>
