@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ComponentType} from 'react';
 import style from './login.module.css';
 import {EditableSpan} from "../UIcomponets/editinebalSpan/EditableSpan";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
@@ -10,8 +10,10 @@ type FormDataType = {
     password?: string;
     rememberMe?:boolean
 };
+
 export const RenderedField = ({input,meta ,...props}:{input:any,meta:any})=>{
     console.log(meta);
+
 return(
     <div>
         <input {...input} {...props} />
@@ -25,10 +27,10 @@ const LoginForm = (props:InjectedFormProps)=>{
     console.log(props)
     return(
         <form className={style.form} onSubmit={props.handleSubmit}>
-            <EditableSpan input={Field} title={"Yor login ?"} type={"text"} placeholder={"'test' - for testing"}
+            <EditableSpan input={Field} title={"Yor login ?"} type={"text"} placeholder={"'demo' - for testing"}
                            handler={(tittle:string) => console.log(tittle)}/>
 
-            <EditableSpan input={Field} title={"Yor Password ?"} type={"password"} placeholder={"'test' - for testing"}/>
+            <EditableSpan input={Field} title={"Yor Password ?"} type={"password"} placeholder={"'demo' - for testing"}/>
             <span> remember me <Field name={"rememberMe"} type={"checkbox"} component="input"/></span>
             <button   className={style.button}>Sing In</button>
         </form>

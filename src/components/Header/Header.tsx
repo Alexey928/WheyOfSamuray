@@ -22,7 +22,7 @@ const Header = ()=>{
         <header className={style.header}>
             <img src={logo} alt={"img"}/>
             <div className={style.auth}>
-                <span onClick={!auth.data.isAuth?navigateTologin:logAut}>{auth.data.isAuth?"log-aut":"login"}</span>
+                <span onClick={auth.data.isAuth?navigateTologin:logAut}>{auth.data.isAuth?"log-aut":"login"}</span>
                 <img src={auth.data.isAuth?isAuthed:notAused} alt={"img"}/>
             </div>
          </header>
