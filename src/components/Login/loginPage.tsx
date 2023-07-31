@@ -1,7 +1,8 @@
-import React, {ComponentType} from 'react';
+import React from 'react';
 import style from './login.module.css';
 import {EditableSpan} from "../UIcomponets/editinebalSpan/EditableSpan";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
+
 
 
 
@@ -12,16 +13,15 @@ type FormDataType = {
 };
 
 export const RenderedField = ({input,meta ,...props}:{input:any,meta:any})=>{
-    console.log(meta);
 
+    console.log(meta);
 return(
-    <div>
+    <div className={style.errorContainer}>
+        <span className={`${style.error} ${meta.error && style.errorActive}`}>{meta.error}</span>
         <input {...input} {...props} />
     </div>
-
 )
 }
-
 
 const LoginForm = (props:InjectedFormProps)=>{
     console.log(props)
@@ -43,8 +43,10 @@ const ReduxLoginForm = reduxForm({
 
 const LoginPage = () => {
     const onSubmit = (formData:FormDataType)=>{
-        console.log("onSubmit handler")
-        console.log(formData)
+        console.log("onSubmit handler",formData);
+
+
+
     }
     return (
         <div className={style.loginFormContayner}>

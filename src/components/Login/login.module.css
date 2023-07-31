@@ -11,7 +11,7 @@
     flex: 1;
     margin: auto;
     align-items: center;
-    height: 200px;
+    height: 220px;
     width: 200px;
     background-color: #01093f;
     display: flex;
@@ -64,7 +64,49 @@ form input{
 .button:hover{
     border-color: hsl(237, 100%, 51%);
 }
+.error {
+    text-align: center;
+    background-color: blue;
+    border-bottom-color: blue;
+    border-radius: 6px 6px 6px 0;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0;
+    width: 210px;
+    height: 30px;
+    position: absolute;
+    top: -35px;
+    left: -6px;
+    color: #dc2121;
+    border-left-color: #02b9ee;
+    border-right-color: #03f8d3;
+    border-top-color: #3bfc07;
+    transition: all 0.5s linear;
+}
 
+.errorActive:after{
+
+    color:blue;
+    background-color: blue;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top:25px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    clip-path: polygon(100% 100%, 100% 0, 0 0, 11% 6%, 23% 12%, 35% 20%, 48% 29%, 60% 38%, 71% 48%, 81% 59%, 89% 72%, 95% 86%);
+}
+
+.errorActive{transition: all 0.5s linear;
+
+    opacity: 100%;
+}
+
+
+.errorContainer{
+    position: relative;
+}
 
 @media (max-width: 560px) {
     .loginFormContayner{
