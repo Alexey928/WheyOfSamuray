@@ -16,13 +16,13 @@ const Header = ()=>{
         navigate("/Login")
     }
     const logAut = ()=>{
-
+        alert("log aut is run")
     }
     return (
         <header className={style.header}>
             <img src={logo} alt={"img"}/>
             <div className={style.auth}>
-                <span onClick={auth.data.isAuth?navigateTologin:undefined}>{auth.data.isAuth?"log-aut":"login"}</span>
+                <span onClick={!auth.data.isAuth?navigateTologin:logAut}>{auth.data.isAuth?"log-aut":"login"}</span>
                 <img src={auth.data.isAuth?isAuthed:notAused} alt={"img"}/>
             </div>
          </header>

@@ -3,25 +3,34 @@ import style from './login.module.css';
 import {EditableSpan} from "../UIcomponets/editinebalSpan/EditableSpan";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
 
-//import {useAppDispatch} from "../../State/reduxStore";
+
 
 type FormDataType = {
     login?: string;
     password?: string;
+    rememberMe?:boolean
 };
-export const RenderedField = ({input,className}:{input:any,className:string})=>{
-return(<input {...input} className={className}/>)
+export const RenderedField = ({input,meta ,...props}:{input:any,meta:any})=>{
+    console.log(meta);
+return(
+    <div>
+        <input {...input} {...props} />
+    </div>
+
+)
 }
+
+
 const LoginForm = (props:InjectedFormProps)=>{
     console.log(props)
     return(
         <form className={style.form} onSubmit={props.handleSubmit}>
-            <EditableSpan  title={"Yor login ?"} type={"text"} placeholder={"Enter Login"}
-                           handler={(tittle:string)=>console.log(tittle)}/>
+            <EditableSpan input={Field} title={"Yor login ?"} type={"text"} placeholder={"'test' - for testing"}
+                           handler={(tittle:string) => console.log(tittle)}/>
 
-            <EditableSpan  title={"Yor Password ?"} type={"password"} placeholder={"test"}/>
+            <EditableSpan input={Field} title={"Yor Password ?"} type={"password"} placeholder={"'test' - for testing"}/>
             <span> remember me <Field name={"rememberMe"} type={"checkbox"} component="input"/></span>
-            <button type={"submit"} className={style.button}>Sing In</button>
+            <button   className={style.button}>Sing In</button>
         </form>
     )
 }
@@ -31,7 +40,6 @@ const ReduxLoginForm = reduxForm({
 })(LoginForm)
 
 const LoginPage = () => {
-    // const dispatch = useAppDispatch()
     const onSubmit = (formData:FormDataType)=>{
         console.log("onSubmit handler")
         console.log(formData)

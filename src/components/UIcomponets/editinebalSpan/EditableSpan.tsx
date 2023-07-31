@@ -2,9 +2,10 @@ import React, {KeyboardEvent,ChangeEvent, useState} from 'react';
 
 import style from "./editinebalSpan.module.css"
 import aie from "../../../asets/eye256x256_114396.png"
-import {Field} from "redux-form";
+import {RenderedField} from "../../Login/loginPage";
 
 type EditableSpanPropsType = {
+    input?:any  //React.ReactNode not exist
     title: string
     type:"password"|"text"
     handler?:(value:string)=>void
@@ -32,8 +33,9 @@ export function EditableSpan(props: EditableSpanPropsType ){
         return visible ? password : password.split("").map(()=>"*").join("");
     }
     return editMode ?
-        <Field
-                    name={props.type==="text"?"login":"password"} component="input"
+        <props.input
+                    name={props.type==="text"?"login":"password"}
+                    component={RenderedField}// if we use width <input>? then remove this field
                     className={style.input}
                     type={props.type}
                     placeholder={props.placeholder?props.placeholder:""}
@@ -41,7 +43,7 @@ export function EditableSpan(props: EditableSpanPropsType ){
                     onChange={changeTitle}
                     autoFocus
                     onBlur={activateViewMode}
-                    onKeyDown={(e:KeyboardEvent<HTMLInputElement>)=>e.key==="Enter"&&activateViewMode()}
+                    onKeyDown={(e:KeyboardEvent<HTMLInputElement>)=>{e.key==="Enter" && activateViewMode()}}
         />:
         <span className={style.spanContainer}>
             {title&& <span className={style.fieldName}
