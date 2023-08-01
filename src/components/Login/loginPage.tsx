@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './login.module.css';
 import {EditableSpan} from "../UIcomponets/editinebalSpan/EditableSpan";
-import {Field, InjectedFormProps, reduxForm} from "redux-form";
+import {Field, InjectedFormProps,reduxForm,WrappedFieldProps} from "redux-form";
 import {maxLength, minLength, notSpaces, required} from "../../utils/validators";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 import {useDispatch} from "react-redux";
@@ -12,7 +12,8 @@ type FormDataType = {
     rememberMe?:boolean
 };
 
-export const RenderedField = ({input,meta ,...props}:{input:any,meta:any})=>{
+
+export const RenderedField:React.FC<WrappedFieldProps> = ({input,meta ,...props})=>{
     console.log(meta);
 return(
     <div className={style.errorContainer}>

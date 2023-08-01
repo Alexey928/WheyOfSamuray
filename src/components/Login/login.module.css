@@ -64,6 +64,8 @@ form input{
     border-color: hsl(237, 100%, 51%);
 }
 .error {
+    font-weight: bold;
+    font-size: 16px;
     text-align: center;
     background-color: rgba(0, 14, 133, 0.99);
     border-bottom-color: rgba(93, 246, 3, 0.99);
@@ -72,11 +74,11 @@ form input{
     border-style: solid;
     opacity: 0;
     width: 210px;
-    height: 30px;
+    min-height: 30px;
     position: absolute;
     top: -35px;
     left: -6px;
-    color: #fc2600;
+    color: #fccec7;
     border-left-color: #3dee02;
     border-right-color: #38f803;
     border-top-color: #3bfc07;
