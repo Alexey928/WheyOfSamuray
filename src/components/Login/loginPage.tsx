@@ -2,9 +2,9 @@ import React from 'react';
 import style from './login.module.css';
 import {EditableSpan} from "../UIcomponets/editinebalSpan/EditableSpan";
 import {Field, InjectedFormProps, reduxForm} from "redux-form";
-
-
-
+import {maxLength, minLength, notSpaces, required} from "../../utils/validators";
+import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
+import {useDispatch} from "react-redux";
 
 type FormDataType = {
     login?: string;
@@ -13,7 +13,6 @@ type FormDataType = {
 };
 
 export const RenderedField = ({input,meta ,...props}:{input:any,meta:any})=>{
-
     console.log(meta);
 return(
     <div className={style.errorContainer}>
@@ -42,19 +41,21 @@ const ReduxLoginForm = reduxForm({
 })(LoginForm)
 
 const LoginPage = () => {
+    const dispatch = useDispatch()
     const onSubmit = (formData:FormDataType)=>{
-        console.log("onSubmit handler",formData);
-
-
-
+        if(!maxLength(formData.login) && !required(formData.login) && !notSpaces(formData.login)) {
+            if(!required(formData.password) && !minLength(formData.password) && !notSpaces(formData.password)){
+                alert("successful validation")
+            } else {alert("password is not corect")}
+        }else{
+            alert("login is not corect")
+        }
     }
     return (
         <div className={style.loginFormContayner}>
-            {/*<button onClick={()=>dispatch(sestIsMenuActiveAC())} className={style.button}>menu</button>*/}
+            <button onClick={()=>dispatch(sestIsMenuActiveAC())} className={style.button}>menu</button>
             <ReduxLoginForm onSubmit = {onSubmit}/>
         </div>
-
     );
 };
-
 export default LoginPage;

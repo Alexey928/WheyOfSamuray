@@ -3,16 +3,17 @@
     height: calc(100vh - 70px);
     background-color: rgb(3 13 40 / 74%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     position: relative;
 }
 .form{
     color: #d9f8ec;
-    flex: 1;
     margin: auto;
     align-items: center;
     height: 220px;
-    width: 200px;
+    width: 100%;
     background-color: #01093f;
     display: flex;
     flex-direction: column;
@@ -25,8 +26,6 @@ form input{
 .button{
     margin-top: 15px;
     color: azure;
-    align-self: center;
-    z-index: 1;
     position: relative;
     font-size: inherit;
     font-family: inherit;
@@ -66,9 +65,9 @@ form input{
 }
 .error {
     text-align: center;
-    background-color: blue;
-    border-bottom-color: blue;
-    border-radius: 6px 6px 6px 0;
+    background-color: rgba(0, 14, 133, 0.99);
+    border-bottom-color: rgba(93, 246, 3, 0.99);
+    border-radius: 6px 6px 6px 6px;
     border-width: 1px;
     border-style: solid;
     opacity: 0;
@@ -77,17 +76,16 @@ form input{
     position: absolute;
     top: -35px;
     left: -6px;
-    color: #dc2121;
-    border-left-color: #02b9ee;
-    border-right-color: #03f8d3;
+    color: #fc2600;
+    border-left-color: #3dee02;
+    border-right-color: #38f803;
     border-top-color: #3bfc07;
     transition: all 0.5s linear;
 }
 
 .errorActive:after{
-
-    color:blue;
-    background-color: blue;
+    color:#01093f;
+    background-color: rgba(0, 14, 133, 0.99);
     content: "";
     position: absolute;
     bottom: 0;
@@ -99,7 +97,6 @@ form input{
 }
 
 .errorActive{transition: all 0.5s linear;
-
     opacity: 100%;
 }
 

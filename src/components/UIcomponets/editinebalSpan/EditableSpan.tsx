@@ -3,7 +3,7 @@ import React, {KeyboardEvent,ChangeEvent, useState} from 'react';
 import style from "./editinebalSpan.module.css"
 import aie from "../../../asets/eye256x256_114396.png"
 import {RenderedField} from "../../Login/loginPage";
-import {maxLength, minLength, required} from "../../../utils/validators";
+import {maxLength, minLength, notSpaces, required} from "../../../utils/validators";
 
 type EditableSpanPropsType = {
     input?:any  //React.ReactNode not exist
@@ -35,7 +35,7 @@ export function EditableSpan(props: EditableSpanPropsType ){
     }
     return editMode ?
         <props.input
-                    validate={props.type==="text"?[required,maxLength,]:[ required,minLength]}
+                    validate={props.type==="text"?[required,maxLength,notSpaces]:[ required,minLength,notSpaces]}
                     name={props.type==="text"?"login":"password"}
                     component={RenderedField}// if we use width <input>? then reset this field
                     className={style.input}
