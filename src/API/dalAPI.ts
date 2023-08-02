@@ -3,6 +3,16 @@ import {usersStateType, userType} from "../ActionCreators/usersAC";
 import {profileDataType} from "../Resduscers/ProfileReducer";
 import {UserAuthStateType} from "../Resduscers/authUserReduser";
 
+export type LoginResponseType = {
+    data: LoginDataType;
+    messages: string[];
+    resultCode: number;
+};
+
+export type LoginDataType = {
+    userId: number;
+};
+
 const axiosInstanse = axios.create({
     withCredentials:true,
     baseURL:"https://social-network.samuraijs.com/api/1.0/",
@@ -10,11 +20,20 @@ const axiosInstanse = axios.create({
         "API-KEY":"e5f7a28d-5af7-4c3f-9534-8b1e9889bba1"
     }
 })
+
 export const authUserAPI = {
     authMe(){
         return axiosInstanse.get("auth/me").then((response:AxiosResponse)=>response.data)
-    }
+    },
+    login(email: string, password: string, rememberMe: boolean){
+        return axiosInstanse.post<LoginResponseType>("auth/login", {
+            email,
+            password,
+            rememberMe,
+        });
+    },
 }
+
 export const usersAPI = {
     getUsers(curentPage:number, pageSize:number){
         return axiosInstanse.get(`users?page=${curentPage}&count=${pageSize}`).then((response:AxiosResponse)=>response.data)
@@ -35,7 +54,7 @@ export const profileApi = {
 
 
 
-
+//this i try create self thunk
 export const usersUpdater = async (setUsersIsload:(flag:boolean)=>void,
                                    setUsers:(users:Array<userType>)=>void,
                                    setUserTotalCount:(count:number)=>void,
