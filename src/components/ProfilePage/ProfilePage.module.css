@@ -6,23 +6,23 @@
     border-radius: 25px;
     position: relative;
 }
-.descriptionAndPostWraper{
+.descriptionAndPostWrapper{
     background-color: #002041;
     height: calc(100% - 45px);
     overflow: scroll;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.descriptionAndPostWraper::-webkit-scrollbar {
+.descriptionAndPostWrapper::-webkit-scrollbar {
     width: 0;
     display: none;
 }
-.contentHeder span{
+.contentHeader span{
     background-image:linear-gradient(270deg, rgba(1, 255, 5, 0.91), rgba(0, 8, 112, 0.96));
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
 }
-.content .contentHeder {
+.content .contentHeader {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     font-style: italic;

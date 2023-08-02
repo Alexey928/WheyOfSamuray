@@ -28,12 +28,12 @@ export const setAuthUserDataAC = (//auto types function --> type actionType = ty
       isAuth,
      },
     } as const);
+
 export const setIsRequestProcessingStatusAC = (flag:boolean)=>{
-return {type:"SET-REQUST-PROCESSING-STATUS",flag} as const
+  return {type:"SET-REQUST-PROCESSING-STATUS",flag} as const
 }
 
 export const authMeTC = ():AppThunkType  => async (dispatch:DispatchType) => {
-
     dispatch(setIsRequestProcessingStatusAC(true));
     try {
         const response = await authUserAPI.authMe();
@@ -50,3 +50,27 @@ export const authMeTC = ():AppThunkType  => async (dispatch:DispatchType) => {
         dispatch(setIsRequestProcessingStatusAC(false));
     }
 };
+
+export const loginTC =
+    (email: string, password: string, rememberMe: boolean ): AppThunkType =>
+        async (dispatch) => {
+            dispatch(setIsRequestProcessingStatusAC(true));
+            try {
+                const response = await authUserAPI.loginUser(email, password, rememberMe);
+                if (response.data.resultCode === 0) {
+                    dispatch(authMeTC());
+                    //dispatch(setLoginErrorAC(null));
+                    //dispatch(setCaptchaUrlAC(null));
+                }
+                // if (response.data.resultCode === 1) {
+                //     dispatch(setLoginErrorAC(response.data.messages[0]));
+                // }
+                // if (response.data.resultCode === 10) {
+                //     dispatch(getCaptchaUrlTC());
+                // }
+            } catch (e) {
+                //handleError(e, dispatch);
+            } finally {
+                dispatch(setIsRequestProcessingStatusAC(false));
+            }
+        };

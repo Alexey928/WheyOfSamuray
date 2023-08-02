@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import style from "./ProfilePage.module.css"
-import PofileDiscription from "./ProfileDiscription/PofileDiscription";
+import ProfileDescription from "./ProfileDiscription/ProfileDescription";
 import MyPpsts from "./MyPosts/MyPpsts";
 import {profileDataType, ProfilePageStateType} from "../../Resduscers/ProfileReducer";
 import {useSelector} from "react-redux";
@@ -25,22 +25,22 @@ function ProfilePage(props:ProfilePageType){
 
     const profilePage  = useSelector<AppRootStateType ,ProfilePageStateType>(state => state.profilePage);
     const auathData = useSelector<AppRootStateType,UserAuthStateType>(state=>state.userAuth)
-    const myProfileID = 2//пока так )
+
+    const defaultID = 2//пока так )
     const id  = useParams<'*'>();
-    let userID = Number(id["*"])?Number(id["*"]):auathData.data.id?auathData.data.id:myProfileID
-    const dispatch = useAppDispatch()
+    let userID = Number(id["*"])?Number(id["*"]):auathData.data.id?auathData.data.id:defaultID
+    const dispatch = useAppDispatch();
 
     useEffect(()=>{
-
     dispatch(updateUserProfileDataTC(userID))
 },[userID,dispatch])
     return(
         <div className={style.content}>
             <button onClick={()=>dispatch(sestIsMenuActiveAC())} className={style.button}>menu</button>
-            <div className={style.contentHeder}><span>Profile page</span></div>
+            <div className={style.contentHeader}><span>Profile page</span></div>
             {profilePage.isLoading?<Preloader/>:
-            <div style={{backgroundImage:`url(${background})`}} className={style.descriptionAndPostWraper}>
-                <PofileDiscription profileData={profilePage.profileData}/>
+            <div style={{backgroundImage:`url(${background})`}} className={style.descriptionAndPostWrapper}>
+                <ProfileDescription profileData={profilePage.profileData}/>
                 <MyPpsts removePost={props.removePost} addPost={props.addPost} posts = {profilePage.postItems}/>
             </div>}
         </div>

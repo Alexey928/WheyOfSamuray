@@ -38,14 +38,14 @@ export const authUserAPI = {
     authMe(){
         return axiosInstanse.get("auth/me").then((response:AxiosResponse)=>response.data)
     },
-    login(email: string, password: string, rememberMe: boolean){
+    loginUser(email: string, password: string, rememberMe: boolean){
         return axiosInstanse.post<LoginResponseType>("auth/login", {
             email,
             password,
             rememberMe,
         });
     },
-    logout() {
+    logoutUser() {
         return axiosInstanse.delete<AuthMeResponseType>("auth/login");
     },
 }

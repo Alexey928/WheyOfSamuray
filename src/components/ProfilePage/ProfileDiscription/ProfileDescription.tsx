@@ -6,7 +6,7 @@ import avatar from "../../../asets/avatar.jpg"
 type profileDescriptionType = {
     profileData:profileDataType|null
 }
-const PofileDiscription = (props:profileDescriptionType) => {
+const ProfileDescription = (props:profileDescriptionType) => {
     return (
         <div className={style.descriptionWrapper}>
             <div className={style.profilDiscription}>
@@ -17,4 +17,4 @@ const PofileDiscription = (props:profileDescriptionType) => {
     );
 };
 
-export default PofileDiscription;
+export default ProfileDescription;
