@@ -13,6 +13,19 @@ export type LoginDataType = {
     userId: number;
 };
 
+export type AuthMeResponseType = {
+    data: AuthUserDataType;
+    messages: string[];
+    fieldsErrors: string[];
+    resultCode: number;
+};
+
+export type AuthUserDataType = {
+    id: number;
+    login: string;
+    email: string;
+};
+
 const axiosInstanse = axios.create({
     withCredentials:true,
     baseURL:"https://social-network.samuraijs.com/api/1.0/",
@@ -31,6 +44,9 @@ export const authUserAPI = {
             password,
             rememberMe,
         });
+    },
+    logout() {
+        return axiosInstanse.delete<AuthMeResponseType>("auth/login");
     },
 }
 

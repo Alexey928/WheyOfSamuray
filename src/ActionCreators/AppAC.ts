@@ -33,9 +33,10 @@ export const initializeAppTC = (): AppThunkType => async (dispatch:DispatchType)
     }
 };
 
+export type SetAppErrorType = ReturnType<typeof setAppErrorAC>;
 export type AppStateType = typeof initialState;
 export type AppActionsType =
     | ReturnType<typeof setIsInitializedAC>
     | ReturnType<typeof setIsRequestProcessingStatusAC>
     | SetAppErrorType;
-export type SetAppErrorType = ReturnType<typeof setAppErrorAC>;
+
