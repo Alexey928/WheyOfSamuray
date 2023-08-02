@@ -1,18 +1,19 @@
 import React from 'react';
 import style from "./Header.module.css"
 import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../State/reduxStore";
+import {AppRootStateType, useAppDispatch} from "../../State/reduxStore";
 import {UserAuthStateType} from "../../Resduscers/authUserReduser";
 import isAuthed from "../../asets/free-icon-approved-1478873.png"
 import notAused from "../../asets/free-icon-x-button-458594.png"
 import logo from "../../asets/—Pngtree—hand-painted japanese samurai knife_4236036 (1).png"
 import {useNavigate} from "react-router-dom";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
+import {logoutTC} from "../../ActionCreators/authUserAC";
 
 
 const Header = ()=>{
     const auth = useSelector<AppRootStateType,UserAuthStateType>(state => state.userAuth);
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const navigateTologin = ()=>{
@@ -20,7 +21,8 @@ const Header = ()=>{
         navigate("/Login");
     }
     const logAut = ()=>{
-        alert("log aut is run")
+        console.log("dddd")
+        dispatch(logoutTC())
     }
     return (
         <header className={style.header}>

@@ -74,3 +74,19 @@ export const loginTC =
                 dispatch(setIsRequestProcessingStatusAC(false));
             }
         };
+
+export const logoutTC = (): AppThunkType => async (dispatch) => {
+    dispatch(setIsRequestProcessingStatusAC(true));
+    try {
+        const response = await authUserAPI.logoutUser();
+        if (response.data.resultCode === 0) {
+            dispatch(setAuthUserDataAC(null, null, null, false));
+            //dispatch(setAuthedUserProfileAC(null));
+        }
+    } catch (e) {
+        alert(e);
+       // handleError(e, dispatch);
+    } finally {
+        dispatch(setIsRequestProcessingStatusAC(false));
+    }
+};

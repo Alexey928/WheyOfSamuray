@@ -5,9 +5,11 @@ import {Field, InjectedFormProps,reduxForm,WrappedFieldProps} from "redux-form";
 import {maxLength, minLength, notSpaces, required} from "../../utils/validators";
 import {sestIsMenuActiveAC} from "../../ActionCreators/navigationMenuAC";
 import {useDispatch} from "react-redux";
+import {loginTC} from "../../ActionCreators/authUserAC";
+import {useAppDispatch} from "../../State/reduxStore";
 
 type FormDataType = {
-    login?: string;
+    email?: string;
     password?: string;
     rememberMe?:boolean
 };
@@ -42,11 +44,13 @@ const ReduxLoginForm = reduxForm({
 })(LoginForm)
 
 const LoginPage = () => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch();
     const onSubmit = (formData:FormDataType)=>{
-        if(!maxLength(formData.login) && !required(formData.login) && !notSpaces(formData.login)) {
+        if(!maxLength(formData.email) && !required(formData.email) && !notSpaces(formData.email)) {
             if(!required(formData.password) && !minLength(formData.password) && !notSpaces(formData.password)){
-                alert("successful validation")
+                if(formData.password && formData.email) {
+                    loginTC(formData.password,formData.email,formData.rememberMe?formData.rememberMe:true)
+                }
             } else {alert("password is not corect")}
         }else{
             alert("login is not corect")
