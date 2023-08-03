@@ -10,7 +10,7 @@ import {
 const initialState:usersStateType = {
     users:[],
     pageSize:10,
-    totalUsersCount:0,
+    totalUsersCount:11,
     curentPage:1,
     isLoading:false,
 }

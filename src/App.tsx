@@ -18,6 +18,8 @@ import LoginPage from "./components/Login/loginPage";
 import Preloader from "./components/UIcomponets/generalPreloader/Preloader";
 import {AppStateType, initializeAppTC} from "./ActionCreators/AppAC";
 import {useSelector} from "react-redux";
+import TancsPage from "./components/Tancs/TancsPage";
+import TanksPage from "./components/Tancs/TancsPage";
 
 const App = ()=>{
     const dispatch = useAppDispatch();
@@ -25,7 +27,7 @@ const App = ()=>{
 
     useEffect(()=>{
         dispatch(initializeAppTC())
-    },[])
+    },[dispatch])
     //_______________________________profilePage calbaks______________________
     const addPost = (newPost:string)=>{
         dispatch(addPostAC(newPost));
@@ -95,11 +97,11 @@ const App = ()=>{
                                                                             removeDialog={removeDialog}
                     />
                     }/>
-
                     <Route path = {"/Users/*"} element={<Users
                                                                followUnfollowUser={followUnfolowUser}
                                                                setCurrentPage={setCurentPage}
                     />}/>
+                    <Route path = {"/Tanks/*"} element={<TanksPage/>}/>
                 </Routes>
             </div>
         </Router>

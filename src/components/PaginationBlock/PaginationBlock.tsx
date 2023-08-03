@@ -14,16 +14,17 @@ const PaginationBlock = (props:paginationPropsType) => {
     console.log(props.pagesCount)
 
     if(props.pagesCount>=5){
-    for (let i=props.curentPage;i<props.curentPage+3;i++){
-        firstButtons.push(i);
+        for (let i=props.curentPage;i<props.curentPage+3;i++){
+            firstButtons.push(i);
+        }
+        for (let i = props.pagesCount;i>props.pagesCount-2;i--){
+            lastButtons.push(i);
+        }
     }
-    for (let i = props.pagesCount;i>props.pagesCount-2;i--){
-        lastButtons.push(i);
-    }
-}
 
 return (
         <div>
+
             <span style={{backgroundColor:"red",marginLeft:5,marginTop:3}}>{"<<"}</span>
             {firstButtons.map(el=><button onClick={()=>props.setCurentPage(el)} key={el}>{el}</button>)}
             {"<<...>>"}

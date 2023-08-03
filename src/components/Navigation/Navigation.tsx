@@ -29,7 +29,7 @@ const Navigation = ()=>{
                    <a href={"/Music"}>Music</a>
                </div>
                <div>
-                   <a href={"/Setings"}>Setings</a>
+                   <a href={"/Tanks"}>Tanks</a>
                </div>
            </nav>
            <div className={style.frendsCotayner}>Friends</div>

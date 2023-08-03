@@ -1,6 +1,6 @@
 import {profileDataType} from "../Resduscers/ProfileReducer";
 import {DispatchType} from "../State/reduxStore";
-import {setIsRequestProcessingStatusAC} from "../ActionCreators/authUserAC"
+import {setIsRequestProcessingStatusAC} from "./authUserAC"
 import {profileApi} from "../API/dalAPI";
 
 export  type addNewPostActionType = {
