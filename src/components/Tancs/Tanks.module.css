@@ -31,7 +31,6 @@
     display: flex;
     flex-wrap: wrap;
     padding: 30px;
-
 }
 .contentWrapper::-webkit-scrollbar {
     width: 0;
