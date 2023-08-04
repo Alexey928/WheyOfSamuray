@@ -18,7 +18,7 @@ import LoginPage from "./components/Login/loginPage";
 import Preloader from "./components/UIcomponets/generalPreloader/Preloader";
 import {AppStateType, initializeAppTC} from "./ActionCreators/AppAC";
 import {useSelector} from "react-redux";
-import TancsPage from "./components/Tancs/TancsPage";
+
 import TanksPage from "./components/Tancs/TancsPage";
 
 const App = ()=>{

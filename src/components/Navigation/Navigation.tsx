@@ -29,7 +29,7 @@ const Navigation = ()=>{
                    <a href={"/Music"}>Music</a>
                </div>
                <div>
-                   <a href={"/Tanks"}>Tanks</a>
+                   <NavLink to={"/Tanks"} className={({ isActive }) => (isActive ? `${style.active} ${style.act}` :'')}>Tanks</NavLink>
                </div>
            </nav>
            <div className={style.frendsCotayner}>Friends</div>
