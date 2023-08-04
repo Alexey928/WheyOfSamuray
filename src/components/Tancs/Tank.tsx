@@ -1,8 +1,12 @@
 import React from 'react';
+import style from "./Tank.module.css"
 
 const Tank = () => {
     return (
-        <div>
+        <div className={style.glass}>
+            <div className={style.inner}>
+                <div className={style.liquid}></div>
+            </div>
             
         </div>
     );

@@ -1,10 +1,10 @@
 .content{
-    height: calc(100vh - 70px);
-    margin-top: 70px;
+    height: calc(100vh - 40px);
+    margin-top: 40px;
     background-color:  #002041;
     border-radius: 25px;
     position: relative;
-    display: flex;
+
 }
 .content .contentHeader {
     border-top-left-radius: 25px;
@@ -21,4 +21,19 @@
     background-image:linear-gradient(270deg, rgba(1, 255, 5, 0.91), rgba(0, 8, 112, 0.96));
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
+}
+.contentWrapper{
+    background-color: #002041;
+    height: calc(100% - 30px);
+    overflow: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+
+}
+.contentWrapper::-webkit-scrollbar {
+    width: 0;
+    display: none;
 }
