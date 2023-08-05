@@ -8,6 +8,9 @@ const TanksPage = () => {
             <div className={style.contentHeader}><span>Tank fuel level</span></div>
             <div className={style.contentWrapper}>
                 <Tank/>
+                <Tank/>
+                <Tank/>
+                <Tank/>
             </div>
         </div>
     );
