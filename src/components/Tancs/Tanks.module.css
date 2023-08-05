@@ -26,11 +26,14 @@
     background-color: #002041;
     height: calc(100% - 30px);
     overflow: scroll;
-    background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    flex-wrap: wrap;
     padding: 30px;
+
+
+}
+.flexWraper{
+    display: flex;
+    flex-wrap:wrap;
     gap: 15px;
 }
 .contentWrapper::-webkit-scrollbar {
@@ -38,3 +41,12 @@
     display: none;
 }
 
+@media (max-width: 500px) {
+    .content{
+        z-index: 2;
+        margin-left: -190px;
+    }
+    .content .button{
+        display: block;
+    }
+}
