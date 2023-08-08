@@ -49,7 +49,7 @@ const LoginPage = () => {
         if(!maxLength(formData.email) && !required(formData.email) && !notSpaces(formData.email)) {
             if(!required(formData.password) && !minLength(formData.password) && !notSpaces(formData.password)){
                 if(formData.password && formData.email) {
-                    loginTC(formData.password,formData.email,formData.rememberMe?formData.rememberMe:true)
+                    loginTC(formData.password,formData.email,formData.rememberMe?formData.rememberMe:false)
                 }
             } else {alert("password is not corect")}
         }else{
